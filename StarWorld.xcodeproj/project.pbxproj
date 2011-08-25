@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93835A251406D4E800E04592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A241406D4E800E04592 /* UIKit.framework */; };
+		93835A271406D4E800E04592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A261406D4E800E04592 /* Foundation.framework */; };
+		93835A291406D4E800E04592 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A281406D4E800E04592 /* CoreGraphics.framework */; };
+		93835A2F1406D4E800E04592 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93835A2D1406D4E800E04592 /* InfoPlist.strings */; };
+		93835A321406D4E800E04592 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93835A311406D4E800E04592 /* main.m */; };
+		93835A351406D4E800E04592 /* StarWorldAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93835A341406D4E800E04592 /* StarWorldAppDelegate.m */; };
+		93835A381406D4E800E04592 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93835A361406D4E800E04592 /* MainWindow.xib */; };
+		93835A3F1406D4E800E04592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A241406D4E800E04592 /* UIKit.framework */; };
+		93835A401406D4E800E04592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A261406D4E800E04592 /* Foundation.framework */; };
+		93835A411406D4E800E04592 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A281406D4E800E04592 /* CoreGraphics.framework */; };
+		93835A491406D4E800E04592 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93835A471406D4E800E04592 /* InfoPlist.strings */; };
+		93835A4C1406D4E800E04592 /* StarWorldTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 93835A4B1406D4E800E04592 /* StarWorldTests.h */; };
+		93835A4E1406D4E800E04592 /* StarWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93835A4D1406D4E800E04592 /* StarWorldTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93835A421406D4E800E04592 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93835A171406D4E700E04592 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93835A1F1406D4E700E04592;
+			remoteInfo = StarWorld;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		93835A201406D4E700E04592 /* StarWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93835A241406D4E800E04592 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93835A261406D4E800E04592 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93835A281406D4E800E04592 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93835A2C1406D4E800E04592 /* StarWorld-Info.plist */ = {isa = PBXFileReference; path = "StarWorld-Info.plist"; sourceTree = "<group>"; };
+		93835A2E1406D4E800E04592 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93835A301406D4E800E04592 /* StarWorld-Prefix.pch */ = {isa = PBXFileReference; path = "StarWorld-Prefix.pch"; sourceTree = "<group>"; };
+		93835A311406D4E800E04592 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93835A331406D4E800E04592 /* StarWorldAppDelegate.h */ = {isa = PBXFileReference; path = StarWorldAppDelegate.h; sourceTree = "<group>"; };
+		93835A341406D4E800E04592 /* StarWorldAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarWorldAppDelegate.m; sourceTree = "<group>"; };
+		93835A371406D4E800E04592 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		93835A3E1406D4E800E04592 /* StarWorldTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StarWorldTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93835A461406D4E800E04592 /* StarWorldTests-Info.plist */ = {isa = PBXFileReference; path = "StarWorldTests-Info.plist"; sourceTree = "<group>"; };
+		93835A481406D4E800E04592 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		93835A4A1406D4E800E04592 /* StarWorldTests-Prefix.pch */ = {isa = PBXFileReference; path = "StarWorldTests-Prefix.pch"; sourceTree = "<group>"; };
+		93835A4B1406D4E800E04592 /* StarWorldTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarWorldTests.h; sourceTree = "<group>"; };
+		93835A4D1406D4E800E04592 /* StarWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarWorldTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93835A1D1406D4E700E04592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93835A251406D4E800E04592 /* UIKit.framework in Frameworks */,
+				93835A271406D4E800E04592 /* Foundation.framework in Frameworks */,
+				93835A291406D4E800E04592 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93835A3A1406D4E800E04592 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93835A3F1406D4E800E04592 /* UIKit.framework in Frameworks */,
+				93835A401406D4E800E04592 /* Foundation.framework in Frameworks */,
+				93835A411406D4E800E04592 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93835A151406D4E700E04592 = {
+			isa = PBXGroup;
+			children = (
+				93835A2A1406D4E800E04592 /* StarWorld */,
+				93835A441406D4E800E04592 /* StarWorldTests */,
+				93835A231406D4E700E04592 /* Frameworks */,
+				93835A211406D4E700E04592 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93835A211406D4E700E04592 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93835A201406D4E700E04592 /* StarWorld.app */,
+				93835A3E1406D4E800E04592 /* StarWorldTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93835A231406D4E700E04592 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93835A241406D4E800E04592 /* UIKit.framework */,
+				93835A261406D4E800E04592 /* Foundation.framework */,
+				93835A281406D4E800E04592 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		93835A2A1406D4E800E04592 /* StarWorld */ = {
+			isa = PBXGroup;
+			children = (
+				93835A331406D4E800E04592 /* StarWorldAppDelegate.h */,
+				93835A341406D4E800E04592 /* StarWorldAppDelegate.m */,
+				93835A361406D4E800E04592 /* MainWindow.xib */,
+				93835A2B1406D4E800E04592 /* Supporting Files */,
+			);
+			path = StarWorld;
+			sourceTree = "<group>";
+		};
+		93835A2B1406D4E800E04592 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93835A2C1406D4E800E04592 /* StarWorld-Info.plist */,
+				93835A2D1406D4E800E04592 /* InfoPlist.strings */,
+				93835A301406D4E800E04592 /* StarWorld-Prefix.pch */,
+				93835A311406D4E800E04592 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		93835A441406D4E800E04592 /* StarWorldTests */ = {
+			isa = PBXGroup;
+			children = (
+				93835A4B1406D4E800E04592 /* StarWorldTests.h */,
+				93835A4D1406D4E800E04592 /* StarWorldTests.m */,
+				93835A451406D4E800E04592 /* Supporting Files */,
+			);
+			path = StarWorldTests;
+			sourceTree = "<group>";
+		};
+		93835A451406D4E800E04592 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93835A461406D4E800E04592 /* StarWorldTests-Info.plist */,
+				93835A471406D4E800E04592 /* InfoPlist.strings */,
+				93835A4A1406D4E800E04592 /* StarWorldTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93835A1F1406D4E700E04592 /* StarWorld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93835A511406D4E800E04592 /* Build configuration list for PBXNativeTarget "StarWorld" */;
+			buildPhases = (
+				93835A1C1406D4E700E04592 /* Sources */,
+				93835A1D1406D4E700E04592 /* Frameworks */,
+				93835A1E1406D4E700E04592 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StarWorld;
+			productName = StarWorld;
+			productReference = 93835A201406D4E700E04592 /* StarWorld.app */;
+			productType = "com.apple.product-type.application";
+		};
+		93835A3D1406D4E800E04592 /* StarWorldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93835A541406D4E800E04592 /* Build configuration list for PBXNativeTarget "StarWorldTests" */;
+			buildPhases = (
+				93835A391406D4E800E04592 /* Sources */,
+				93835A3A1406D4E800E04592 /* Frameworks */,
+				93835A3B1406D4E800E04592 /* Resources */,
+				93835A3C1406D4E800E04592 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93835A431406D4E800E04592 /* PBXTargetDependency */,
+			);
+			name = StarWorldTests;
+			productName = StarWorldTests;
+			productReference = 93835A3E1406D4E800E04592 /* StarWorldTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93835A171406D4E700E04592 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 93835A1A1406D4E700E04592 /* Build configuration list for PBXProject "StarWorld" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 93835A151406D4E700E04592;
+			productRefGroup = 93835A211406D4E700E04592 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93835A1F1406D4E700E04592 /* StarWorld */,
+				93835A3D1406D4E800E04592 /* StarWorldTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93835A1E1406D4E700E04592 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93835A2F1406D4E800E04592 /* InfoPlist.strings in Resources */,
+				93835A381406D4E800E04592 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93835A3B1406D4E800E04592 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93835A491406D4E800E04592 /* InfoPlist.strings in Resources */,
+				93835A4C1406D4E800E04592 /* StarWorldTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93835A3C1406D4E800E04592 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93835A1C1406D4E700E04592 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93835A321406D4E800E04592 /* main.m in Sources */,
+				93835A351406D4E800E04592 /* StarWorldAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93835A391406D4E800E04592 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93835A4E1406D4E800E04592 /* StarWorldTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93835A431406D4E800E04592 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93835A1F1406D4E700E04592 /* StarWorld */;
+			targetProxy = 93835A421406D4E800E04592 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93835A2D1406D4E800E04592 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93835A2E1406D4E800E04592 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		93835A361406D4E800E04592 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93835A371406D4E800E04592 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		93835A471406D4E800E04592 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93835A481406D4E800E04592 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93835A4F1406D4E800E04592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		93835A501406D4E800E04592 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		93835A521406D4E800E04592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StarWorld/StarWorld-Prefix.pch";
+				INFOPLIST_FILE = "StarWorld/StarWorld-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		93835A531406D4E800E04592 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StarWorld/StarWorld-Prefix.pch";
+				INFOPLIST_FILE = "StarWorld/StarWorld-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		93835A551406D4E800E04592 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StarWorld.app/StarWorld";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StarWorldTests/StarWorldTests-Prefix.pch";
+				INFOPLIST_FILE = "StarWorldTests/StarWorldTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		93835A561406D4E800E04592 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StarWorld.app/StarWorld";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StarWorldTests/StarWorldTests-Prefix.pch";
+				INFOPLIST_FILE = "StarWorldTests/StarWorldTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93835A1A1406D4E700E04592 /* Build configuration list for PBXProject "StarWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93835A4F1406D4E800E04592 /* Debug */,
+				93835A501406D4E800E04592 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93835A511406D4E800E04592 /* Build configuration list for PBXNativeTarget "StarWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93835A521406D4E800E04592 /* Debug */,
+				93835A531406D4E800E04592 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		93835A541406D4E800E04592 /* Build configuration list for PBXNativeTarget "StarWorldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93835A551406D4E800E04592 /* Debug */,
+				93835A561406D4E800E04592 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93835A171406D4E700E04592 /* Project object */;
+}

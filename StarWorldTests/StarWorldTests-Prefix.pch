@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'StarWorldTests' target in the 'StarWorldTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
