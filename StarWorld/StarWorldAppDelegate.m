@@ -7,19 +7,26 @@
 //
 
 #import "StarWorldAppDelegate.h"
+#import "SWFeedListController.h"
 
 @implementation StarWorldAppDelegate
 
 
 @synthesize window=_window;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    [self.window makeKeyAndVisible];
-    return YES;
+- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+    
+    TTNavigator *navigator = [TTNavigator navigator];
+    navigator.window = _window;
+    
+    TTURLMap *map = navigator.URLMap;
+    [map from:@"tt://swfeed" toSharedViewController:[SWFeedListController class]];
+    
+    [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://swfeed"]];
+    
+    // Override point for customization after application launch
+    [_window makeKeyAndVisible];
 }
-
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*
