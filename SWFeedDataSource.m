@@ -49,18 +49,17 @@
     
     for (SWPost* post in _searchFeedModel.posts) {
         //TTDPRINT(@"Response text: %@", response.text);
-        NSLog(@"POST CONTENT: %@",post.content);
-        NSLog(@"POST TIME: %@",post.time);
+
         
         
         
         TTStyledText* styledText = [TTStyledText textFromXHTML:
-                                    [NSString stringWithFormat:@"%@\n<b>%@</b>",
+                                    [NSString stringWithFormat:@"%@\n<b>%@</b>\n%@\n%f\n%f",
                                      [[post.content stringByReplacingOccurrencesOfString:@"&"
                                                                             withString:@"&amp;"]
                                       stringByReplacingOccurrencesOfString:@"<"
                                       withString:@"&lt;"],
-                                     post.name]
+                                     post.name,post.time,post.x,post.y]
                                                     lineBreaks:YES URLs:YES];
         // If this asserts, it's likely that the tweet.text contains an HTML character that caused
         // the XML parser to fail.

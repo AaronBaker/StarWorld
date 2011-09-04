@@ -39,8 +39,7 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
         _page = 1;
         _posts = [[NSMutableArray array] retain];
     }
-    
-    NSLog(@"INIT MODEL");
+
     
     return self;    
     
@@ -64,8 +63,6 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
             _finished = NO;
             [_posts removeAllObjects];
         }
-        
-        NSLog(@"FEED MODEL LOAD");
         
         //LATER: Modify url so that it actually searches using coordinates
         
@@ -99,7 +96,6 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)requestDidFinishLoad:(TTURLRequest*)request {
     
-    NSLog(@"FEED MODEL FINISH LOAD");
     
     TTURLJSONResponse* response = request.response;
     
@@ -114,13 +110,17 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterFullStyle];
-    [dateFormatter setDateFormat:@"EEE, dd MMMM yyyy HH:mm:ss ZZ"];
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
     NSMutableArray* posts = [NSMutableArray arrayWithCapacity:[entries count]];
     
     for (NSDictionary* entry in entries) {
         
         NSDictionary *entryData = [entry objectForKey:@"Post"];
+        
+        
+        NSLog(@"CREATED: %@",[entryData objectForKey:@"created"]);
 
         NSDate* date = [dateFormatter dateFromString:[entryData objectForKey:@"created"]];
 
@@ -130,10 +130,8 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
                                                  y:76.34 
                                            content:[entryData objectForKey:@"title"]];
         
-        
-        //post.content = @"bob";
-        NSLog(@"Post Content: %@",post.content);
-        
+
+
         [posts addObject:post];
         TT_RELEASE_SAFELY(post);
     }
