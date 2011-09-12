@@ -8,6 +8,8 @@
 
 #import "StarWorldAppDelegate.h"
 #import "SWFeedListController.h"
+#import "SWNewPostController.h"
+#import "SWLoginViewController.h"
 
 @implementation StarWorldAppDelegate
 
@@ -21,6 +23,8 @@
     
     TTURLMap *map = navigator.URLMap;
     [map from:@"tt://swfeed" toSharedViewController:[SWFeedListController class]];
+    [map from:@"tt://newpost" toSharedViewController:[SWNewPostController class]];
+    [map from:@"tt://login" toModalViewController:[SWLoginViewController class]];
     
     [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://swfeed"]];
     

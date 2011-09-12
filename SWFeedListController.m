@@ -9,7 +9,7 @@
 
 #import "SWFeedListController.h"
 #import "SWFeedDataSource.h"
-#import <Foundation/Foundation.h>
+#import "SWLoginViewController.h"
 
 
 @implementation SWFeedListController
@@ -20,6 +20,20 @@
         
         self.tableViewStyle = UITableViewStylePlain;
         self.title = @"Near You";
+        
+        self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
+                                                  initWithBarButtonSystemItem: UIBarButtonSystemItemCompose
+                                                  target:@"tt://newpost"
+                                                  action: @selector(openURLFromButton:)] autorelease];
+        
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
+                                                   initWithBarButtonSystemItem: UIBarButtonSystemItemOrganize
+                                                   target:@"tt://login"
+                                                   action: @selector(openURLFromButton:)] autorelease];
+        
+        
+
+        
         
         SWFeedDataSource *dataSource = [[[SWFeedDataSource alloc]
                                          initWithCoordinatesX:34 Y:12] autorelease]; 
@@ -33,6 +47,7 @@
     return self;
     
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id<UITableViewDelegate>)createDelegate {

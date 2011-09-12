@@ -13,7 +13,7 @@
 #import <extThree20JSON/extThree20JSON.h>
 
 
-static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink.com/posts.json";
+static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_json";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,8 +81,7 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
         request.cacheExpirationAge = TT_CACHE_EXPIRATION_AGE_NEVER;
         
         TTURLJSONResponse* response = [[TTURLJSONResponse alloc] init];
-        
-        NSLog(@"Response: %@",response);
+
         
         
         request.response = response;
@@ -103,10 +102,10 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
     
     //TTDASSERT([response.rootObject isKindOfClass:[NSDictionary class]]);
     
-    NSArray* entries = response.rootObject;
+    NSArray* entries = [response.rootObject objectForKey:@"posts"];
     
     
-    
+    //NSLog(@"ENTRIES: %@",entries);
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeStyle:NSDateFormatterFullStyle];
@@ -117,18 +116,23 @@ static NSString* kSWBaseURL = @"http://www.starworld.com.php5-21.websitetestlink
     
     for (NSDictionary* entry in entries) {
         
-        NSDictionary *entryData = [entry objectForKey:@"Post"];
+   
         
+        NSDictionary *entryPost = [entry objectForKey:@"Post"];
+        NSDictionary *entryUser = [entry objectForKey:@"User"];
         
-        NSLog(@"CREATED: %@",[entryData objectForKey:@"created"]);
-
-        NSDate* date = [dateFormatter dateFromString:[entryData objectForKey:@"created"]];
-
-        SWPost* post = [[SWPost alloc]initWithName:@"Aaron" 
+        NSDate* date = [dateFormatter dateFromString:[entryPost objectForKey:@"created"]];
+        
+        NSString *username = [entryUser objectForKey:@"username"];
+        
+        float entryX = [[entryPost objectForKey:@"x"] floatValue];
+        float entryY = [[entryPost objectForKey:@"y"] floatValue];
+        
+        SWPost* post = [[SWPost alloc]initWithName:username 
                                               time:date 
-                                                 x:43.25 
-                                                 y:76.34 
-                                           content:[entryData objectForKey:@"title"]];
+                                                 x:entryX
+                                                 y:entryY
+                                           content:[entryPost objectForKey:@"body"]];
         
 
 
