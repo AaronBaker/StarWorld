@@ -9,6 +9,29 @@
 #import "SWCurrentUser.h"
 
 
+
 @implementation SWCurrentUser
+
+@synthesize cookie;
+@synthesize username;
+@synthesize password;
+@synthesize authenticated;
+
++ (SWCurrentUser*)currentUserInstance{
+    static SWCurrentUser *currentUserInstance;
+	
+	@synchronized(self) {
+		if(!currentUserInstance) {
+			currentUserInstance = [[SWCurrentUser alloc] init];
+		}
+	}
+	
+	return currentUserInstance;
+    
+}
+
+- (void) dealloc {
+	[super dealloc];
+}
 
 @end

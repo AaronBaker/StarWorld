@@ -10,7 +10,17 @@
 
 
 @interface SWCurrentUser : NSObject {
-    
+    NSString *cookie;
+    NSString *username;
+    NSString *password;
+    BOOL authenticated;
 }
+
+@property (nonatomic, copy) NSString *cookie;
+@property (nonatomic, copy) NSString *username;
+@property (nonatomic, copy) NSString *password;
+@property (nonatomic, assign) BOOL authenticated;
+
++ (SWCurrentUser*)currentUserInstance;
 
 @end
