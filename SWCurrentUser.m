@@ -15,7 +15,10 @@
 @synthesize cookie;
 @synthesize username;
 @synthesize password;
+@synthesize request;
 @synthesize authenticated;
+@synthesize x;
+@synthesize y;
 
 + (SWCurrentUser*)currentUserInstance{
     static SWCurrentUser *currentUserInstance;

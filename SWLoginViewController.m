@@ -9,7 +9,7 @@
 #import "SWLoginViewController.h"
 #import "PRPFormEncodedPOSTRequest.h"
 
-static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
+static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
 
 
 @interface SWLoginViewController (hidden)
@@ -37,17 +37,26 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     
     
     NSURL *postURL = [NSURL URLWithString:kSWLoginURL];
-    NSURLRequest *postRequest;
-    postRequest = [PRPFormEncodedPOSTRequest requestWithURL:postURL
+
+    currentUser.request = [PRPFormEncodedPOSTRequest requestWithURL:postURL
                                              formParameters:params];
     NSURLResponse *response = nil;
     NSError *error = nil;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:postRequest
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:currentUser.request
                                                  returningResponse:&response
                                                              error:&error];
     if (responseData) {
         NSLog(@"RESPONSE DATA: %@",[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding]);
         [self processLoginResponse: response];
+        
+        for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+        {
+            NSLog(@"name: '%@'\n",   [cookie name]);
+            NSLog(@"value: '%@'\n",  [cookie value]);
+            NSLog(@"domain: '%@'\n", [cookie domain]);
+            NSLog(@"path: '%@'\n",   [cookie path]);
+        }
+        
     } else {
         NSLog(@"Error posting to %@ (%@)", kSWLoginURL, error);
     }
@@ -56,18 +65,41 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 }
 
 - (void) getLoginCookie {
+    NSLog(@"GETTING LOGIN COOKIE.");
+    NSURL *loginURL = [NSURL URLWithString:kSWLoginURL];
+
+    
+    currentUser.request = [NSMutableURLRequest requestWithURL:loginURL];
+    
+    [currentUser.request setHTTPMethod:@"GET"];
+    
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+    
+    
+    
+    [NSURLConnection sendSynchronousRequest:currentUser.request
+                          returningResponse:&response
+                                      error:&error];
+    
+    
+    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
+    NSDictionary *fields = [HTTPResponse allHeaderFields];
+    NSLog(@"%@",[fields description]);
+    
+    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+    {
+        NSLog(@"name: '%@'\n",   [cookie name]);
+        NSLog(@"value: '%@'\n",  [cookie value]);
+        NSLog(@"domain: '%@'\n", [cookie domain]);
+        NSLog(@"path: '%@'\n",   [cookie path]);
+    }
+    
     
     
 }
 
 - (void) processLoginResponse: (NSURLResponse*) response {
-    
-    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
-    NSDictionary *fields = [HTTPResponse allHeaderFields];
-    NSLog([fields description]);
-    
-    NSString *cookie = [fields valueForKey:@"Set-Cookie"];
-    NSLog(@"C IS FOR COOKIE: %@",cookie);
     
     
 }
@@ -93,6 +125,11 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    currentUser = [SWCurrentUser currentUserInstance];
+    
+    [self getLoginCookie];
+    
+    
 }
 
 - (void)viewDidUnload

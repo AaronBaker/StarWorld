@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWCurrentUser.h"
 
 
 @interface SWLoginViewController : UIViewController {
@@ -14,6 +15,7 @@
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
     
+    SWCurrentUser *currentUser;
 }
 
 -(IBAction) startLogin: (id)sender;

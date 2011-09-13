@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Three20/Three20.h"
+#import "SWLocationController.h"
 
 @interface StarWorldAppDelegate : NSObject <UIApplicationDelegate> {
-
+    SWLocationController *locationController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

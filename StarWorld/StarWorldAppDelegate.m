@@ -18,6 +18,9 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
+    locationController = [[SWLocationController alloc] init];
+    [locationController.locationManager startUpdatingLocation];
+    
     TTNavigator *navigator = [TTNavigator navigator];
     navigator.window = _window;
     
@@ -73,6 +76,7 @@
 - (void)dealloc
 {
     [_window release];
+    [locationController release];
     [super dealloc];
 }
 

@@ -7,10 +7,10 @@
 //
 
 #import <Three20/Three20.h>
-
+#import "SWCurrentUser.h"
 
 @interface SWNewPostController : TTPostController <TTPostControllerDelegate> {
-    
+    SWCurrentUser *currentUser;
 }
 
 @end
