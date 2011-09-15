@@ -24,6 +24,10 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
+                                                  initWithTitle:@"Back" style:UIBarButtonItemStyleBordered
+                                                  target:self action:@selector(dismiss)] autorelease];
     }
     return self;
 }
@@ -48,6 +52,15 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
     if (responseData) {
         NSLog(@"RESPONSE DATA: %@",[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding]);
         [self processLoginResponse: response];
+        
+        if ([[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding] isEqualToString:@"YES"]) {
+            NSLog(@"AUTH SUCCESS!");
+            currentUser.authenticated = YES;
+            NSLog(@"Authenticated: %d",currentUser.authenticated);
+
+            [self dismissModalViewControllerAnimated:YES];
+        }
+        
         
         for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
         {
@@ -143,6 +156,10 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dismiss {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

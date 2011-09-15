@@ -17,9 +17,21 @@ static NSString* kSWNewPostURL = @"http://173.230.142.162/posts/add";
 
     if ((self = [super init])) {
         self.delegate = self;
+        
+        currentUser = [SWCurrentUser currentUserInstance];
+        
+        NSLog(@"Authenticated: %d",currentUser.authenticated);
+        
+        if (!currentUser.authenticated) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You need to log in before you can post." 
+                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+        }
+        
     }
     
-    currentUser = [SWCurrentUser currentUserInstance];    
+        
     
     return self;
     
@@ -30,6 +42,7 @@ static NSString* kSWNewPostURL = @"http://173.230.142.162/posts/add";
 - (void)postController:(TTPostController *)postController 
            didPostText:(NSString *)text 
             withResult:(id)result { 
+    
     NSLog(@"Text: %@", text); 
     NSLog(@"current x: %f",currentUser.x);
     

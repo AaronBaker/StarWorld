@@ -36,10 +36,14 @@
 		9390EEED141E698200B700C0 /* NSString+PRPURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEEA141E698200B700C0 /* NSString+PRPURLAdditions.m */; };
 		9390EEEE141E698200B700C0 /* PRPFormEncodedPOSTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEEC141E698200B700C0 /* PRPFormEncodedPOSTRequest.m */; };
 		9390EEF9141EC46D00B700C0 /* SWCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEF8141EC46C00B700C0 /* SWCurrentUser.m */; };
+		9390EF03141FF3C300B700C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9390EF02141FF3C300B700C0 /* CoreLocation.framework */; };
+		9390EF06141FF4FD00B700C0 /* SWLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EF05141FF4FC00B700C0 /* SWLocationController.m */; };
 		93CE88841406DB340077628C /* SWFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE887F1406DB340077628C /* SWFeedModel.m */; };
 		93CE88851406DB340077628C /* SWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88811406DB340077628C /* SWPost.m */; };
 		93CE88861406DB340077628C /* SWFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88831406DB340077628C /* SWFeedDataSource.m */; };
 		93CE888B1406E0320077628C /* SWFeedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE888A1406E0320077628C /* SWFeedListController.m */; };
+		93D27079142277E10089DDF2 /* starworld.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D27078142277E10089DDF2 /* starworld.png */; };
+		93D2707B142277EA0089DDF2 /* starworld@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D2707A142277EA0089DDF2 /* starworld@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +285,9 @@
 		9390EEEC141E698200B700C0 /* PRPFormEncodedPOSTRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPFormEncodedPOSTRequest.m; sourceTree = "<group>"; };
 		9390EEF7141EC46B00B700C0 /* SWCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCurrentUser.h; sourceTree = "<group>"; };
 		9390EEF8141EC46C00B700C0 /* SWCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCurrentUser.m; sourceTree = "<group>"; };
+		9390EF02141FF3C300B700C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9390EF04141FF4FC00B700C0 /* SWLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLocationController.h; sourceTree = "<group>"; };
+		9390EF05141FF4FC00B700C0 /* SWLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLocationController.m; sourceTree = "<group>"; };
 		93CE887E1406DB340077628C /* SWFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedModel.h; sourceTree = "<group>"; };
 		93CE887F1406DB340077628C /* SWFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedModel.m; sourceTree = "<group>"; };
 		93CE88801406DB340077628C /* SWPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPost.h; sourceTree = "<group>"; };
@@ -289,6 +296,8 @@
 		93CE88831406DB340077628C /* SWFeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		93CE88891406E0320077628C /* SWFeedListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedListController.h; sourceTree = "<group>"; };
 		93CE888A1406E0320077628C /* SWFeedListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedListController.m; sourceTree = "<group>"; };
+		93D27078142277E10089DDF2 /* starworld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starworld.png; sourceTree = "<group>"; };
+		93D2707A142277EA0089DDF2 /* starworld@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "starworld@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9390EF03141FF3C300B700C0 /* CoreLocation.framework in Frameworks */,
 				3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */,
 				320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */,
 				932EE6991406E61500C2030B /* libextThree20JSON+YAJL.a in Frameworks */,
@@ -402,10 +412,12 @@
 		93835A151406D4E700E04592 = {
 			isa = PBXGroup;
 			children = (
+				9390EF02141FF3C300B700C0 /* CoreLocation.framework */,
 				9390EEE8141E697000B700C0 /* PRP Classes */,
 				93DA312D1418139B006433FC /* SW Network */,
 				93CE88881406E0070077628C /* ViewControllers */,
 				93CE88871406DB3A0077628C /* SW Data */,
+				93D2707C1422788F0089DDF2 /* Resources */,
 				93CE88311406D5B70077628C /* Delete later */,
 				93835A2A1406D4E800E04592 /* StarWorld */,
 				93835A441406D4E800E04592 /* StarWorldTests */,
@@ -515,6 +527,8 @@
 				93CE88811406DB340077628C /* SWPost.m */,
 				93CE88821406DB340077628C /* SWFeedDataSource.h */,
 				93CE88831406DB340077628C /* SWFeedDataSource.m */,
+				9390EF04141FF4FC00B700C0 /* SWLocationController.h */,
+				9390EF05141FF4FC00B700C0 /* SWLocationController.m */,
 			);
 			name = "SW Data";
 			sourceTree = "<group>";
@@ -531,6 +545,15 @@
 				9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		93D2707C1422788F0089DDF2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93D2707A142277EA0089DDF2 /* starworld@2x.png */,
+				93D27078142277E10089DDF2 /* starworld.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		93DA312D1418139B006433FC /* SW Network */ = {
@@ -789,6 +812,8 @@
 				93835A2F1406D4E800E04592 /* InfoPlist.strings in Resources */,
 				93835A381406D4E800E04592 /* MainWindow.xib in Resources */,
 				9390EE6B141BC2B700B700C0 /* SWLoginViewController.xib in Resources */,
+				93D27079142277E10089DDF2 /* starworld.png in Resources */,
+				93D2707B142277EA0089DDF2 /* starworld@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +860,7 @@
 				9390EEED141E698200B700C0 /* NSString+PRPURLAdditions.m in Sources */,
 				9390EEEE141E698200B700C0 /* PRPFormEncodedPOSTRequest.m in Sources */,
 				9390EEF9141EC46D00B700C0 /* SWCurrentUser.m in Sources */,
+				9390EF06141FF4FD00B700C0 /* SWLocationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

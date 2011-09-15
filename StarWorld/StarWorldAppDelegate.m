@@ -11,12 +11,17 @@
 #import "SWNewPostController.h"
 #import "SWLoginViewController.h"
 
+
 @implementation StarWorldAppDelegate
 
 
 @synthesize window=_window;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
+    
+    currentUser = [SWCurrentUser currentUserInstance];
+    
+    currentUser.authenticated = NO;
     
     locationController = [[SWLocationController alloc] init];
     [locationController.locationManager startUpdatingLocation];
