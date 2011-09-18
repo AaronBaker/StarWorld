@@ -9,7 +9,7 @@
 #import "SWNewPostController.h"
 #import "PRPFormEncodedPOSTRequest.h"
 
-static NSString* kSWNewPostURL = @"http://173.230.142.162/posts/add";
+static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
 
 @implementation SWNewPostController
 
@@ -20,7 +20,7 @@ static NSString* kSWNewPostURL = @"http://173.230.142.162/posts/add";
         
         currentUser = [SWCurrentUser currentUserInstance];
         
-        NSLog(@"Authenticated: %d",currentUser.authenticated);
+
         
         if (!currentUser.authenticated) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You need to log in before you can post." 
@@ -43,8 +43,7 @@ static NSString* kSWNewPostURL = @"http://173.230.142.162/posts/add";
            didPostText:(NSString *)text 
             withResult:(id)result { 
     
-    NSLog(@"Text: %@", text); 
-    NSLog(@"current x: %f",currentUser.x);
+
     
     NSString *xString = [NSString stringWithFormat:@"%f",currentUser.x];
     NSString *yString = [NSString stringWithFormat:@"%f",currentUser.y];

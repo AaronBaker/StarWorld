@@ -12,6 +12,14 @@
 #import "SWLoginViewController.h"
 
 
+@interface StarWorldAppDelegate (hidden)
+- (void)signOut;
+- (void)loginCheck;
+@end
+
+
+NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
+
 @implementation StarWorldAppDelegate
 
 
@@ -19,9 +27,15 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
+    
+    //This deletes cookies!
+    //[self signOut];
+    
+    
+    
     currentUser = [SWCurrentUser currentUserInstance];
     
-    currentUser.authenticated = NO;
+    [self loginCheck];
     
     locationController = [[SWLocationController alloc] init];
     [locationController.locationManager startUpdatingLocation];
@@ -39,6 +53,29 @@
     // Override point for customization after application launch
     [_window makeKeyAndVisible];
 }
+
+
+- (void)signOut {
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in [[[cookieStorage cookiesForURL:[NSURL URLWithString:@"http://pandora.starworlddata.com"]] copy] autorelease]) {
+        [cookieStorage deleteCookie:each];
+    }
+}
+
+- (void)loginCheck {
+    
+    currentUser = [SWCurrentUser currentUserInstance];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    if ([defaults boolForKey:kSWDefaultsKeyUserIsAuthenticated]) {
+        [currentUser login];
+    }
+    
+    
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     /*

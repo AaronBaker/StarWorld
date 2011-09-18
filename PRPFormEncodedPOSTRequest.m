@@ -46,7 +46,7 @@
             [postBody appendFormat:paramFormat, paramKey, encodedValue];            
         }
     }
-    NSLog(@"postBody is now %@", postBody);
+    //NSLog(@"postBody is now %@", postBody);
     [self setHTTPBody:[postBody dataUsingEncoding:enc]];
 }
 

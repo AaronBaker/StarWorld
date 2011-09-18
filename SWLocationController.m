@@ -32,13 +32,13 @@
     currentUser.x = newLocation.coordinate.longitude;
     currentUser.y = newLocation.coordinate.latitude;
     
-    NSLog(@"NEW LOCATION!");
+    NSLog(@"NEW LOCATION! x: %f, y: %f",currentUser.x,currentUser.y);
 }
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {
-	NSLog(@"Location Error: %@", [error description]);
+	NSLog(@"**********************Location Error: %@", [error description]);
 }
 
 - (void)dealloc {

@@ -47,7 +47,7 @@
 					<object class="IBUITextField" id="47947603">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{18, 78}, {285, 31}}</string>
+						<string key="NSFrame">{{18, 60}, {285, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="854174821"/>
@@ -69,16 +69,16 @@
 								<int key="NSID">2</int>
 							</object>
 						</object>
-						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+							<int key="IBUIAutocorrectionType">1</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
 					<object class="IBUITextField" id="854174821">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{18, 117}, {285, 31}}</string>
+						<string key="NSFrame">{{18, 106}, {285, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1016174149"/>
@@ -97,6 +97,7 @@
 						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 						<float key="IBUIMinimumFontSize">17</float>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+							<int key="IBUIAutocorrectionType">1</int>
 							<int key="IBUIReturnKeyType">1</int>
 							<bool key="IBUIEnablesReturnKeyAutomatically">YES</bool>
 							<bool key="IBUISecureTextEntry">YES</bool>
@@ -106,7 +107,7 @@
 					<object class="IBUILabel" id="767342635">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{89, 20}, {143, 21}}</string>
+						<string key="NSFrame">{{89, 18}, {143, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="47947603"/>
@@ -132,7 +133,7 @@
 					<object class="IBUIButton" id="1016174149">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{101, 162}, {118, 37}}</string>
+						<string key="NSFrame">{{101, 156}, {118, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -225,10 +226,10 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="767342635"/>
 							<reference ref="47947603"/>
-							<reference ref="854174821"/>
+							<reference ref="767342635"/>
 							<reference ref="1016174149"/>
+							<reference ref="854174821"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>

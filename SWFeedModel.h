@@ -19,6 +19,8 @@
     NSUInteger _resultsPerPage;   // results per page, once the initial query is made
                                   // this value shouldn't be changed
     BOOL _finished;
+    
+
 }
 
 @property (nonatomic) float xSearch;

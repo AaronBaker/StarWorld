@@ -13,7 +13,7 @@
 #import <extThree20JSON/extThree20JSON.h>
 
 
-static NSString* kSWBaseURL = @"http://173.230.142.162/posts/posts_json";
+static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_json/";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,13 +31,14 @@ static NSString* kSWBaseURL = @"http://173.230.142.162/posts/posts_json";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (id)initWithX: (float) x Y:(float)y {
+- (id)initWithX:(float)x Y:(float)y {
     if ((self = [super init])) {
         _xSearch = x;
         _ySearch = y;
         _resultsPerPage = 10;
         _page = 1;
         _posts = [[NSMutableArray array] retain];
+        
     }
 
     
@@ -68,23 +69,29 @@ static NSString* kSWBaseURL = @"http://173.230.142.162/posts/posts_json";
         
         //NSString* url = [NSString stringWithFormat:kTwitterSearchFeedFormat, _searchQuery, _resultsPerPage, _page];
         
-        NSString* url = kSWBaseURL;
+        NSString* url = [NSString stringWithFormat:@"%@%f/%f",kSWBaseURL,_ySearch,_xSearch];
+        
+        NSLog(@"URL: %@",url);
         
         TTURLRequest* request = [TTURLRequest
                                  requestWithURL: url
                                  delegate: self];
         
-        NSLog(@"Request: %@",request);
         
+    
         
-        request.cachePolicy = cachePolicy;
+        request.cachePolicy = NSURLRequestReloadIgnoringCacheData;
         request.cacheExpirationAge = TT_CACHE_EXPIRATION_AGE_NEVER;
         
         TTURLJSONResponse* response = [[TTURLJSONResponse alloc] init];
 
         
         
+        
         request.response = response;
+        
+        
+        
         TT_RELEASE_SAFELY(response);
         
         [request send];

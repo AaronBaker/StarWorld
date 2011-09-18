@@ -9,12 +9,13 @@
 #import "SWLoginViewController.h"
 #import "PRPFormEncodedPOSTRequest.h"
 
-static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
+static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 
 
 @interface SWLoginViewController (hidden)
     - (void) processLoginResponse: (NSURLResponse*) response;
     - (void) getLoginCookie;
+    - (void) dismiss;
 @end
 
 @implementation SWLoginViewController
@@ -34,6 +35,9 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
 
 -(IBAction) startLogin: (id)sender {
     
+    
+    
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     [params setObject:username.text forKey:@"data[User][username]"];
@@ -49,16 +53,31 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
     NSData *responseData = [NSURLConnection sendSynchronousRequest:currentUser.request
                                                  returningResponse:&response
                                                              error:&error];
+    
+    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
+    NSDictionary *fields = [HTTPResponse allHeaderFields];
+    NSLog(@"%@",[fields description]);
+    NSLog(@"RESPONSE.");
+    
+    
+    
+    
     if (responseData) {
-        NSLog(@"RESPONSE DATA: %@",[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding]);
+        NSLog(@"RESPONSE DATA: ***%@***",[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding]);
         [self processLoginResponse: response];
         
         if ([[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding] isEqualToString:@"YES"]) {
             NSLog(@"AUTH SUCCESS!");
-            currentUser.authenticated = YES;
+            
+            
+            [currentUser login];
+            
             NSLog(@"Authenticated: %d",currentUser.authenticated);
 
-            [self dismissModalViewControllerAnimated:YES];
+            [self dismiss];
+        } else {
+            
+            [currentUser logout];
         }
         
         
@@ -102,7 +121,7 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
     
     for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
     {
-        NSLog(@"name: '%@'\n",   [cookie name]);
+        NSLog(@"LCname: '%@'\n",   [cookie name]);
         NSLog(@"value: '%@'\n",  [cookie value]);
         NSLog(@"domain: '%@'\n", [cookie domain]);
         NSLog(@"path: '%@'\n",   [cookie path]);
@@ -139,8 +158,9 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     currentUser = [SWCurrentUser currentUserInstance];
-    
-    [self getLoginCookie];
+        
+    //If form security increases later, we might need this.
+    //[self getLoginCookie];
     
     
 }
@@ -148,6 +168,8 @@ static NSString* kSWLoginURL = @"http://173.230.142.162/users/login";
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }

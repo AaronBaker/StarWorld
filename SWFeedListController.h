@@ -7,10 +7,11 @@
 //
 
 #import <Three20/Three20.h>
+#import "SWCurrentUser.h"
 
 
 @interface SWFeedListController : TTTableViewController {
-    
+    SWCurrentUser *currentUser;
 }
 
 @end

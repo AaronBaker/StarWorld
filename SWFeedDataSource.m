@@ -10,6 +10,8 @@
 
 #import "SWFeedModel.h"
 #import "SWPost.h"
+#import "SWUnitConverter.h"
+
 
 // Three20 Additions
 #import <Three20Core/NSDateAdditions.h>
@@ -30,9 +32,14 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 -(id)initWithCoordinatesX: (float) x Y:(float)y {
     if ((self = [super init])) {
+        
+
+        
         _searchFeedModel = [[SWFeedModel alloc] initWithX: x Y: y];
-        NSLog(@"DATA SOURCE INIT");
-        currentUser = [SWCurrentUser currentUserInstance];
+
+        
+        
+        
 
     }
     
@@ -62,9 +69,6 @@
     CLLocationDegrees currentX = currentUser.x;
     CLLocationDegrees currentY = currentUser.y;
     
-    NSLog(@"currentX: %f",currentX);
-    NSLog(@"current.X: %f",currentUser.x);
-    
     CLLocationDegrees postX;
     CLLocationDegrees postY;
     
@@ -72,6 +76,8 @@
     CLLocation *postLocation;
     
     float distance;
+    
+    NSString *distanceString;
     
     for (SWPost* post in _searchFeedModel.posts) {
         //TTDPRINT(@"Response text: %@", response.text);
@@ -82,21 +88,23 @@
         postX = post.x;
         postY = post.y;
         
-        NSLog(@"postX: %f",postX);
+
         
         postLocation = [[CLLocation alloc] initWithLatitude:postY longitude:postX];
         
         distance = [currentLocation distanceFromLocation:postLocation];
         
-        NSLog(@"currentloc: %@",currentLocation);
+        distanceString = [SWUnitConverter convertFromMeters:distance];
+        
+ 
         
         TTStyledText* styledText = [TTStyledText textFromXHTML:
-                                    [NSString stringWithFormat:@"%@\n<b>%@</b>\n%@\n%f\n%f\nDIST:%f",
+                                    [NSString stringWithFormat:@"%@\n<b>%@</b>\n%@\n%@",
                                      [[post.content stringByReplacingOccurrencesOfString:@"&"
                                                                             withString:@"&amp;"]
                                       stringByReplacingOccurrencesOfString:@"<"
                                       withString:@"&lt;"],
-                                     post.name,[self timeIntervalWithStartDate:post.time withEndDate:now],post.x,post.y,distance]
+                                     post.name,[self timeIntervalWithStartDate:post.time withEndDate:now],distanceString]
                                                     lineBreaks:YES URLs:YES];
         // If this asserts, it's likely that the tweet.text contains an HTML character that caused
         // the XML parser to fail.
@@ -121,7 +129,7 @@
     
     self.items = items;
     
-    NSLog(@"table items: %@",self.items);
+ 
     
     TT_RELEASE_SAFELY(items);
 }
@@ -154,16 +162,13 @@
 
 - (NSString*)timeIntervalWithStartDate:(NSDate*)d1 withEndDate:(NSDate*)d2
 {
-    NSLog(@"START DATE: %@",d1);
-    NSLog(@"END DATE: %@",d2);
 
-    
     //Calculate the delta in seconds between the two dates
     NSTimeInterval delta = [d2 timeIntervalSinceDate:d1];
     
     if (delta < 1 * MINUTE)
     {
-        return delta == 1 ? @"one second ago" : [NSString stringWithFormat:@"%d seconds ago", (int)delta];
+        return delta == 1 ? @"one second ago" : [NSString stringWithFormat:@"%d seconds", (int)delta];
     }
     if (delta < 2 * MINUTE)
     {
@@ -172,35 +177,35 @@
     if (delta < 45 * MINUTE)
     {
         int minutes = floor((double)delta/MINUTE);
-        return [NSString stringWithFormat:@"%d minutes ago", minutes];
+        return [NSString stringWithFormat:@"%d mins", minutes];
     }
     if (delta < 90 * MINUTE)
     {
-        return @"an hour ago";
+        return @"1 hour";
     }
     if (delta < 24 * HOUR)
     {
         int hours = floor((double)delta/HOUR);
-        return [NSString stringWithFormat:@"%d hours ago", hours];
+        return [NSString stringWithFormat:@"%d hours", hours];
     }
     if (delta < 48 * HOUR)
     {
-        return @"yesterday";
+        return @"1 day";
     }
     if (delta < 30 * DAY)
     {
         int days = floor((double)delta/DAY);
-        return [NSString stringWithFormat:@"%d days ago", days];
+        return [NSString stringWithFormat:@"%d days", days];
     }
     if (delta < 12 * MONTH)
     {
         int months = floor((double)delta/MONTH);
-        return months <= 1 ? @"one month ago" : [NSString stringWithFormat:@"%d months ago", months];
+        return months <= 1 ? @"one month ago" : [NSString stringWithFormat:@"%d months", months];
     }
     else
     {
         int years = floor((double)delta/MONTH/12.0);
-        return years <= 1 ? @"one year ago" : [NSString stringWithFormat:@"%d years ago", years];
+        return years <= 1 ? @"one year ago" : [NSString stringWithFormat:@"%d years", years];
     }
 }
 
