@@ -45,28 +45,48 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     
     
     NSURL *postURL = [NSURL URLWithString:kSWLoginURL];
+    
+    NSLog(@"LOGIN POST URL: %@",postURL);
 
-    currentUser.request = [PRPFormEncodedPOSTRequest requestWithURL:postURL
+    NSURLRequest *request = [PRPFormEncodedPOSTRequest requestWithURL:postURL
                                              formParameters:params];
     NSURLResponse *response = nil;
     NSError *error = nil;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:currentUser.request
+
+    
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
                                                  returningResponse:&response
                                                              error:&error];
     
     NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
     NSDictionary *fields = [HTTPResponse allHeaderFields];
+    
+    NSLog(@"RESPONSE SUCCESS");
+    NSLog(@"RESPONSE URL: %@",[response URL]);
+    
+    
     NSLog(@"%@",[fields description]);
-    NSLog(@"RESPONSE.");
+
     
-    
+    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+    {
+        NSLog(@"name: '%@'\n",   [cookie name]);
+        NSLog(@"value: '%@'\n",  [cookie value]);
+        NSLog(@"domain: '%@'\n", [cookie domain]);
+        NSLog(@"path: '%@'\n",   [cookie path]);
+    }
     
     
     if (responseData) {
         NSLog(@"RESPONSE DATA: ***%@***",[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding]);
         [self processLoginResponse: response];
         
-        if ([[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding] isEqualToString:@"YES"]) {
+        [currentUser login];
+        
+        
+        NSRange range = [(NSString*)[[response URL] absoluteString] rangeOfString:@"success" options:NSCaseInsensitiveSearch];
+
+        if (range.location != NSNotFound) {
             NSLog(@"AUTH SUCCESS!");
             
             
@@ -76,21 +96,20 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 
             [self dismiss];
         } else {
+            NSLog(@"AUTH FAILED!");
             
-            [currentUser logout];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Incorrect Username or Password!" 
+                                                           delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            [alert release];
+            
+            //[currentUser logout];
         }
         
         
-        for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
-        {
-            NSLog(@"name: '%@'\n",   [cookie name]);
-            NSLog(@"value: '%@'\n",  [cookie value]);
-            NSLog(@"domain: '%@'\n", [cookie domain]);
-            NSLog(@"path: '%@'\n",   [cookie path]);
-        }
         
     } else {
-        NSLog(@"Error posting to %@ (%@)", kSWLoginURL, error);
+        NSLog(@"Error Logginin to %@ (%@)", kSWLoginURL, error);
     }
 
     

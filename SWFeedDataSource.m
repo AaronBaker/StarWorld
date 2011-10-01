@@ -99,12 +99,12 @@
  
         
         TTStyledText* styledText = [TTStyledText textFromXHTML:
-                                    [NSString stringWithFormat:@"%@\n<b>%@</b>\n%@\n%@",
+                                    [NSString stringWithFormat:@"%@\n<b>%@</b>\n<b>%@</b>\n%@",
                                      [[post.content stringByReplacingOccurrencesOfString:@"&"
                                                                             withString:@"&amp;"]
                                       stringByReplacingOccurrencesOfString:@"<"
                                       withString:@"&lt;"],
-                                     post.name,[self timeIntervalWithStartDate:post.time withEndDate:now],distanceString]
+                                     post.name,distanceString,[self timeIntervalWithStartDate:post.time withEndDate:now]]
                                                     lineBreaks:YES URLs:YES];
         // If this asserts, it's likely that the tweet.text contains an HTML character that caused
         // the XML parser to fail.
@@ -165,6 +165,9 @@
 
     //Calculate the delta in seconds between the two dates
     NSTimeInterval delta = [d2 timeIntervalSinceDate:d1];
+    
+    if (delta < 1 * SECOND)
+        delta = 1;
     
     if (delta < 1 * MINUTE)
     {

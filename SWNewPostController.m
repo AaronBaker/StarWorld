@@ -63,16 +63,20 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
     NSData *responseData = [NSURLConnection sendSynchronousRequest:currentUser.request
                                                  returningResponse:&response
                                                              error:&error];
+    
     if (responseData) {
         
-        NSLog(@"POSTED PERHAPS");
-        NSLog(@"RESPONSE DATA: %@",[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding]);
-        
-        
-    } else {
-        NSLog(@"Error posting to %@ (%@)", kSWNewPostURL, error);
+        NSRange range = [(NSString*)[[response URL] absoluteString] rangeOfString:@"success" options:NSCaseInsensitiveSearch];
+        if (range.location != NSNotFound) {
+            
+            
+            
+        } else {
+            NSLog(@"Error posting to %@ (%@)", kSWNewPostURL, error);
+         
+            
+        }
     }
-    
     
 } 
 

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Three20/Three20.h"
 #import "SWLocationController.h"
-#import "SWCurrentUser.h";
+#import "SWCurrentUser.h"
 
 @interface StarWorldAppDelegate : NSObject <UIApplicationDelegate> {
     SWLocationController *locationController;

@@ -29,6 +29,7 @@
         
         while (currentUser.x == 0.0f) {
             
+            //AARON!  You really should make something happen if location can't be set.
             NSLog(@"STUCK");
             // If A job is finished, a flag should be set. and the flag can be a exit condition of this while loop
             
@@ -44,7 +45,11 @@
         
         currentUser = [SWCurrentUser currentUserInstance];
         
+        NSLog(@"From list controller X: %f, Y: %f",currentUser.x,currentUser.y);
         
+        
+        
+        NSLog(@"********************DATA SOURCE SET************************");
         SWFeedDataSource *dataSource = [[[SWFeedDataSource alloc]
                                          initWithCoordinatesX:currentUser.x Y:currentUser.y] autorelease]; 
         
@@ -54,6 +59,7 @@
         self.tableView.tableFooterView = [[UIView new] autorelease];
         
         self.dataSource = dataSource;
+        
         
     }
     
@@ -95,7 +101,47 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self reload];
     [self setBarButtons];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//        
+//    
+//    NSURL *authTestURL = [NSURL URLWithString:@"http://pandora.starworlddata.com/users/authenticated"];
+//    
+//    NSURLRequest *request = [NSURLRequest requestWithURL:authTestURL];
+//    
+//    NSURLResponse *response = nil;
+//    NSError *error = nil;
+//    
+//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+//                                                 returningResponse:&response
+//                                                             error:&error];
+//    
+//    NSRange range = [(NSString*)[[response URL] absoluteString] rangeOfString:@"success" options:NSCaseInsensitiveSearch];
+//    
+//    if (range.location == NSNotFound && currentUser.authenticated) {
+//    
+//        [currentUser logout];
+//        [self setBarButtons];
+//        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"For some reason, you have been logged out!" 
+//                                                       delegate:self cancelButtonTitle:@"Umm. Ok." otherButtonTitles:nil];
+//        [alert show];
+//        [alert release];
+//        
+//        
+//        
+//    }
+    
+    
+    
+    
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

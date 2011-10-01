@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "SWCurrentUser.h"
 
 @interface SWFeedModel : TTURLRequestModel {
     
@@ -19,6 +20,8 @@
     NSUInteger _resultsPerPage;   // results per page, once the initial query is made
                                   // this value shouldn't be changed
     BOOL _finished;
+    
+    SWCurrentUser *currentUser;
     
 
 }

@@ -46,6 +46,21 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
     
     [defaults setBool:YES forKey:kSWDefaultsKeyUserIsAuthenticated];  
     
+    
+    
+    for (NSHTTPCookie *newCookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+    {
+
+        NSLog(@"New Cookie Value: '%@'\n",  [newCookie value]);
+
+        
+        self.cookie = [newCookie value];
+    }
+    
+    
+    
+    
+    
 }
 
 - (void) logout {
@@ -56,15 +71,17 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
     
     [defaults setBool:NO forKey:kSWDefaultsKeyUserIsAuthenticated];  
     
-    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *each in [[[cookieStorage cookiesForURL:[NSURL URLWithString:@"http://pandora.starworlddata.com"]] copy] autorelease]) {
-        [cookieStorage deleteCookie:each];
-    }
+    NSLog(@"Trying to Delete Cookies!");
     
     
-    for (NSHTTPCookie *each in [[[cookieStorage cookiesForURL:[NSURL URLWithString:@"http://173.230.142.162"]] copy] autorelease]) {
-        [cookieStorage deleteCookie:each];
+    for (NSHTTPCookie *dcookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]) {
+        NSLog(@"Delete Cookie: %@",dcookie);
+
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie:dcookie];
+        
     }
+    
+
     
     NSLog(@"LOGOUT!");
     

@@ -13,7 +13,7 @@
 #import <extThree20JSON/extThree20JSON.h>
 
 
-static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_json/";
+static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_json2/";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -33,9 +33,12 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
 
 - (id)initWithX:(float)x Y:(float)y {
     if ((self = [super init])) {
-        _xSearch = x;
-        _ySearch = y;
-        _resultsPerPage = 10;
+        
+        currentUser = [SWCurrentUser currentUserInstance];
+        
+        _xSearch = currentUser.x;
+        _ySearch = currentUser.y;
+        _resultsPerPage = 50;
         _page = 1;
         _posts = [[NSMutableArray array] retain];
         
@@ -69,7 +72,7 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
         
         //NSString* url = [NSString stringWithFormat:kTwitterSearchFeedFormat, _searchQuery, _resultsPerPage, _page];
         
-        NSString* url = [NSString stringWithFormat:@"%@%f/%f",kSWBaseURL,_ySearch,_xSearch];
+        NSString* url = [NSString stringWithFormat:@"%@%f/%f",kSWBaseURL,currentUser.y,currentUser.x];
         
         NSLog(@"URL: %@",url);
         
@@ -106,10 +109,18 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
     TTURLJSONResponse* response = request.response;
     
     
+    NSLog(@"JSON RESPONSE COOKIES");
+    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+    {
+        NSLog(@"name: '%@'\n",   [cookie name]);
+        NSLog(@"value: '%@'\n",  [cookie value]);
+        NSLog(@"domain: '%@'\n", [cookie domain]);
+        NSLog(@"path: '%@'\n",   [cookie path]);
+    }
     
     //TTDASSERT([response.rootObject isKindOfClass:[NSDictionary class]]);
     
-    NSArray* entries = [response.rootObject objectForKey:@"posts"];
+    NSArray* sections = [response.rootObject objectForKey:@"posts"];
     
     
     //NSLog(@"ENTRIES: %@",entries);
@@ -119,32 +130,35 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
     
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
-    NSMutableArray* posts = [NSMutableArray arrayWithCapacity:[entries count]];
+    NSMutableArray* posts = [NSMutableArray arrayWithCapacity:[sections count]];
     
-    for (NSDictionary* entry in entries) {
-        
-   
-        
-        NSDictionary *entryPost = [entry objectForKey:@"Post"];
-        NSDictionary *entryUser = [entry objectForKey:@"User"];
-        
-        NSDate* date = [dateFormatter dateFromString:[entryPost objectForKey:@"created"]];
-        
-        NSString *username = [entryUser objectForKey:@"username"];
-        
-        float entryX = [[entryPost objectForKey:@"x"] floatValue];
-        float entryY = [[entryPost objectForKey:@"y"] floatValue];
-        
-        SWPost* post = [[SWPost alloc]initWithName:username 
-                                              time:date 
-                                                 x:entryX
-                                                 y:entryY
-                                           content:[entryPost objectForKey:@"body"]];
-        
+    
+    for (NSDictionary* entries in sections) {
+        for (NSDictionary* entry in entries) {
+            
+       
+            
+            NSDictionary *entryPost = [entry objectForKey:@"Post"];
+            NSDictionary *entryUser = [entry objectForKey:@"User"];
+            
+            NSDate* date = [dateFormatter dateFromString:[entryPost objectForKey:@"created"]];
+            
+            NSString *username = [entryUser objectForKey:@"username"];
+            
+            float entryX = [[entryPost objectForKey:@"x"] floatValue];
+            float entryY = [[entryPost objectForKey:@"y"] floatValue];
+            
+            SWPost* post = [[SWPost alloc]initWithName:username 
+                                                  time:date 
+                                                     x:entryX
+                                                     y:entryY
+                                               content:[entryPost objectForKey:@"body"]];
+            
+            //NSLog(@"Body: %@",[entryPost objectForKey:@"body"]);
 
-
-        [posts addObject:post];
-        TT_RELEASE_SAFELY(post);
+            [posts addObject:post];
+            TT_RELEASE_SAFELY(post);
+        }
     }
     _finished = posts.count < _resultsPerPage;
     [_posts addObjectsFromArray: posts];
