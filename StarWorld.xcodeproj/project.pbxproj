@@ -16,6 +16,8 @@
 		320CC833B8AF0ACFD35E6225 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320CC833B8AF0ACFD35E6224 /* libThree20Style.a */; };
 		320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320D7DCCE32703ACAB9A45E4 /* libThree20.a */; };
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320F2C48872C2E2C4DF86204 /* libThree20UI.a */; };
+		9301501E1437B52400999D90 /* Starworld-Menu-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9301501D1437B52400999D90 /* Starworld-Menu-Logo.png */; };
+		9327BBDF1437B98600BD56A3 /* StarWorld-Logo-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9327BBDE1437B98600BD56A3 /* StarWorld-Logo-small.png */; };
 		932EE6991406E61500C2030B /* libextThree20JSON+YAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 932EE6981406E61500C2030B /* libextThree20JSON+YAJL.a */; };
 		937F78B214170422003E1BCD /* SWNewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F78B114170422003E1BCD /* SWNewPostController.m */; };
 		93835A251406D4E800E04592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A241406D4E800E04592 /* UIKit.framework */; };
@@ -38,6 +40,9 @@
 		9390EEF9141EC46D00B700C0 /* SWCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEF8141EC46C00B700C0 /* SWCurrentUser.m */; };
 		9390EF03141FF3C300B700C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9390EF02141FF3C300B700C0 /* CoreLocation.framework */; };
 		9390EF06141FF4FD00B700C0 /* SWLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EF05141FF4FC00B700C0 /* SWLocationController.m */; };
+		93AA474B1437D88A001FFBF8 /* StarWorld-Navbar-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474A1437D88A001FFBF8 /* StarWorld-Navbar-Logo.png */; };
+		93AA474E1437DCE5001FFBF8 /* sw-tiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */; };
+		93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474D1437DCE5001FFBF8 /* sw-tiny.png */; };
 		93CE88841406DB340077628C /* SWFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE887F1406DB340077628C /* SWFeedModel.m */; };
 		93CE88851406DB340077628C /* SWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88811406DB340077628C /* SWPost.m */; };
 		93CE88861406DB340077628C /* SWFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88831406DB340077628C /* SWFeedDataSource.m */; };
@@ -242,6 +247,8 @@
 		320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Style.xcodeproj; path = ../three20/src/Three20Style/Three20Style.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = ../three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9301501D1437B52400999D90 /* Starworld-Menu-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Starworld-Menu-Logo.png"; sourceTree = "<group>"; };
+		9327BBDE1437B98600BD56A3 /* StarWorld-Logo-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarWorld-Logo-small.png"; sourceTree = "<group>"; };
 		932EE6871406E5C100C2030B /* extThree20JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = extThree20JSON.xcodeproj; path = ../three20/src/extThree20JSON/extThree20JSON.xcodeproj; sourceTree = "<group>"; };
 		932EE6981406E61500C2030B /* libextThree20JSON+YAJL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libextThree20JSON+YAJL.a"; sourceTree = SOURCE_ROOT; };
 		937F78B014170422003E1BCD /* SWNewPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNewPostController.h; sourceTree = "<group>"; };
@@ -275,6 +282,9 @@
 		9390EF02141FF3C300B700C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9390EF04141FF4FC00B700C0 /* SWLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLocationController.h; sourceTree = "<group>"; };
 		9390EF05141FF4FC00B700C0 /* SWLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLocationController.m; sourceTree = "<group>"; };
+		93AA474A1437D88A001FFBF8 /* StarWorld-Navbar-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarWorld-Navbar-Logo.png"; sourceTree = "<group>"; };
+		93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny@2x.png"; sourceTree = "<group>"; };
+		93AA474D1437DCE5001FFBF8 /* sw-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny.png"; sourceTree = "<group>"; };
 		93CE887E1406DB340077628C /* SWFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedModel.h; sourceTree = "<group>"; };
 		93CE887F1406DB340077628C /* SWFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedModel.m; sourceTree = "<group>"; };
 		93CE88801406DB340077628C /* SWPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPost.h; sourceTree = "<group>"; };
@@ -539,6 +549,11 @@
 		93D2707C1422788F0089DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */,
+				93AA474D1437DCE5001FFBF8 /* sw-tiny.png */,
+				93AA474A1437D88A001FFBF8 /* StarWorld-Navbar-Logo.png */,
+				9327BBDE1437B98600BD56A3 /* StarWorld-Logo-small.png */,
+				9301501D1437B52400999D90 /* Starworld-Menu-Logo.png */,
 				93D2708914228FF20089DDF2 /* Icon.png */,
 				93D2708A14228FF20089DDF2 /* Icon@2x.png */,
 			);
@@ -792,6 +807,11 @@
 				9390EE6B141BC2B700B700C0 /* SWLoginViewController.xib in Resources */,
 				93D2708B14228FF20089DDF2 /* Icon.png in Resources */,
 				93D2708C14228FF20089DDF2 /* Icon@2x.png in Resources */,
+				9301501E1437B52400999D90 /* Starworld-Menu-Logo.png in Resources */,
+				9327BBDF1437B98600BD56A3 /* StarWorld-Logo-small.png in Resources */,
+				93AA474B1437D88A001FFBF8 /* StarWorld-Navbar-Logo.png in Resources */,
+				93AA474E1437DCE5001FFBF8 /* sw-tiny@2x.png in Resources */,
+				93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

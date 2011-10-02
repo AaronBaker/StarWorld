@@ -120,7 +120,7 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
     
     //TTDASSERT([response.rootObject isKindOfClass:[NSDictionary class]]);
     
-    NSArray* sections = [response.rootObject objectForKey:@"posts"];
+    NSArray* responseSections = [response.rootObject objectForKey:@"posts"];
     
     
     //NSLog(@"ENTRIES: %@",entries);
@@ -130,10 +130,16 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
     
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
-    NSMutableArray* posts = [NSMutableArray arrayWithCapacity:[sections count]];
+    
+    NSMutableArray* sections = [NSMutableArray arrayWithCapacity:[responseSections count]];
     
     
-    for (NSDictionary* entries in sections) {
+    
+    for (NSDictionary* entries in responseSections) {
+        
+        
+        NSMutableArray* posts = [NSMutableArray arrayWithCapacity:[entries count]];
+        
         for (NSDictionary* entry in entries) {
             
        
@@ -159,9 +165,15 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
             [posts addObject:post];
             TT_RELEASE_SAFELY(post);
         }
+        
+        [sections addObject:posts];
+        
     }
-    _finished = posts.count < _resultsPerPage;
-    [_posts addObjectsFromArray: posts];
+    //_finished = posts.count < _resultsPerPage;
+    _finished = YES;
+
+    
+    [_posts addObjectsFromArray: sections];
     
     TT_RELEASE_SAFELY(dateFormatter);
     

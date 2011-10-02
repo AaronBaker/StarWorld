@@ -60,8 +60,10 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableViewDidLoadModel:(UITableView*)tableView {
-    NSMutableArray* items = [[NSMutableArray alloc] init];
     
+    NSMutableArray* items = [[NSMutableArray alloc] init];
+    NSMutableArray* sections = [[NSMutableArray alloc] init];
+
     
     currentUser = [SWCurrentUser currentUserInstance];
 
@@ -79,65 +81,129 @@
     
     NSString *distanceString;
     
-    for (SWPost* post in _searchFeedModel.posts) {
-        //TTDPRINT(@"Response text: %@", response.text);
-
-        
-        NSDate *now = [NSDate date];
-        
-        postX = post.x;
-        postY = post.y;
-        
-
-        
-        postLocation = [[CLLocation alloc] initWithLatitude:postY longitude:postX];
-        
-        distance = [currentLocation distanceFromLocation:postLocation];
-        
-        distanceString = [SWUnitConverter convertFromMeters:distance];
-        
- 
-        
-        TTStyledText* styledText = [TTStyledText textFromXHTML:
-                                    [NSString stringWithFormat:@"%@\n<b>%@</b>\n<b>%@</b>\n%@",
-                                     [[post.content stringByReplacingOccurrencesOfString:@"&"
-                                                                            withString:@"&amp;"]
-                                      stringByReplacingOccurrencesOfString:@"<"
-                                      withString:@"&lt;"],
-                                     post.name,distanceString,[self timeIntervalWithStartDate:post.time withEndDate:now]]
-                                                    lineBreaks:YES URLs:YES];
-        // If this asserts, it's likely that the tweet.text contains an HTML character that caused
-        // the XML parser to fail.
-        TTDASSERT(nil != styledText);
-        [items addObject:[TTTableStyledTextItem itemWithText:styledText]];
+    //[sections addObject:@"GOLD"];
+    
+    
+    
+    
+    
+    
+    for (NSMutableArray* dataSections in _searchFeedModel.posts) {
         
         
-//        
-//        TTTableItem *tableItem = 
-//        [TTTableSubtitleItem itemWithText:post.content subtitle:@"cheese" 
-//                                      URL:Nil];
-//        [items addObject:tableItem];
-//        
+        if ([dataSections count] > 0) {
         
+            
+                        
+            NSMutableArray* itemListMutable = [[NSMutableArray alloc] initWithCapacity:[dataSections count]];
+            NSArray* itemList;
+            
+            //Before going through the posts, we first get the title for the label
+            
+            float highestDistance = 0.0;
+            for (SWPost* post in dataSections) {
+                
+                postX = post.x;
+                postY = post.y;
+                
+                postLocation = [[CLLocation alloc] initWithLatitude:postY longitude:postX];
+                distance = [currentLocation distanceFromLocation:postLocation];
+                [postLocation release];
+                
+                NSLog(@"distance %f",distance);
+                
+                if (distance > highestDistance) {
+                    highestDistance = distance;
+                }
+            }
+            
+            NSLog(@"Highest Distanc: %f",highestDistance);
+            
+            distanceString = [SWUnitConverter convertFromMeters:highestDistance];
+            [sections addObject:distanceString];
+            
+            
+            
+            for (SWPost* post in dataSections) {
+                //TTDPRINT(@"Response text: %@", response.text);
+                
+                
+                NSDate *now = [NSDate date];
+                
+                postX = post.x;
+                postY = post.y;
+                
+                
+                
+                postLocation = [[CLLocation alloc] initWithLatitude:postY longitude:postX];
+                
+                distance = [currentLocation distanceFromLocation:postLocation];
+                
+                [postLocation release];
+                
+                distanceString = [SWUnitConverter convertFromMeters:distance];
+                
+                
+                
+                TTStyledText* styledText = [TTStyledText textFromXHTML:
+                                            [NSString stringWithFormat:@"%@\n<b>%@</b>\n<b>%@</b>\n%@",
+                                             [[post.content stringByReplacingOccurrencesOfString:@"&"
+                                                                                      withString:@"&amp;"]
+                                              stringByReplacingOccurrencesOfString:@"<"
+                                              withString:@"&lt;"],
+                                             post.name,distanceString,[self timeIntervalWithStartDate:post.time withEndDate:now]]
+                                                            lineBreaks:YES URLs:YES];
+                
+                
+                // If this asserts, it's likely that the tweet.text contains an HTML character that caused
+                // the XML parser to fail.
+                TTDASSERT(nil != styledText);
+                
+                
+                
+                
+                [itemListMutable addObject:[TTTableStyledTextItem itemWithText:styledText]];
+                
+                //[items addObject:[TTTableMessageItem itemWithText:@"OKAY THEN"]];
+                
+                
+                //        
+                //        TTTableItem *tableItem = 
+                //        [TTTableSubtitleItem itemWithText:post.content subtitle:@"cheese" 
+                //                                      URL:Nil];
+                //        [items addObject:tableItem];
+                //        
+                
+                
+                
+            }
+            
+            
+            itemList = [NSArray arrayWithArray:itemListMutable];
+            [items addObject:itemList];
+            
+        }
         
         
     }
     
-    if (!_searchFeedModel.finished) {
-        [items addObject:[TTTableMoreButton itemWithText:@"more…"]];
-    }
+//    if (!_searchFeedModel.finished) {
+//        [items addObject:[TTTableMoreButton itemWithText:@"more…"]];
+//    }
     
     self.items = items;
+    self.sections = sections;
     
  
     
     TT_RELEASE_SAFELY(items);
+    TT_RELEASE_SAFELY(sections);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)titleForLoading:(BOOL)reloading {
     if (reloading) {
-        return NSLocalizedString(@"Finding Nearest Posts...", @"Starworld feed updating text");
+        return NSLocalizedString(@"Finding More Posts...", @"Starworld feed updating text");
     } else {
         return NSLocalizedString(@"Finding Nearest Posts...", @"Starworld feed loading text");
     }
@@ -150,7 +216,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)subtitleForError:(NSError*)error {
-    return NSLocalizedString(@"Sorry, there was an error loading the Starworld stream.", @"");
+    return NSLocalizedString(@"Sorry, there was an error loading the Starworld stream.", @"Starworld Stream Error");
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //Constants

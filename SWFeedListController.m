@@ -40,7 +40,19 @@
         
         
         self.tableViewStyle = UITableViewStylePlain;
-        self.title = @"Near You";
+        
+        UIImage *logo = [UIImage imageNamed:@"sw-tiny.png"];
+        
+        //[self.navigationController.navigationBar setBackgroundImage:logo forBarMetrics:UIBarMetricsDefault];
+        
+        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:logo] autorelease];
+        
+        
+        self.navigationBarTintColor = [UIColor blackColor];
+        
+        //self.title = @"Near You";
+        
+        //[self.tableView setBackgroundColor:[UIColor greenColor]];
         
         
         currentUser = [SWCurrentUser currentUserInstance];
