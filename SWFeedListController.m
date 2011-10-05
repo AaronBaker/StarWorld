@@ -104,7 +104,13 @@
                                                   initWithTitle: @"Login"
                                                   style:UIBarButtonItemStylePlain
                                                   target:@"tt://login"
-                                                  action: @selector(openURLFromButton:)] autorelease];         
+                                                  action: @selector(openURLFromButton:)] autorelease];   
+
+        
+        //Later fix this icon for the toolbar button.
+//        UIImage *gearImage = [UIImage imageNamed:@"Gear20.png"];
+//        
+//        [self.navigationItem.leftBarButtonItem setImage:gearImage];
     }
     
     

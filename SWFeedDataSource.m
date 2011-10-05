@@ -11,6 +11,8 @@
 #import "SWFeedModel.h"
 #import "SWPost.h"
 #import "SWUnitConverter.h"
+#import "SWPostTableCell.h"
+#import "SWPostTableItem.h"
 
 
 // Three20 Additions
@@ -110,20 +112,19 @@
                 distance = [currentLocation distanceFromLocation:postLocation];
                 [postLocation release];
                 
-                NSLog(@"distance %f",distance);
+                
                 
                 if (distance > highestDistance) {
                     highestDistance = distance;
                 }
             }
             
-            NSLog(@"Highest Distanc: %f",highestDistance);
-            
+                        
             distanceString = [SWUnitConverter convertFromMeters:highestDistance];
             [sections addObject:distanceString];
             
             
-            
+            //Build each post an add them to the item list.
             for (SWPost* post in dataSections) {
                 //TTDPRINT(@"Response text: %@", response.text);
                 
@@ -159,23 +160,16 @@
                 // the XML parser to fail.
                 TTDASSERT(nil != styledText);
                 
-                
-                
-                
-                [itemListMutable addObject:[TTTableStyledTextItem itemWithText:styledText]];
-                
-                //[items addObject:[TTTableMessageItem itemWithText:@"OKAY THEN"]];
-                
-                
-                //        
-                //        TTTableItem *tableItem = 
-                //        [TTTableSubtitleItem itemWithText:post.content subtitle:@"cheese" 
-                //                                      URL:Nil];
-                //        [items addObject:tableItem];
-                //        
-                
-                
-                
+                //[itemListMutable addObject:[TTTableStyledTextItem itemWithText:styledText]];
+                [itemListMutable addObject:[SWPostTableItem itemWithTitle:post.name 
+                                                                     caption:distanceString
+                                                                        text:[[post.content stringByReplacingOccurrencesOfString:@"&"
+                                                                                                                      withString:@"&amp;"]
+                                                                              stringByReplacingOccurrencesOfString:@"<"
+                                                                              withString:@"&lt;"]
+                                                                   timestamp:post.time
+                                                                         URL:Nil]];
+
             }
             
             
@@ -198,6 +192,14 @@
     
     TT_RELEASE_SAFELY(items);
     TT_RELEASE_SAFELY(sections);
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (Class)tableView:(UITableView *)tableView cellClassForObject:(id)object {
+    if([object isKindOfClass:[SWPostTableItem class]])
+        return [SWPostTableCell class];
+    else
+        return [super tableView:tableView cellClassForObject:object];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

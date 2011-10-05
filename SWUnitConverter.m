@@ -54,4 +54,69 @@
     
 }
 
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//Constants
+#define SECOND 1
+#define MINUTE (60 * SECOND)
+#define HOUR (60 * MINUTE)
+#define DAY (24 * HOUR)
+#define MONTH (30 * DAY)
+
++ (NSString*)timeIntervalWithStartDate:(NSDate*)d1 withEndDate:(NSDate*)d2
+{
+    
+    //Calculate the delta in seconds between the two dates
+    NSTimeInterval delta = [d2 timeIntervalSinceDate:d1];
+    
+    if (delta < 1 * SECOND)
+        delta = 1;
+    
+    if (delta < 1 * MINUTE)
+    {
+        return delta == 1 ? @"1 second" : [NSString stringWithFormat:@"%d seconds", (int)delta];
+    }
+    if (delta < 2 * MINUTE)
+    {
+        return @"1 min";
+    }
+    if (delta < 45 * MINUTE)
+    {
+        int minutes = floor((double)delta/MINUTE);
+        return [NSString stringWithFormat:@"%d mins", minutes];
+    }
+    if (delta < 90 * MINUTE)
+    {
+        return @"1 hour";
+    }
+    if (delta < 24 * HOUR)
+    {
+        int hours = floor((double)delta/HOUR);
+        return [NSString stringWithFormat:@"%d hours", hours];
+    }
+    if (delta < 48 * HOUR)
+    {
+        return @"1 day";
+    }
+    if (delta < 30 * DAY)
+    {
+        int days = floor((double)delta/DAY);
+        return [NSString stringWithFormat:@"%d days", days];
+    }
+    if (delta < 12 * MONTH)
+    {
+        int months = floor((double)delta/MONTH);
+        return months <= 1 ? @"1 month" : [NSString stringWithFormat:@"%d months", months];
+    }
+    else
+    {
+        int years = floor((double)delta/MONTH/12.0);
+        return years <= 1 ? @"1 year" : [NSString stringWithFormat:@"%d years", years];
+    }
+}
+
+
+
+
 @end
