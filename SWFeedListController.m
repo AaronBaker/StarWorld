@@ -73,6 +73,8 @@
         self.dataSource = dataSource;
         
         
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        
     }
     
     return self;

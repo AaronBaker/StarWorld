@@ -75,44 +75,44 @@
     
     if (delta < 1 * MINUTE)
     {
-        return delta == 1 ? @"1 second" : [NSString stringWithFormat:@"%d seconds", (int)delta];
+        return delta == 1 ? @"1 second ago" : [NSString stringWithFormat:@"%d seconds", (int)delta];
     }
     if (delta < 2 * MINUTE)
     {
-        return @"1 min";
+        return @"1 minute ago";
     }
     if (delta < 45 * MINUTE)
     {
         int minutes = floor((double)delta/MINUTE);
-        return [NSString stringWithFormat:@"%d mins", minutes];
+        return [NSString stringWithFormat:@"%d minutes ago", minutes];
     }
     if (delta < 90 * MINUTE)
     {
-        return @"1 hour";
+        return @"1 hour ago";
     }
     if (delta < 24 * HOUR)
     {
         int hours = floor((double)delta/HOUR);
-        return [NSString stringWithFormat:@"%d hours", hours];
+        return [NSString stringWithFormat:@"%d hours ago", hours];
     }
     if (delta < 48 * HOUR)
     {
-        return @"1 day";
+        return @"1 day ago";
     }
     if (delta < 30 * DAY)
     {
         int days = floor((double)delta/DAY);
-        return [NSString stringWithFormat:@"%d days", days];
+        return [NSString stringWithFormat:@"%d days ago", days];
     }
     if (delta < 12 * MONTH)
     {
         int months = floor((double)delta/MONTH);
-        return months <= 1 ? @"1 month" : [NSString stringWithFormat:@"%d months", months];
+        return months <= 1 ? @"1 month ago" : [NSString stringWithFormat:@"%d months", months];
     }
     else
     {
         int years = floor((double)delta/MONTH/12.0);
-        return years <= 1 ? @"1 year" : [NSString stringWithFormat:@"%d years", years];
+        return years <= 1 ? @"1 year ago" : [NSString stringWithFormat:@"%d years", years];
     }
 }
 
