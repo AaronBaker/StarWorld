@@ -26,6 +26,8 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
 	self = [super initWithStyle:style reuseIdentifier:identifier];
     
     
+    currentUser = [SWCurrentUser currentUserInstance];
+    
     //Initialize the "by" label.
     NSString *byLabelText = @"by ";
     CGSize byLabelSize = [byLabelText sizeWithFont:TTSTYLEVAR(font)];
@@ -75,13 +77,17 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)plainButtonTapped:(id)sender {
-    if ([sender backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"star-active.png"]) {
+    if ([sender backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"star-active.png"]) {//IF REMOVING STAR
         [sender setBackgroundImage:[UIImage imageNamed:@"star-inactive.png"] forState:UIControlStateNormal];
-        NSLog(@"Plain UIButton was tapped; setting 'off' image");
-    } else {
+        NSLog(@"Plain UIButton was tapped; setting 'off' image. TAG: %d",starButton.tag);
+        [currentUser.starredPostIDs removeObjectIdenticalTo:[NSNumber numberWithInt: starButton.tag]];
+    } else {//If STARING a post
         [sender setBackgroundImage:[UIImage imageNamed:@"star-active.png"] forState:UIControlStateNormal];
-        NSLog(@"Plain UIButton was tapped; setting 'on' image");
+        NSLog(@"Plain UIButton was tapped; setting 'on' image. TAG: %d",starButton.tag);
+        [currentUser.starredPostIDs addObject:[NSNumber numberWithInt: starButton.tag]];
     }
+    NSLog(@"STARS: %@",currentUser.starredPostIDs);
+    
     [sender setNeedsDisplay];
 }
 
@@ -90,7 +96,7 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
     if (_item != object) {
         [super setObject:object];
         
-        TTTableMessageItem* item = object;
+        SWPostTableItem* item = object;
         if (item.title.length) {
             self.titleLabel.text = item.title;
         }
@@ -108,6 +114,9 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
         if (item.imageURL) {
             self.imageView2.urlPath = item.imageURL;
         }
+        
+        starButton.tag = item.ID;
+        
     }
 }
 

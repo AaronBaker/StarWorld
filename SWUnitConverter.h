@@ -15,4 +15,5 @@
 
 + (NSString*)timeIntervalWithStartDate:(NSDate*)d1 withEndDate:(NSDate*)d2;
 + (NSString*) convertFromMeters: (float) distanceInMeters;
++ (NSString*) convertFromMetersRounded: (float) distanceInMeters;
 @end

@@ -1,4 +1,4 @@
-//
+ //
 //  Post.m
 //  Starworld Test2
 //
@@ -16,8 +16,14 @@
 @synthesize x;
 @synthesize y;
 @synthesize time;
+@synthesize ID;
 
-- (id)initWithName:(NSString *)postName time:(NSDate *)postTime x:(float)postX y:(float)postY content:(NSString *)postContent {
+- (id)initWithName:(NSString *)postName 
+              time:(NSDate *)postTime 
+                 x:(float)postX 
+                 y:(float)postY
+            ID:(NSInteger)postID
+           content:(NSString *)postContent {
     
     if ((self = [super init])) {
         
@@ -25,6 +31,7 @@
         self.content = postContent;
         self.x = postX;
         self.y = postY;
+        self.ID = postID;
         self.time = postTime;
         
     }

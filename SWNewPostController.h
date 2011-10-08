@@ -11,6 +11,9 @@
 
 @interface SWNewPostController : TTPostController <TTPostControllerDelegate> {
     SWCurrentUser *currentUser;
+    UILabel *countLabel;
 }
+
+@property (nonatomic, retain) UILabel *countLabel;
 
 @end

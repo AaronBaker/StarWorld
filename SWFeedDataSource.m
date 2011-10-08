@@ -82,6 +82,7 @@
     float distance;
     
     NSString *distanceString;
+    NSString *sectionsString;
     
     //[sections addObject:@"GOLD"];
     
@@ -103,8 +104,10 @@
             //Before going through the posts, we first get the title for the label
             
             float highestDistance = 0.0;
+            int postCount = 0;
             for (SWPost* post in dataSections) {
                 
+                postCount++;
                 postX = post.x;
                 postY = post.y;
                 
@@ -120,16 +123,23 @@
             }
             
                         
-            distanceString = [SWUnitConverter convertFromMeters:highestDistance];
-            [sections addObject:distanceString];
+            distanceString = [SWUnitConverter convertFromMetersRounded:highestDistance];
+            
+            
+            if (postCount == 1) {
+                sectionsString = [NSString stringWithFormat:@"%d post within %@",postCount,distanceString];
+            } else {
+                sectionsString = [NSString stringWithFormat:@"%d posts within %@",postCount,distanceString];
+
+            }
+                        
+            [sections addObject:sectionsString];
             
             
             //Build each post an add them to the item list.
             for (SWPost* post in dataSections) {
                 //TTDPRINT(@"Response text: %@", response.text);
                 
-                
-                NSDate *now = [NSDate date];
                 
                 postX = post.x;
                 postY = post.y;
@@ -143,33 +153,17 @@
                 [postLocation release];
                 
                 distanceString = [SWUnitConverter convertFromMeters:distance];
-                
-                
-                
-                TTStyledText* styledText = [TTStyledText textFromXHTML:
-                                            [NSString stringWithFormat:@"%@\n<b>%@</b>\n<b>%@</b>\n%@",
-                                             [[post.content stringByReplacingOccurrencesOfString:@"&"
-                                                                                      withString:@"&amp;"]
-                                              stringByReplacingOccurrencesOfString:@"<"
-                                              withString:@"&lt;"],
-                                             post.name,distanceString,[self timeIntervalWithStartDate:post.time withEndDate:now]]
-                                                            lineBreaks:YES URLs:YES];
-                
-                
-                // If this asserts, it's likely that the tweet.text contains an HTML character that caused
-                // the XML parser to fail.
-                TTDASSERT(nil != styledText);
-                
-                //[itemListMutable addObject:[TTTableStyledTextItem itemWithText:styledText]];
-                [itemListMutable addObject:[SWPostTableItem itemWithTitle:post.name 
-                                                                     caption:distanceString
-                                                                        text:[[post.content stringByReplacingOccurrencesOfString:@"&"
-                                                                                                                      withString:@"&amp;"]
-                                                                              stringByReplacingOccurrencesOfString:@"<"
-                                                                              withString:@"&lt;"]
-                                                                   timestamp:post.time
-                                                                         URL:Nil]];
 
+
+                [itemListMutable addObject: [SWPostTableItem itemWithTitle:post.name 
+                                                                   caption:distanceString 
+                                                                      text:[[post.content stringByReplacingOccurrencesOfString:@"&"
+                                                                                                                    withString:@"&amp;"]
+                                                                            stringByReplacingOccurrencesOfString:@"<"
+                                                                            withString:@"&lt;"] 
+                                                                 timestamp:post.time 
+                                                                        ID:post.ID 
+                                                                       URL:nil]];
             }
             
             

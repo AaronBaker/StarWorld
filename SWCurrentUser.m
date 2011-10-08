@@ -22,13 +22,17 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
 @synthesize authenticated;
 @synthesize x;
 @synthesize y;
+@synthesize starredPostIDs;
 
 + (SWCurrentUser*)currentUserInstance{
     static SWCurrentUser *currentUserInstance;
-	
+
+    
 	@synchronized(self) {
 		if(!currentUserInstance) {
-			currentUserInstance = [[SWCurrentUser alloc] init];
+			
+            currentUserInstance.starredPostIDs = [[NSMutableArray alloc] init];
+            currentUserInstance = [[SWCurrentUser alloc] init];
 		}
 	}
 	
@@ -94,7 +98,9 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
 
 
 - (void) dealloc {
-	[super dealloc];
+	
+    [starredPostIDs release];
+    [super dealloc];
 }
 
 @end

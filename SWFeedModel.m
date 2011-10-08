@@ -154,13 +154,18 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
             float entryX = [[entryPost objectForKey:@"x"] floatValue];
             float entryY = [[entryPost objectForKey:@"y"] floatValue];
             
+            NSInteger postID = [[entryPost objectForKey:@"id"] intValue];
+            
             SWPost* post = [[SWPost alloc]initWithName:username 
                                                   time:date 
                                                      x:entryX
                                                      y:entryY
+                                                    ID:postID 
                                                content:[entryPost objectForKey:@"body"]];
             
             //NSLog(@"Body: %@",[entryPost objectForKey:@"body"]);
+            
+            NSLog(@"POST ID: %d",postID);
 
             [posts addObject:post];
             TT_RELEASE_SAFELY(post);

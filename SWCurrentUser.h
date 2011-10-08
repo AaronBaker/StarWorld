@@ -17,9 +17,11 @@
     BOOL authenticated;
     float x;
     float y;
+    NSMutableArray *starredPostIDs;
 }
 
 @property (nonatomic, copy) NSString *cookie;
+@property (nonatomic, copy) NSMutableArray *starredPostIDs;
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, retain) NSMutableURLRequest *request;

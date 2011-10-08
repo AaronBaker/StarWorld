@@ -7,12 +7,13 @@
 //
 
 #import <Three20/Three20.h>
-
+#import "SWCurrentUser.h"
 
 @interface SWPostTableCell : TTTableMessageItemCell {
     
     UIButton *starButton;
     UILabel *byLabel;
+    SWCurrentUser *currentUser;
 }
 
 

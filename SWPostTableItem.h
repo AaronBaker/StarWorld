@@ -8,6 +8,22 @@
 
 #import <Three20/Three20.h>
 
-@interface SWPostTableItem : TTTableMessageItem
+@interface SWPostTableItem : TTTableMessageItem {
+    
+    NSInteger ID;
+    
+    
+}
+
+@property (nonatomic, assign) NSInteger ID;
+
++ (id)itemWithTitle:(NSString*)title 
+            caption:(NSString*)caption 
+               text:(NSString*)text
+          timestamp:(NSDate*)timestamp 
+                 ID:(NSInteger)itemID
+                URL:(NSString*)URL;
 
 @end
+
+

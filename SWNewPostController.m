@@ -11,7 +11,15 @@
 
 static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
 
+@interface SWNewPostController (hidden)
+
+-(void)checkCount;
+
+@end
+
+
 @implementation SWNewPostController
+@synthesize countLabel;
 
 - (id)initWithNavigatorURL:(NSURL*)URL query:(NSDictionary*)query {
 
@@ -29,6 +37,24 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
             [alert release];
         }
         
+       
+        
+        CGFloat left = 40.0;
+        CGFloat top = 40.0;
+        
+        CGRect countFrame = CGRectMake(left, top, 30.0, 20.0);
+        countLabel = [[UILabel alloc] initWithFrame:countFrame];
+        countLabel.text = @"140";
+        countLabel.textColor = RGBCOLOR(79, 89, 105);
+        countLabel.alpha = 0;
+        countLabel.backgroundColor = [UIColor clearColor];
+        countLabel.tag = 52;
+        [self.textView addSubview:countLabel];
+        
+        
+        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkCount) userInfo:nil repeats:YES];
+        
+        
     }
     
         
@@ -36,6 +62,72 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
     return self;
     
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showInView:(UIView*)view animated:(BOOL)animated {
+    [super showInView:view animated:animated];
+    
+    CGFloat left = self.textView.frame.size.width - 40.0;
+    CGFloat top = self.textView.frame.size.height - 30.0;
+    
+    [countLabel setFrame:CGRectMake(left, top, 30.0, 20.0)];
+    
+    
+    
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)showAnimationDidStop {
+    [super showAnimationDidStop];
+    
+    countLabel.alpha = 1;
+
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+    
+    
+    [super viewDidAppear:animated];
+    
+    
+   
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+                                         duration:(NSTimeInterval)duration {
+    
+    [super willAnimateRotationToInterfaceOrientation:fromInterfaceOrientation duration:duration];
+    
+    CGFloat left = self.textView.frame.size.width - 20.0;
+    CGFloat top = self.textView.frame.size.width - 20.0;
+    
+    
+    CGRect countFrame = CGRectMake(left, top, 20.0, 20.0);
+    
+    
+    
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+-(void)checkCount {
+    NSUInteger charCount = 140 - self.textView.text.length;
+    NSString *charString = [[NSString alloc] initWithFormat:@"%d",charCount];
+    
+    countLabel.text = charString;
+    
+    
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSString*)titleForActivity {
+    return @"SOMETHING's HAPPENING!";
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -79,6 +171,15 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
     }
     
 } 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)dealloc {
+    TT_RELEASE_SAFELY(countLabel);
+
+    
+    [super dealloc];
+}
+
 
 
 @end
