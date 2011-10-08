@@ -24,6 +24,19 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
 
 
 @synthesize window=_window;
+@synthesize splashController;
+
+- (void)addSplashScreen {
+	
+    splashController = [[PRPSplashScreenViewController alloc] init];
+	self.splashController.delegate = self;
+	self.splashController.transition = CircleFromCenter;
+	self.splashController.delay = 1.0;
+    [self.splashController showInWindow:_window];	
+    
+
+}
+
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
@@ -50,9 +63,15 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     
     [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://swfeed"]];
     
+    [self addSplashScreen];
+    
+    
     // Override point for customization after application launch
     [_window makeKeyAndVisible];
+    
 }
+
+
 
 
 - (void)signOut {
@@ -84,19 +103,23 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
      */
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     */
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [splashController.view removeFromSuperview];
+    [splashController release];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
+
+- (void)splashScreenDidDisappear:(PRPSplashScreenViewController *)splashScreen {
+
+
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
     /*
-     Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+     Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
+	[self addSplashScreen];
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

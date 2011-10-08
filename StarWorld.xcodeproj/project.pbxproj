@@ -45,6 +45,14 @@
 		9390EEF9141EC46D00B700C0 /* SWCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEF8141EC46C00B700C0 /* SWCurrentUser.m */; };
 		9390EF03141FF3C300B700C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9390EF02141FF3C300B700C0 /* CoreLocation.framework */; };
 		9390EF06141FF4FD00B700C0 /* SWLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EF05141FF4FC00B700C0 /* SWLocationController.m */; };
+		93A3DD431440F19800178C0F /* PRPSplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A3DD421440F19800178C0F /* PRPSplashScreenViewController.m */; };
+		93A3DD451440F79300178C0F /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD441440F79300178C0F /* purple.png */; };
+		93A3DD4D1440F82100178C0F /* BottomStripMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD471440F82100178C0F /* BottomStripMask.png */; };
+		93A3DD4E1440F82100178C0F /* TopStripMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD481440F82100178C0F /* TopStripMask.png */; };
+		93A3DD4F1440F82100178C0F /* RightStripMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD491440F82100178C0F /* RightStripMask.png */; };
+		93A3DD501440F82100178C0F /* leftStripMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4A1440F82100178C0F /* leftStripMask.png */; };
+		93A3DD511440F82100178C0F /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4B1440F82100178C0F /* mask.png */; };
+		93A3DD521440F82100178C0F /* wideMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4C1440F82100178C0F /* wideMask.png */; };
 		93AA474E1437DCE5001FFBF8 /* sw-tiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */; };
 		93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474D1437DCE5001FFBF8 /* sw-tiny.png */; };
 		93CE88841406DB340077628C /* SWFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE887F1406DB340077628C /* SWFeedModel.m */; };
@@ -301,6 +309,15 @@
 		9390EF02141FF3C300B700C0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		9390EF04141FF4FC00B700C0 /* SWLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLocationController.h; sourceTree = "<group>"; };
 		9390EF05141FF4FC00B700C0 /* SWLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLocationController.m; sourceTree = "<group>"; };
+		93A3DD411440F19800178C0F /* PRPSplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPSplashScreenViewController.h; sourceTree = "<group>"; };
+		93A3DD421440F19800178C0F /* PRPSplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPSplashScreenViewController.m; sourceTree = "<group>"; };
+		93A3DD441440F79300178C0F /* purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple.png; sourceTree = "<group>"; };
+		93A3DD471440F82100178C0F /* BottomStripMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BottomStripMask.png; sourceTree = "<group>"; };
+		93A3DD481440F82100178C0F /* TopStripMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TopStripMask.png; sourceTree = "<group>"; };
+		93A3DD491440F82100178C0F /* RightStripMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RightStripMask.png; sourceTree = "<group>"; };
+		93A3DD4A1440F82100178C0F /* leftStripMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftStripMask.png; sourceTree = "<group>"; };
+		93A3DD4B1440F82100178C0F /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
+		93A3DD4C1440F82100178C0F /* wideMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wideMask.png; sourceTree = "<group>"; };
 		93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny@2x.png"; sourceTree = "<group>"; };
 		93AA474D1437DCE5001FFBF8 /* sw-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny.png"; sourceTree = "<group>"; };
 		93CE887E1406DB340077628C /* SWFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedModel.h; sourceTree = "<group>"; };
@@ -541,6 +558,8 @@
 		9390EEE8141E697000B700C0 /* PRP Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93A3DD411440F19800178C0F /* PRPSplashScreenViewController.h */,
+				93A3DD421440F19800178C0F /* PRPSplashScreenViewController.m */,
 				9334EC51143BE9AD00EFB67D /* PRPToggleButton.h */,
 				9334EC52143BE9AD00EFB67D /* PRPToggleButton.m */,
 				9390EEE9141E698200B700C0 /* NSString+PRPURLAdditions.h */,
@@ -549,6 +568,19 @@
 				9390EEEC141E698200B700C0 /* PRPFormEncodedPOSTRequest.m */,
 			);
 			name = "PRP Classes";
+			sourceTree = "<group>";
+		};
+		93A3DD461440F80E00178C0F /* masks */ = {
+			isa = PBXGroup;
+			children = (
+				93A3DD471440F82100178C0F /* BottomStripMask.png */,
+				93A3DD481440F82100178C0F /* TopStripMask.png */,
+				93A3DD491440F82100178C0F /* RightStripMask.png */,
+				93A3DD4A1440F82100178C0F /* leftStripMask.png */,
+				93A3DD4B1440F82100178C0F /* mask.png */,
+				93A3DD4C1440F82100178C0F /* wideMask.png */,
+			);
+			name = masks;
 			sourceTree = "<group>";
 		};
 		93CE88311406D5B70077628C /* Delete later */ = {
@@ -590,6 +622,8 @@
 		93D2707C1422788F0089DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93A3DD461440F80E00178C0F /* masks */,
+				93A3DD441440F79300178C0F /* purple.png */,
 				93CFA7E9143EAEAF009F9B1D /* cell-bg.png */,
 				93CFA7EA143EAEAF009F9B1D /* cell-bg@2x.png */,
 				93D4F569143A329B00201165 /* Default@2x.png */,
@@ -883,6 +917,13 @@
 				9334EC60143BE9D800EFB67D /* star-pressed@2x.png in Resources */,
 				93CFA7EB143EAEAF009F9B1D /* cell-bg.png in Resources */,
 				93CFA7EC143EAEAF009F9B1D /* cell-bg@2x.png in Resources */,
+				93A3DD451440F79300178C0F /* purple.png in Resources */,
+				93A3DD4D1440F82100178C0F /* BottomStripMask.png in Resources */,
+				93A3DD4E1440F82100178C0F /* TopStripMask.png in Resources */,
+				93A3DD4F1440F82100178C0F /* RightStripMask.png in Resources */,
+				93A3DD501440F82100178C0F /* leftStripMask.png in Resources */,
+				93A3DD511440F82100178C0F /* mask.png in Resources */,
+				93A3DD521440F82100178C0F /* wideMask.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +975,7 @@
 				93D935371438C7D30096D782 /* SWPostTableItem.m in Sources */,
 				93D9353A1438C80A0096D782 /* SWPostTableCell.m in Sources */,
 				9334EC53143BE9AD00EFB67D /* PRPToggleButton.m in Sources */,
+				93A3DD431440F19800178C0F /* PRPSplashScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
