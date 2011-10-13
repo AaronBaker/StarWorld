@@ -109,14 +109,14 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
     TTURLJSONResponse* response = request.response;
     
     
-    NSLog(@"JSON RESPONSE COOKIES");
-    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
-    {
-        NSLog(@"name: '%@'\n",   [cookie name]);
-        NSLog(@"value: '%@'\n",  [cookie value]);
-        NSLog(@"domain: '%@'\n", [cookie domain]);
-        NSLog(@"path: '%@'\n",   [cookie path]);
-    }
+//    NSLog(@"JSON RESPONSE COOKIES");
+//    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies])
+//    {
+//        NSLog(@"name: '%@'\n",   [cookie name]);
+//        NSLog(@"value: '%@'\n",  [cookie value]);
+//        NSLog(@"domain: '%@'\n", [cookie domain]);
+//        NSLog(@"path: '%@'\n",   [cookie path]);
+//    }
     
     //TTDASSERT([response.rootObject isKindOfClass:[NSDictionary class]]);
     
@@ -165,7 +165,7 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
             
             //NSLog(@"Body: %@",[entryPost objectForKey:@"body"]);
             
-            NSLog(@"POST ID: %d",postID);
+            //NSLog(@"POST ID: %d",postID);
 
             [posts addObject:post];
             TT_RELEASE_SAFELY(post);

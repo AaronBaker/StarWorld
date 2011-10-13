@@ -51,8 +51,14 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
         countLabel.tag = 52;
         [self.textView addSubview:countLabel];
         
+        //FIX THIS THING.
+        //[NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkCount) userInfo:nil repeats:YES];
         
-        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(checkCount) userInfo:nil repeats:YES];
+        
+        NSLog(@"COUNT TIMER ALLOCATED");
+        countTimer = [[NSTimer alloc] initWithFireDate:[NSDate date] interval:0.1 target:self selector:@selector(checkCount) userInfo:nil repeats:YES];
+        
+        [[NSRunLoop currentRunLoop] addTimer:countTimer forMode:NSDefaultRunLoopMode];
         
         
     }
@@ -77,13 +83,22 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
 }
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)showAnimationDidStop {
     [super showAnimationDidStop];
     
     countLabel.alpha = 1;
 
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) viewDidDisappear:(BOOL)animated {    
+    [countTimer invalidate];
+    [countTimer release];
+    
+    [super viewDidDisappear:animated];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)viewDidAppear:(BOOL)animated {
     
@@ -118,7 +133,7 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
     
     countLabel.text = charString;
     
-    
+    [charString release];
 }
 
 
@@ -176,7 +191,6 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
 - (void)dealloc {
     TT_RELEASE_SAFELY(countLabel);
 
-    
     [super dealloc];
 }
 

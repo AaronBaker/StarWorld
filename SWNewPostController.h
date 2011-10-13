@@ -12,6 +12,7 @@
 @interface SWNewPostController : TTPostController <TTPostControllerDelegate> {
     SWCurrentUser *currentUser;
     UILabel *countLabel;
+    NSTimer *countTimer;
 }
 
 @property (nonatomic, retain) UILabel *countLabel;

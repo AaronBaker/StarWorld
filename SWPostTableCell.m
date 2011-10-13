@@ -148,7 +148,7 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
         textSize.height = 36.0;
     }
     
-    NSLog(@"TEXT SIZE HEIGHT IN Cell: %f",textSize.height);
+    //NSLog(@"TEXT SIZE HEIGHT IN Cell: %f",textSize.height);
    
     CGFloat textHeight = textSize.height + 52;
     

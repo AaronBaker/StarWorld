@@ -57,11 +57,10 @@
         
         currentUser = [SWCurrentUser currentUserInstance];
         
-        NSLog(@"From list controller X: %f, Y: %f",currentUser.x,currentUser.y);
+        //NSLog(@"From list controller X: %f, Y: %f",currentUser.x,currentUser.y);
         
         
         
-        NSLog(@"********************DATA SOURCE SET************************");
         SWFeedDataSource *dataSource = [[[SWFeedDataSource alloc]
                                          initWithCoordinatesX:currentUser.x Y:currentUser.y] autorelease]; 
         
