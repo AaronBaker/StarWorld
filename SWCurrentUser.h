@@ -21,7 +21,7 @@
 }
 
 @property (nonatomic, copy) NSString *cookie;
-@property (nonatomic, copy) NSMutableArray *starredPostIDs;
+@property (nonatomic, retain) NSMutableArray *starredPostIDs;
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, retain) NSMutableURLRequest *request;
@@ -31,5 +31,8 @@
 + (SWCurrentUser*)currentUserInstance;
 - (void) login;
 - (void) logout;
+- (void) setStarForPostID: (NSNumber*) postID;
+- (void) removeStarForPostID: (NSNumber*) postID;
+
 
 @end

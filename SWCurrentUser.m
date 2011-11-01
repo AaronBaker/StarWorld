@@ -11,6 +11,14 @@
 
 static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
 
+
+@interface SWCurrentUser (hidden)
+
+-(void)getStars;
+
+@end
+
+
 @implementation SWCurrentUser
 
 
@@ -31,15 +39,17 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
 	@synchronized(self) {
 		if(!currentUserInstance) {
 			
-            currentUserInstance.starredPostIDs = [[NSMutableArray alloc] init];
             currentUserInstance = [[SWCurrentUser alloc] init];
+            currentUserInstance.starredPostIDs = [[NSMutableArray alloc] init];
+            
+
 		}
 	}
 	
 	return currentUserInstance;
     
 }
-
+////////////////////////////////////////////////////////////////////////////////
 - (void) login {
     
     self.authenticated = YES;
@@ -57,7 +67,6 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
 
         NSLog(@"New Cookie Value: '%@'\n",  [newCookie value]);
 
-        
         self.cookie = [newCookie value];
     }
     
@@ -66,7 +75,7 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
     
     
 }
-
+////////////////////////////////////////////////////////////////////////////////
 - (void) logout {
     
     self.authenticated = NO;
@@ -90,6 +99,38 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
     NSLog(@"LOGOUT!");
     
 }
+
+////////////////////////////////////////////////////////////////////////////////
+- (void) setStarForPostID: (NSNumber*) postID {
+    
+    
+    
+    [self.starredPostIDs addObject:postID];
+    
+
+    
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+- (void) removeStarForPostID: (NSNumber*) postID {
+    
+    [self.starredPostIDs removeObject:postID];
+
+    
+}
+////////////////////////////////////////////////////////////////////////////////
+- (void) getStars {
+    
+    
+    
+    
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
 
 - (NSString *)description
 {

@@ -80,13 +80,17 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
     if ([sender backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"star-active.png"]) {//IF REMOVING STAR
         [sender setBackgroundImage:[UIImage imageNamed:@"star-inactive.png"] forState:UIControlStateNormal];
         NSLog(@"Plain UIButton was tapped; setting 'off' image. TAG: %d",starButton.tag);
-        [currentUser.starredPostIDs removeObjectIdenticalTo:[NSNumber numberWithInt: starButton.tag]];
+        //[currentUser.starredPostIDs removeObjectIdenticalTo:[NSNumber numberWithInt: starButton.tag]];
+        [currentUser removeStarForPostID:[NSNumber numberWithInt: starButton.tag]];
+
     } else {//If STARING a post
         [sender setBackgroundImage:[UIImage imageNamed:@"star-active.png"] forState:UIControlStateNormal];
         NSLog(@"Plain UIButton was tapped; setting 'on' image. TAG: %d",starButton.tag);
-        [currentUser.starredPostIDs addObject:[NSNumber numberWithInt: starButton.tag]];
+        //[currentUser.starredPostIDs addObject:[NSNumber numberWithInt: starButton.tag]];
+        //[currentUser.starredPostIDs addObject:@"Beanpole"];
+        [currentUser setStarForPostID:[NSNumber numberWithInt: starButton.tag]];
+        
     }
-    NSLog(@"STARS: %@",currentUser.starredPostIDs);
     
     [sender setNeedsDisplay];
 }
@@ -97,6 +101,19 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
         [super setObject:object];
         
         SWPostTableItem* item = object;
+        
+        
+        NSLog(@"USER ARRAY: %@",currentUser.starredPostIDs);
+        if ([currentUser.starredPostIDs containsObject:[NSNumber numberWithInt: item.ID]]) {
+            
+            [starButton setBackgroundImage:[UIImage imageNamed:@"star-active.png"] forState:UIControlStateNormal];
+
+        } else {
+            [starButton setBackgroundImage:[UIImage imageNamed:@"star-inactive.png"] forState:UIControlStateNormal];
+        }
+        
+        
+        
         if (item.title.length) {
             self.titleLabel.text = item.title;
         }
