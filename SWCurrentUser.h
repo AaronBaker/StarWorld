@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface SWCurrentUser : NSObject {
+@interface SWCurrentUser : NSObject <TTURLRequestDelegate> {
     NSString *cookie;
     NSString *username;
     NSString *password;
@@ -18,6 +18,9 @@
     float x;
     float y;
     NSMutableArray *starredPostIDs;
+    TTURLRequest* getStarRequest;
+    TTURLRequest* addStarRequest;
+    TTURLRequest* removeStarRequest;
 }
 
 @property (nonatomic, copy) NSString *cookie;

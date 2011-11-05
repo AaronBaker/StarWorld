@@ -108,7 +108,7 @@ NSString *const PRPSplashScreenFadeAnimation = @"PRPSplashScreenFadeAnimation";
 //            return;
 //    }
     
-    self.maskImageName = @"star-mask";
+    self.maskImageName = @"mask";
     self.anchor = CGPointMake(0.5, 0.5);
     
     

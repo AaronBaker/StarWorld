@@ -118,7 +118,7 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     /*
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
-	[self addSplashScreen];
+	//[self addSplashScreen];
     
 }
 

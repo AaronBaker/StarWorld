@@ -123,6 +123,8 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
     NSArray* responseSections = [response.rootObject objectForKey:@"posts"];
     
     
+    
+    
     //NSLog(@"ENTRIES: %@",entries);
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -132,8 +134,6 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
     
     
     NSMutableArray* sections = [NSMutableArray arrayWithCapacity:[responseSections count]];
-    
-    
     
     for (NSDictionary* entries in responseSections) {
         

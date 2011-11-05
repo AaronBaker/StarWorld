@@ -47,7 +47,7 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
     //Create a STAR Button
     starButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [starButton setBackgroundImage:[UIImage imageNamed:@"star-inactive.png"] forState:UIControlStateNormal];
-    [starButton setBackgroundImage:[UIImage imageNamed:@"star-pressed.png"] forState:UIControlStateHighlighted];
+    [starButton setBackgroundImage:[UIImage imageNamed:@"star-active.png"] forState:UIControlStateHighlighted];
     [starButton addTarget:self action:@selector(plainButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     starButton.frame = CGRectMake(254.0, 6.0, 55.0, 55.0);
     [self addSubview:starButton];    
@@ -103,7 +103,8 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
         SWPostTableItem* item = object;
         
         
-        NSLog(@"USER ARRAY: %@",currentUser.starredPostIDs);
+        
+        
         if ([currentUser.starredPostIDs containsObject:[NSNumber numberWithInt: item.ID]]) {
             
             [starButton setBackgroundImage:[UIImage imageNamed:@"star-active.png"] forState:UIControlStateNormal];

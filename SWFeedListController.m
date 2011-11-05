@@ -158,8 +158,6 @@
 //    }
     
     
-    NSLog(@"USER ARRAY: %@",currentUser.starredPostIDs);
-    
     
 }
 

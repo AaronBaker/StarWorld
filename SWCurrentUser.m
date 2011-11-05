@@ -7,7 +7,7 @@
 //
 
 #import "SWCurrentUser.h"
-
+#import <extThree20JSON/extThree20JSON.h>
 
 static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
 
@@ -71,7 +71,7 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
     }
     
     
-    
+    [self getStars];
     
     
 }
@@ -100,32 +100,7 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
     
 }
 
-////////////////////////////////////////////////////////////////////////////////
-- (void) setStarForPostID: (NSNumber*) postID {
-    
-    
-    
-    [self.starredPostIDs addObject:postID];
-    
 
-    
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-- (void) removeStarForPostID: (NSNumber*) postID {
-    
-    [self.starredPostIDs removeObject:postID];
-
-    
-}
-////////////////////////////////////////////////////////////////////////////////
-- (void) getStars {
-    
-    
-    
-    
-}
 
 
 
@@ -138,10 +113,142 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
 }
 
 
+
+
 - (void) dealloc {
 	
     [starredPostIDs release];
     [super dealloc];
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+- (void) setStarForPostID: (NSNumber*) postID {
+    
+    
+    //First add the star to the local array
+    [self.starredPostIDs addObject:postID];
+    
+    //Then, we add the star to the server
+    NSString *addStarURL = [NSString stringWithFormat:@"http://pandora.starworlddata.com/posts/add_star/%@",postID];
+    
+    
+    addStarRequest = [TTURLRequest requestWithURL: addStarURL
+                                         delegate: self];
+    addStarRequest.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+    addStarRequest.cacheExpirationAge = TT_CACHE_EXPIRATION_AGE_NEVER;
+    
+    
+    
+    addStarRequest.response = [[[TTURLDataResponse alloc] init] autorelease];
+    
+    [addStarRequest send];
+    
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+- (void) removeStarForPostID: (NSNumber*) postID {
+    
+    
+    //First remove the star from the local array
+    [self.starredPostIDs removeObject:postID];
+    
+    //Then, remove the star from the server
+    NSString *removeStarURL = [NSString stringWithFormat:@"http://pandora.starworlddata.com/posts/remove_star/%@",postID];
+    
+    
+    removeStarRequest = [TTURLRequest requestWithURL: removeStarURL
+                                         delegate: self];
+    
+    removeStarRequest.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+    removeStarRequest.cacheExpirationAge = TT_CACHE_EXPIRATION_AGE_NEVER;
+    
+    
+    
+    removeStarRequest.response = [[[TTURLDataResponse alloc] init] autorelease];
+    
+    [removeStarRequest send];    
+    
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+- (void) getStars {
+    
+    
+    
+    getStarRequest = [TTURLRequest requestWithURL: @"http://pandora.starworlddata.com/users/get_stars"
+                                                   delegate: self];
+    
+    getStarRequest.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+    getStarRequest.cacheExpirationAge = TT_CACHE_EXPIRATION_AGE_NEVER;
+    
+    
+    
+    getStarRequest.response = [[[TTURLJSONResponse alloc] init] autorelease];
+    
+    [getStarRequest send];
+    
+    
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark TTURLRequestDelegate
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)requestDidStartLoad:(TTURLRequest*)request {
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)requestDidFinishLoad:(TTURLRequest*)URLrequest {
+    
+    
+    //If we are retreving a list of stars, do this:
+    if ([URLrequest isEqual:getStarRequest]) {
+        NSLog(@"IT IS SO EQUAl!");
+        
+        
+        TTURLJSONResponse* response = URLrequest.response;
+        
+        NSDictionary *starsDict = [response.rootObject objectForKey:@"stars"];
+        
+        for (NSArray *starKey in starsDict) {
+            
+            NSString *starPostIDString = [starsDict objectForKey:starKey];
+            
+            NSNumber *starPostID = [NSNumber numberWithInt:[starPostIDString integerValue]];
+            
+            
+            [self setStarForPostID:starPostID];
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error {
+}
+
+
+
+
+
 
 @end

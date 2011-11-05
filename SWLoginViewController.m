@@ -35,9 +35,6 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 
 -(IBAction) startLogin: (id)sender {
     
-    
-    
-    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     [params setObject:username.text forKey:@"data[User][username]"];
@@ -80,8 +77,6 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     if (responseData) {
         NSLog(@"RESPONSE DATA: ***%@***",[NSString stringWithCString:[responseData bytes] encoding:NSUTF8StringEncoding]);
         [self processLoginResponse: response];
-        
-        [currentUser login];
         
         
         NSRange range = [(NSString*)[[response URL] absoluteString] rangeOfString:@"success" options:NSCaseInsensitiveSearch];
