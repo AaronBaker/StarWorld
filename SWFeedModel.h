@@ -9,9 +9,7 @@
 #import "SWCurrentUser.h"
 
 @interface SWFeedModel : TTURLRequestModel {
-    
-    float _xSearch;
-    float _ySearch;
+
     
     NSMutableArray*  _posts;
     
@@ -23,11 +21,11 @@
     
     SWCurrentUser *currentUser;
     
+    BOOL showStarred;
+    
 
 }
 
-@property (nonatomic) float xSearch;
-@property (nonatomic) float ySearch;
 
 @property (nonatomic, retain) NSMutableArray* posts;
 @property (nonatomic, assign)   NSUInteger      resultsPerPage;
@@ -36,6 +34,6 @@
 
 @property (nonatomic, readonly) BOOL            finished;
 
-- (id)initWithX: (float) x Y:(float)y;
+- (id)initWithStarred:(BOOL) starred;
 
 @end

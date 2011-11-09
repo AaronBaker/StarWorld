@@ -1,5 +1,5 @@
 //
-//  SWFeedListController.m
+//  SWStarListController.m
 //  StarWorld
 //
 //  Created by Aaron Baker on 8/25/11.
@@ -7,11 +7,11 @@
 //
 
 
-#import "SWFeedListController.h"
+#import "SWStarListController.h"
 #import "SWFeedDataSource.h"
 #import "SWLoginViewController.h"
 
-@interface SWFeedListController (hidden)
+@interface SWStarListController (hidden)
 
 -(void)setBarButtons;
 -(void)logoutButtonPushed;
@@ -19,7 +19,7 @@
 @end
 
 
-@implementation SWFeedListController
+@implementation SWStarListController
 
 - (id)initWithNavigatorURL:(NSURL*)URL query:(NSDictionary*)query {
     
@@ -38,14 +38,15 @@
             
         }
         
-        self.tabBarItem = [[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemRecents tag:1]autorelease];
-        
+        self.tabBarItem = [[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:2]autorelease];
         self.tableViewStyle = UITableViewStylePlain;
         
-        UIImage *logo = [UIImage imageNamed:@"sw-tiny.png"];
+        //UIImage *logo = [UIImage imageNamed:@"sw-tiny.png"];
         
         
-        self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:logo] autorelease];
+        //self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:logo] autorelease];
+        self.navigationItem.title = @"StarStruck";
+        
         
         
         self.navigationBarTintColor = [UIColor blackColor];
@@ -55,7 +56,7 @@
         
         
         SWFeedDataSource *dataSource = [[[SWFeedDataSource alloc]
-                                         initWithStarred:NO] autorelease]; 
+                                         initWithStarred:YES] autorelease]; 
         
         
         //This dummy view prevents empty cells from displaying
@@ -98,12 +99,12 @@
                                                   style:UIBarButtonItemStylePlain
                                                   target:@"tt://login"
                                                   action: @selector(openURLFromButton:)] autorelease];   
-
+        
         
         //Later fix this icon for the toolbar button.
-//        UIImage *gearImage = [UIImage imageNamed:@"Gear20.png"];
-//        
-//        [self.navigationItem.leftBarButtonItem setImage:gearImage];
+        //        UIImage *gearImage = [UIImage imageNamed:@"Gear20.png"];
+        //        
+        //        [self.navigationItem.leftBarButtonItem setImage:gearImage];
     }
     
     
@@ -120,34 +121,34 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//        
-//    
-//    NSURL *authTestURL = [NSURL URLWithString:@"http://pandora.starworlddata.com/users/authenticated"];
-//    
-//    NSURLRequest *request = [NSURLRequest requestWithURL:authTestURL];
-//    
-//    NSURLResponse *response = nil;
-//    NSError *error = nil;
-//    
-//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
-//                                                 returningResponse:&response
-//                                                             error:&error];
-//    
-//    NSRange range = [(NSString*)[[response URL] absoluteString] rangeOfString:@"success" options:NSCaseInsensitiveSearch];
-//    
-//    if (range.location == NSNotFound && currentUser.authenticated) {
-//    
-//        [currentUser logout];
-//        [self setBarButtons];
-//        
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"For some reason, you have been logged out!" 
-//                                                       delegate:self cancelButtonTitle:@"Umm. Ok." otherButtonTitles:nil];
-//        [alert show];
-//        [alert release];
-//        
-//        
-//        
-//    }
+    //        
+    //    
+    //    NSURL *authTestURL = [NSURL URLWithString:@"http://pandora.starworlddata.com/users/authenticated"];
+    //    
+    //    NSURLRequest *request = [NSURLRequest requestWithURL:authTestURL];
+    //    
+    //    NSURLResponse *response = nil;
+    //    NSError *error = nil;
+    //    
+    //    NSData *responseData = [NSURLConnection sendSynchronousRequest:request
+    //                                                 returningResponse:&response
+    //                                                             error:&error];
+    //    
+    //    NSRange range = [(NSString*)[[response URL] absoluteString] rangeOfString:@"success" options:NSCaseInsensitiveSearch];
+    //    
+    //    if (range.location == NSNotFound && currentUser.authenticated) {
+    //    
+    //        [currentUser logout];
+    //        [self setBarButtons];
+    //        
+    //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"For some reason, you have been logged out!" 
+    //                                                       delegate:self cancelButtonTitle:@"Umm. Ok." otherButtonTitles:nil];
+    //        [alert show];
+    //        [alert release];
+    //        
+    //        
+    //        
+    //    }
     
     
     

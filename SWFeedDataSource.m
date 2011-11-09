@@ -32,12 +32,12 @@
 @implementation SWFeedDataSource
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
--(id)initWithCoordinatesX: (float) x Y:(float)y {
+-(id)initWithStarred:(BOOL)starred {
     if ((self = [super init])) {
         
 
         
-        _searchFeedModel = [[SWFeedModel alloc] initWithX: x Y: y];
+        _searchFeedModel = [[SWFeedModel alloc] initWithStarred:starred];
 
         
         
@@ -157,12 +157,12 @@
 
                 [itemListMutable addObject: [SWPostTableItem itemWithTitle:post.name 
                                                                    caption:distanceString 
-                                                                      text:[[post.content stringByReplacingOccurrencesOfString:@"&"
-                                                                                                                    withString:@"&amp;"]
+                                                                      text:[post.content 
                                                                             stringByReplacingOccurrencesOfString:@"<"
                                                                             withString:@"&lt;"] 
                                                                  timestamp:post.time 
                                                                         ID:post.ID 
+                                                                 starcount:post.starCount
                                                                        URL:nil]];
             }
             

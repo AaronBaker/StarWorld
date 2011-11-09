@@ -19,6 +19,6 @@
     SWCurrentUser *currentUser;
 }
 
--(id)initWithCoordinatesX: (float) x Y:(float)y;
+-(id)initWithStarred:(BOOL) starred;
 
 @end

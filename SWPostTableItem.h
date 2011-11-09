@@ -11,17 +11,19 @@
 @interface SWPostTableItem : TTTableMessageItem {
     
     NSInteger ID;
-    
+    NSInteger starCount;
     
 }
 
 @property (nonatomic, assign) NSInteger ID;
+@property (nonatomic, assign) NSInteger starCount;
 
 + (id)itemWithTitle:(NSString*)title 
             caption:(NSString*)caption 
                text:(NSString*)text
           timestamp:(NSDate*)timestamp 
                  ID:(NSInteger)itemID
+          starcount:(NSInteger)itemStarCount
                 URL:(NSString*)URL;
 
 @end

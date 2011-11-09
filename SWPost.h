@@ -16,6 +16,7 @@
     float y;
     NSDate *time;
     NSInteger ID;
+    NSInteger starCount;
 }
 
 @property (nonatomic, copy) NSString *name;
@@ -24,7 +25,7 @@
 @property (nonatomic, assign) float x;
 @property (nonatomic, assign) float y;
 @property (nonatomic, assign) NSInteger ID;
-
+@property (nonatomic, assign) NSInteger starCount;
 
 
 - (id)initWithName:(NSString *)postName 
@@ -32,5 +33,6 @@
                  x:(float)postX 
                  y:(float)postY
                 ID:(NSInteger)postID
+         starCount:(NSInteger)postStarCount
            content:(NSString *)postContent;
 @end

@@ -8,8 +8,10 @@
 
 #import "StarWorldAppDelegate.h"
 #import "SWFeedListController.h"
+#import "SWStarListController.h"
 #import "SWNewPostController.h"
 #import "SWLoginViewController.h"
+#import "SWTabBarController.h"
 
 
 @interface StarWorldAppDelegate (hidden)
@@ -44,8 +46,6 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     //This deletes cookies!
     //[self signOut];
     
-    
-    
     currentUser = [SWCurrentUser currentUserInstance];
     
     [self loginCheck];
@@ -58,10 +58,12 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     
     TTURLMap *map = navigator.URLMap;
     [map from:@"tt://swfeed" toSharedViewController:[SWFeedListController class]];
+    [map from:@"tt://swstarred" toSharedViewController:[SWStarListController class]];
     [map from:@"tt://newpost" toSharedViewController:[SWNewPostController class]];
     [map from:@"tt://login" toModalViewController:[SWLoginViewController class]];
+    [map from:@"tt://tabBar" toSharedViewController:[SWTabBarController class]];
     
-    [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://swfeed"]];
+    [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];
     
     [self addSplashScreen];
     

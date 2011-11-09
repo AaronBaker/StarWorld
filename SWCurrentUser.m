@@ -94,7 +94,7 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
         
     }
     
-
+    [self.starredPostIDs removeAllObjects];
     
     NSLog(@"LOGOUT!");
     

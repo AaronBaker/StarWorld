@@ -72,6 +72,8 @@
 		93D935331438C6CC0096D782 /* Gear20.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D935321438C6CC0096D782 /* Gear20.png */; };
 		93D935371438C7D30096D782 /* SWPostTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D935361438C7D30096D782 /* SWPostTableItem.m */; };
 		93D9353A1438C80A0096D782 /* SWPostTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D935391438C80A0096D782 /* SWPostTableCell.m */; };
+		93E73B781468C9F700C4CDFF /* SWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E73B771468C9F700C4CDFF /* SWTabBarController.m */; };
+		93E73B7B1469E61800C4CDFF /* SWStarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E73B7A1469E61800C4CDFF /* SWStarListController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,6 +346,10 @@
 		93D935361438C7D30096D782 /* SWPostTableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPostTableItem.m; sourceTree = "<group>"; };
 		93D935381438C80A0096D782 /* SWPostTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPostTableCell.h; sourceTree = "<group>"; };
 		93D935391438C80A0096D782 /* SWPostTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPostTableCell.m; sourceTree = "<group>"; };
+		93E73B761468C9F700C4CDFF /* SWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTabBarController.h; sourceTree = "<group>"; };
+		93E73B771468C9F700C4CDFF /* SWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTabBarController.m; sourceTree = "<group>"; };
+		93E73B791469E61800C4CDFF /* SWStarListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStarListController.h; sourceTree = "<group>"; };
+		93E73B7A1469E61800C4CDFF /* SWStarListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStarListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,8 +615,12 @@
 		93CE88881406E0070077628C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				93E73B761468C9F700C4CDFF /* SWTabBarController.h */,
+				93E73B771468C9F700C4CDFF /* SWTabBarController.m */,
 				93CE88891406E0320077628C /* SWFeedListController.h */,
 				93CE888A1406E0320077628C /* SWFeedListController.m */,
+				93E73B791469E61800C4CDFF /* SWStarListController.h */,
+				93E73B7A1469E61800C4CDFF /* SWStarListController.m */,
 				937F78B014170422003E1BCD /* SWNewPostController.h */,
 				937F78B114170422003E1BCD /* SWNewPostController.m */,
 				9390EE67141BC2B700B700C0 /* SWLoginViewController.h */,
@@ -645,14 +655,7 @@
 		93D935341438C7390096D782 /* SW Table Data */ = {
 			isa = PBXGroup;
 			children = (
-				93CE887E1406DB340077628C /* SWFeedModel.h */,
-				93CE887F1406DB340077628C /* SWFeedModel.m */,
-				93CE88821406DB340077628C /* SWFeedDataSource.h */,
-				93CE88831406DB340077628C /* SWFeedDataSource.m */,
-				93D935351438C7D30096D782 /* SWPostTableItem.h */,
-				93D935361438C7D30096D782 /* SWPostTableItem.m */,
-				93D935381438C80A0096D782 /* SWPostTableCell.h */,
-				93D935391438C80A0096D782 /* SWPostTableCell.m */,
+				93E73B7C1469ED3000C4CDFF /* Recents Feed */,
 			);
 			name = "SW Table Data";
 			sourceTree = "<group>";
@@ -662,6 +665,21 @@
 			children = (
 			);
 			name = "SW Network";
+			sourceTree = "<group>";
+		};
+		93E73B7C1469ED3000C4CDFF /* Recents Feed */ = {
+			isa = PBXGroup;
+			children = (
+				93D935351438C7D30096D782 /* SWPostTableItem.h */,
+				93D935361438C7D30096D782 /* SWPostTableItem.m */,
+				93D935381438C80A0096D782 /* SWPostTableCell.h */,
+				93D935391438C80A0096D782 /* SWPostTableCell.m */,
+				93CE887E1406DB340077628C /* SWFeedModel.h */,
+				93CE887F1406DB340077628C /* SWFeedModel.m */,
+				93CE88821406DB340077628C /* SWFeedDataSource.h */,
+				93CE88831406DB340077628C /* SWFeedDataSource.m */,
+			);
+			name = "Recents Feed";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -979,6 +997,8 @@
 				93D9353A1438C80A0096D782 /* SWPostTableCell.m in Sources */,
 				9334EC53143BE9AD00EFB67D /* PRPToggleButton.m in Sources */,
 				93A3DD431440F19800178C0F /* PRPSplashScreenViewController.m in Sources */,
+				93E73B781468C9F700C4CDFF /* SWTabBarController.m in Sources */,
+				93E73B7B1469E61800C4CDFF /* SWStarListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,9 @@
 #import <extThree20JSON/extThree20JSON.h>
 
 
-static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_json2/";
+static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/";
+static NSString* kSWFeedPath = @"posts_json2";
+static NSString* kSWStarPath = @"posts_starred_json";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,22 +27,22 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
 @synthesize resultsPerPage  = _resultsPerPage;
 @synthesize finished        = _finished;
 @synthesize page            = _page;
-@synthesize xSearch         = _xSearch;
-@synthesize ySearch         = _ySearch;
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (id)initWithX:(float)x Y:(float)y {
+- (id)initWithStarred:(BOOL)starred {
     if ((self = [super init])) {
         
         currentUser = [SWCurrentUser currentUserInstance];
         
-        _xSearch = currentUser.x;
-        _ySearch = currentUser.y;
+
         _resultsPerPage = 50;
         _page = 1;
         _posts = [[NSMutableArray array] retain];
+        
+        showStarred = starred;
         
     }
 
@@ -72,7 +74,12 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
         
         //NSString* url = [NSString stringWithFormat:kTwitterSearchFeedFormat, _searchQuery, _resultsPerPage, _page];
         
-        NSString* url = [NSString stringWithFormat:@"%@%f/%f",kSWBaseURL,currentUser.y,currentUser.x];
+        NSString* dataPath = kSWFeedPath;
+        
+        if (showStarred)
+            dataPath = kSWStarPath;
+
+        NSString* url = [NSString stringWithFormat:@"%@/%@/%f/%f",kSWBaseURL,dataPath,currentUser.y,currentUser.x];
         
         NSLog(@"URL: %@",url);
         
@@ -155,12 +162,14 @@ static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/posts_jso
             float entryY = [[entryPost objectForKey:@"y"] floatValue];
             
             NSInteger postID = [[entryPost objectForKey:@"id"] intValue];
+            NSInteger postStarCount = [[entryPost objectForKey:@"star_count"] intValue];
             
             SWPost* post = [[SWPost alloc]initWithName:username 
                                                   time:date 
                                                      x:entryX
                                                      y:entryY
                                                     ID:postID 
+                                             starCount:postStarCount
                                                content:[entryPost objectForKey:@"body"]];
             
             //NSLog(@"Body: %@",[entryPost objectForKey:@"body"]);

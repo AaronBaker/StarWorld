@@ -17,12 +17,14 @@
 @synthesize y;
 @synthesize time;
 @synthesize ID;
+@synthesize starCount;
 
 - (id)initWithName:(NSString *)postName 
               time:(NSDate *)postTime 
                  x:(float)postX 
                  y:(float)postY
             ID:(NSInteger)postID
+         starCount:(NSInteger)postStarCount
            content:(NSString *)postContent {
     
     if ((self = [super init])) {
@@ -33,6 +35,7 @@
         self.y = postY;
         self.ID = postID;
         self.time = postTime;
+        self.starCount = postStarCount;
         
     }
     return self;
