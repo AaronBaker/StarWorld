@@ -13,7 +13,7 @@
 #import "SWUnitConverter.h"
 #import "SWPostTableCell.h"
 #import "SWPostTableItem.h"
-
+#import "SWStarPostTableCell.h"
 
 // Three20 Additions
 #import <Three20Core/NSDateAdditions.h>
@@ -40,7 +40,7 @@
         _searchFeedModel = [[SWFeedModel alloc] initWithStarred:starred];
 
         
-        
+        showStarred = starred;
         
 
     }
@@ -190,10 +190,16 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (Class)tableView:(UITableView *)tableView cellClassForObject:(id)object {
-    if([object isKindOfClass:[SWPostTableItem class]])
-        return [SWPostTableCell class];
-    else
+    if([object isKindOfClass:[SWPostTableItem class]]) {
+        if (showStarred) {
+            return [SWStarPostTableCell class];
+        } else {
+            return [SWPostTableCell class];
+        }
+    }
+    else {
         return [super tableView:tableView cellClassForObject:object];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -207,7 +213,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSString*)titleForEmpty {
-    return NSLocalizedString(@"No posts found :(\nPerhaps you would like to post one?", @"Starworld feed no results");
+    return NSLocalizedString(@"OH NO! Please try again later.", @"Starworld feed no results");
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

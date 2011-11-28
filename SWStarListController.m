@@ -45,7 +45,7 @@
         
         
         //self.navigationItem.titleView = [[[UIImageView alloc] initWithImage:logo] autorelease];
-        self.navigationItem.title = @"StarStruck";
+        self.navigationItem.title = @"Most Starred";
         
         
         

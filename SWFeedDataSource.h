@@ -17,6 +17,7 @@
 @interface SWFeedDataSource : TTSectionedDataSource {
     SWFeedModel* _searchFeedModel;
     SWCurrentUser *currentUser;
+    BOOL showStarred;
 }
 
 -(id)initWithStarred:(BOOL) starred;

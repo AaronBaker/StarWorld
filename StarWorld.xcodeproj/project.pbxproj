@@ -55,6 +55,7 @@
 		93A3DD521440F82100178C0F /* wideMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4C1440F82100178C0F /* wideMask.png */; };
 		93AA474E1437DCE5001FFBF8 /* sw-tiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */; };
 		93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474D1437DCE5001FFBF8 /* sw-tiny.png */; };
+		93B24BCC1476083000574835 /* SWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B24BCB1476083000574835 /* SWLoginController.m */; };
 		93B4EC081443BE0F009169C0 /* star-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B4EC071443BE0F009169C0 /* star-mask.png */; };
 		93CE88841406DB340077628C /* SWFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE887F1406DB340077628C /* SWFeedModel.m */; };
 		93CE88851406DB340077628C /* SWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88811406DB340077628C /* SWPost.m */; };
@@ -72,6 +73,12 @@
 		93D935331438C6CC0096D782 /* Gear20.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D935321438C6CC0096D782 /* Gear20.png */; };
 		93D935371438C7D30096D782 /* SWPostTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D935361438C7D30096D782 /* SWPostTableItem.m */; };
 		93D9353A1438C80A0096D782 /* SWPostTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D935391438C80A0096D782 /* SWPostTableCell.m */; };
+		93E2E1DB146B4B60009CA86B /* SWStarPostTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E2E1DA146B4B60009CA86B /* SWStarPostTableCell.m */; };
+		93E2E1DD146B67C1009CA86B /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E2E1DC146B67C1009CA86B /* blank.png */; };
+		93E2E1E2146B6A99009CA86B /* star-inactive-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E2E1DE146B6A99009CA86B /* star-inactive-clear.png */; };
+		93E2E1E3146B6A99009CA86B /* star-active-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E2E1DF146B6A99009CA86B /* star-active-clear.png */; };
+		93E2E1E4146B6A99009CA86B /* star-inactive-clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E2E1E0146B6A99009CA86B /* star-inactive-clear@2x.png */; };
+		93E2E1E5146B6A99009CA86B /* star-active-clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E2E1E1146B6A99009CA86B /* star-active-clear@2x.png */; };
 		93E73B781468C9F700C4CDFF /* SWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E73B771468C9F700C4CDFF /* SWTabBarController.m */; };
 		93E73B7B1469E61800C4CDFF /* SWStarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E73B7A1469E61800C4CDFF /* SWStarListController.m */; };
 /* End PBXBuildFile section */
@@ -322,6 +329,8 @@
 		93A3DD4C1440F82100178C0F /* wideMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wideMask.png; sourceTree = "<group>"; };
 		93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny@2x.png"; sourceTree = "<group>"; };
 		93AA474D1437DCE5001FFBF8 /* sw-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny.png"; sourceTree = "<group>"; };
+		93B24BCA1476083000574835 /* SWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginController.h; sourceTree = "<group>"; };
+		93B24BCB1476083000574835 /* SWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginController.m; sourceTree = "<group>"; };
 		93B4EC071443BE0F009169C0 /* star-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-mask.png"; sourceTree = "<group>"; };
 		93CE887E1406DB340077628C /* SWFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedModel.h; sourceTree = "<group>"; };
 		93CE887F1406DB340077628C /* SWFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedModel.m; sourceTree = "<group>"; };
@@ -346,6 +355,13 @@
 		93D935361438C7D30096D782 /* SWPostTableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPostTableItem.m; sourceTree = "<group>"; };
 		93D935381438C80A0096D782 /* SWPostTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPostTableCell.h; sourceTree = "<group>"; };
 		93D935391438C80A0096D782 /* SWPostTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPostTableCell.m; sourceTree = "<group>"; };
+		93E2E1D9146B4B60009CA86B /* SWStarPostTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStarPostTableCell.h; sourceTree = "<group>"; };
+		93E2E1DA146B4B60009CA86B /* SWStarPostTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStarPostTableCell.m; sourceTree = "<group>"; };
+		93E2E1DC146B67C1009CA86B /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
+		93E2E1DE146B6A99009CA86B /* star-inactive-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-inactive-clear.png"; sourceTree = "<group>"; };
+		93E2E1DF146B6A99009CA86B /* star-active-clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-active-clear.png"; sourceTree = "<group>"; };
+		93E2E1E0146B6A99009CA86B /* star-inactive-clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-inactive-clear@2x.png"; sourceTree = "<group>"; };
+		93E2E1E1146B6A99009CA86B /* star-active-clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-active-clear@2x.png"; sourceTree = "<group>"; };
 		93E73B761468C9F700C4CDFF /* SWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTabBarController.h; sourceTree = "<group>"; };
 		93E73B771468C9F700C4CDFF /* SWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTabBarController.m; sourceTree = "<group>"; };
 		93E73B791469E61800C4CDFF /* SWStarListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStarListController.h; sourceTree = "<group>"; };
@@ -462,6 +478,10 @@
 		9334EC54143BE9C000EFB67D /* Stars */ = {
 			isa = PBXGroup;
 			children = (
+				93E2E1DE146B6A99009CA86B /* star-inactive-clear.png */,
+				93E2E1DF146B6A99009CA86B /* star-active-clear.png */,
+				93E2E1E0146B6A99009CA86B /* star-inactive-clear@2x.png */,
+				93E2E1E1146B6A99009CA86B /* star-active-clear@2x.png */,
 				9334EC55143BE9D800EFB67D /* star-active.png */,
 				9334EC56143BE9D800EFB67D /* star-active@2x.png */,
 				9334EC57143BE9D800EFB67D /* star-inactive.png */,
@@ -615,10 +635,12 @@
 		93CE88881406E0070077628C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				93E73B761468C9F700C4CDFF /* SWTabBarController.h */,
-				93E73B771468C9F700C4CDFF /* SWTabBarController.m */,
+				93B24BCA1476083000574835 /* SWLoginController.h */,
+				93B24BCB1476083000574835 /* SWLoginController.m */,
 				93CE88891406E0320077628C /* SWFeedListController.h */,
 				93CE888A1406E0320077628C /* SWFeedListController.m */,
+				93E73B761468C9F700C4CDFF /* SWTabBarController.h */,
+				93E73B771468C9F700C4CDFF /* SWTabBarController.m */,
 				93E73B791469E61800C4CDFF /* SWStarListController.h */,
 				93E73B7A1469E61800C4CDFF /* SWStarListController.m */,
 				937F78B014170422003E1BCD /* SWNewPostController.h */,
@@ -633,6 +655,7 @@
 		93D2707C1422788F0089DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93E2E1DC146B67C1009CA86B /* blank.png */,
 				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				93A3DD461440F80E00178C0F /* masks */,
 				93A3DD441440F79300178C0F /* purple.png */,
@@ -674,6 +697,8 @@
 				93D935361438C7D30096D782 /* SWPostTableItem.m */,
 				93D935381438C80A0096D782 /* SWPostTableCell.h */,
 				93D935391438C80A0096D782 /* SWPostTableCell.m */,
+				93E2E1D9146B4B60009CA86B /* SWStarPostTableCell.h */,
+				93E2E1DA146B4B60009CA86B /* SWStarPostTableCell.m */,
 				93CE887E1406DB340077628C /* SWFeedModel.h */,
 				93CE887F1406DB340077628C /* SWFeedModel.m */,
 				93CE88821406DB340077628C /* SWFeedDataSource.h */,
@@ -945,6 +970,11 @@
 				93A3DD511440F82100178C0F /* mask.png in Resources */,
 				93A3DD521440F82100178C0F /* wideMask.png in Resources */,
 				93B4EC081443BE0F009169C0 /* star-mask.png in Resources */,
+				93E2E1DD146B67C1009CA86B /* blank.png in Resources */,
+				93E2E1E2146B6A99009CA86B /* star-inactive-clear.png in Resources */,
+				93E2E1E3146B6A99009CA86B /* star-active-clear.png in Resources */,
+				93E2E1E4146B6A99009CA86B /* star-inactive-clear@2x.png in Resources */,
+				93E2E1E5146B6A99009CA86B /* star-active-clear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,6 +1029,8 @@
 				93A3DD431440F19800178C0F /* PRPSplashScreenViewController.m in Sources */,
 				93E73B781468C9F700C4CDFF /* SWTabBarController.m in Sources */,
 				93E73B7B1469E61800C4CDFF /* SWStarListController.m in Sources */,
+				93E2E1DB146B4B60009CA86B /* SWStarPostTableCell.m in Sources */,
+				93B24BCC1476083000574835 /* SWLoginController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1092,7 +1124,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aaron Baker (FX5V23BFBN)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -1108,6 +1140,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8247AC04-0A22-4EAE-A315-5815DC12F326";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1116,7 +1149,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aaron Baker (FX5V23BFBN)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1130,6 +1163,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8247AC04-0A22-4EAE-A315-5815DC12F326";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
