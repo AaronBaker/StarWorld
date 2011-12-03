@@ -13,6 +13,7 @@
 #import "SWLoginViewController.h"
 #import "SWTabBarController.h"
 #import "SWLoginController.h"
+#import "SWSettingsController.h"
 
 @interface StarWorldAppDelegate (hidden)
 - (void)signOut;
@@ -62,6 +63,7 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     [map from:@"tt://newpost" toSharedViewController:[SWNewPostController class]];
     [map from:@"tt://login" toModalViewController:[SWLoginController class]];
     [map from:@"tt://tabBar" toSharedViewController:[SWTabBarController class]];
+    [map from:@"tt://settings" toSharedViewController:[SWSettingsController class]];
     
     [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];
     

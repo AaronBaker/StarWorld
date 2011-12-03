@@ -94,9 +94,9 @@
                                                    action: @selector(holdOnButtonPushed)] autorelease];
         
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
-                                                  initWithTitle: @"Login"
+                                                  initWithTitle: @"Main"
                                                   style:UIBarButtonItemStylePlain
-                                                  target:@"tt://login"
+                                                  target:@"tt://settings"
                                                   action: @selector(openURLFromButton:)] autorelease];   
 
         

@@ -38,6 +38,7 @@
 		93835A491406D4E800E04592 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93835A471406D4E800E04592 /* InfoPlist.strings */; };
 		93835A4C1406D4E800E04592 /* StarWorldTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 93835A4B1406D4E800E04592 /* StarWorldTests.h */; };
 		93835A4E1406D4E800E04592 /* StarWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93835A4D1406D4E800E04592 /* StarWorldTests.m */; };
+		938ECFB6148A7B8F009E85B5 /* SWSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */; };
 		9390EE6A141BC2B700B700C0 /* SWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EE68141BC2B700B700C0 /* SWLoginViewController.m */; };
 		9390EE6B141BC2B700B700C0 /* SWLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */; };
 		9390EEED141E698200B700C0 /* NSString+PRPURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEEA141E698200B700C0 /* NSString+PRPURLAdditions.m */; };
@@ -306,6 +307,8 @@
 		93835A4A1406D4E800E04592 /* StarWorldTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StarWorldTests-Prefix.pch"; sourceTree = "<group>"; };
 		93835A4B1406D4E800E04592 /* StarWorldTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarWorldTests.h; sourceTree = "<group>"; };
 		93835A4D1406D4E800E04592 /* StarWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarWorldTests.m; sourceTree = "<group>"; };
+		938ECFB4148A7B8F009E85B5 /* SWSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsController.h; sourceTree = "<group>"; };
+		938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsController.m; sourceTree = "<group>"; };
 		9390EE67141BC2B700B700C0 /* SWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginViewController.h; sourceTree = "<group>"; };
 		9390EE68141BC2B700B700C0 /* SWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginViewController.m; sourceTree = "<group>"; };
 		9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWLoginViewController.xib; sourceTree = "<group>"; };
@@ -648,6 +651,8 @@
 				9390EE67141BC2B700B700C0 /* SWLoginViewController.h */,
 				9390EE68141BC2B700B700C0 /* SWLoginViewController.m */,
 				9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */,
+				938ECFB4148A7B8F009E85B5 /* SWSettingsController.h */,
+				938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1031,6 +1036,7 @@
 				93E73B7B1469E61800C4CDFF /* SWStarListController.m in Sources */,
 				93E2E1DB146B4B60009CA86B /* SWStarPostTableCell.m in Sources */,
 				93B24BCC1476083000574835 /* SWLoginController.m in Sources */,
+				938ECFB6148A7B8F009E85B5 /* SWSettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

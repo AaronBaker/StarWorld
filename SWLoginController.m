@@ -91,7 +91,8 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
                        passwordField,
                        @"",
                        [TTTableTextItem itemWithText:@"Forgot Password?" URL:@"http://pandora.starworlddata.com/users/forgot"],
-                       nil];
+                       [TTTableTextItem itemWithText:@"Forgot Password?" delegate:self selector:@selector(forgot)],                       
+                        nil];
     
 
     
@@ -105,6 +106,8 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)forgot {
     TTOpenURL(@"http://www.three20.info/");
+    [self dismiss];
+
     
 }
 
