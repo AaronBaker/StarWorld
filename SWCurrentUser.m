@@ -49,12 +49,13 @@ static NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenti
 	return currentUserInstance;
     
 }
+
 ////////////////////////////////////////////////////////////////////////////////
 - (void) login {
     
     self.authenticated = YES;
     
-    self.username = @"Aaron";
+    //self.username = @"Aaron";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     

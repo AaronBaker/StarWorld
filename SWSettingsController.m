@@ -21,12 +21,18 @@
         self.variableHeightRows = YES;
         self.tableView.backgroundColor = RGBCOLOR(190,190,190);
         self.navigationBarTintColor = [UIColor blackColor];
+        self.hidesBottomBarWhenPushed = YES;
         self.title = @"Login";
         
         //Add Cells to datasource
         self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
-                           @"Links",
-                           [TTTableTextItem itemWithText:@"Login" URL:@"tt://login"],                    
+                           @"Accounts",
+                           [TTTableTextItem itemWithText:@"Register New Account" URL:@"tt://main/register"],
+                           [TTTableTextItem itemWithText:@"Login" URL:@"tt://main/login"],
+                           @"More",
+                           [TTTableTextItem itemWithText:@"About StarWorld" URL:@""],
+                           [TTTableTextItem itemWithText:@"More From Aaron" URL:@""],
+                           
                            nil];
         
     }
@@ -34,4 +40,10 @@
     return self;
     
 }
+
+
+- (void) dismiss {
+    [self.navigationController popViewControllerAnimated:NO]; 
+}
+
 @end

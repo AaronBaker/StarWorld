@@ -78,7 +78,7 @@
     if (currentUser.authenticated == YES) {
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
                                                    initWithBarButtonSystemItem: UIBarButtonSystemItemCompose
-                                                   target:@"tt://newpost"
+                                                   target:@"tt://main/newpost"
                                                    action: @selector(openURLFromButton:)] autorelease];
         
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
@@ -97,7 +97,7 @@
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
                                                   initWithTitle: @"Login"
                                                   style:UIBarButtonItemStylePlain
-                                                  target:@"tt://login"
+                                                  target:@"tt://main/login"
                                                   action: @selector(openURLFromButton:)] autorelease];   
         
         

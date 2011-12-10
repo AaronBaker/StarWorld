@@ -17,6 +17,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 - (void) getLoginCookie;
 - (void) dismiss;
 - (void) forgot;
+- (void) setBarButtons;
 - (id) startLogin: (id)sender;
 @end
 
@@ -31,6 +32,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     }
     
     NSLog(@"INIT LOGIN!");
+    NSLog(@"CURRENT USER: %@",currentUser.username);
     
     //Style the table view
     self.tableViewStyle = UITableViewStyleGrouped;
@@ -90,8 +92,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
                        usernameField,
                        passwordField,
                        @"",
-                       [TTTableTextItem itemWithText:@"Forgot Password?" URL:@"http://pandora.starworlddata.com/users/forgot"],
-                       [TTTableTextItem itemWithText:@"Forgot Password?" delegate:self selector:@selector(forgot)],                       
+                       [TTTableTextItem itemWithText:@"Forgot Password?" URL:@"tt://main/login/forgot"],
                         nil];
     
 
@@ -104,12 +105,16 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     return self;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
--(void)forgot {
-    TTOpenURL(@"http://www.three20.info/");
-    [self dismiss];
-
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     
+    if (textField.tag == 2) {
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    }
+    
+    return YES;
 }
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -125,6 +130,8 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     return YES;
 }
 
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)setBarButtons {
     
@@ -139,22 +146,38 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
                                                initWithTitle:@"Done" style:UIBarButtonItemStyleBordered
                                                target:self action:@selector(startLogin: )] autorelease];
         
- 
+    
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
 
     
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)dismiss {      
+    
+    TTNavigator *navigator = [TTNavigator navigator];
+    [navigator removeAllViewControllers];
+    
+     [self dismissModalViewControllerAnimated:YES];
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    TTURLAction *urlAction  =   [[TTURLAction actionWithURLPath:@"tt://main/tabBar/"] applyAnimated:NO];
+    [[TTNavigator navigator]    openURLAction:urlAction];    
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setBarButtons];
+
 }
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)dismiss {
-    [self dismissModalViewControllerAnimated:YES];
-}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 -(void) startLogin: (id)sender {
     
@@ -167,6 +190,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     NSURL *postURL = [NSURL URLWithString:kSWLoginURL];
     
     NSLog(@"LOGIN POST URL: %@",postURL);
+    NSLog(@"CURRENT USER: %@",currentUser.username);
     
     NSURLRequest *request = [PRPFormEncodedPOSTRequest requestWithURL:postURL
                                                        formParameters:params];
@@ -207,12 +231,14 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
         if (range.location != NSNotFound) {
             NSLog(@"AUTH SUCCESS!");
             
+
             
             [currentUser login];
             
             NSLog(@"Authenticated: %d",currentUser.authenticated);
             
             [self dismiss];
+            
         } else {
             NSLog(@"AUTH FAILED!");
             
@@ -230,6 +256,8 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
         NSLog(@"Error Logginin to %@ (%@)", kSWLoginURL, error);
     }
     
+    
+    NSLog(@"CURRENT USER: %@",currentUser.username);
     
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -272,7 +300,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
     
     
 }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 - (void)dealloc

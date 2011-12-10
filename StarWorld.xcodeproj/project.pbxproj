@@ -17,6 +17,9 @@
 		320CC833B8AF0ACFD35E6225 /* libThree20Style.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320CC833B8AF0ACFD35E6224 /* libThree20Style.a */; };
 		320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320D7DCCE32703ACAB9A45E4 /* libThree20.a */; };
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320F2C48872C2E2C4DF86204 /* libThree20UI.a */; };
+		930FA902148BDF8E00758ABF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930FA900148BDF8E00758ABF /* WebViewController.m */; };
+		930FA903148BDF8E00758ABF /* WebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 930FA901148BDF8E00758ABF /* WebView.xib */; };
+		930FA906148BEDF000758ABF /* SWRegisterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 930FA905148BEDF000758ABF /* SWRegisterController.m */; };
 		9334EC53143BE9AD00EFB67D /* PRPToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9334EC52143BE9AD00EFB67D /* PRPToggleButton.m */; };
 		9334EC5B143BE9D800EFB67D /* star-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 9334EC55143BE9D800EFB67D /* star-active.png */; };
 		9334EC5C143BE9D800EFB67D /* star-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9334EC56143BE9D800EFB67D /* star-active@2x.png */; };
@@ -39,6 +42,7 @@
 		93835A4C1406D4E800E04592 /* StarWorldTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 93835A4B1406D4E800E04592 /* StarWorldTests.h */; };
 		93835A4E1406D4E800E04592 /* StarWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93835A4D1406D4E800E04592 /* StarWorldTests.m */; };
 		938ECFB6148A7B8F009E85B5 /* SWSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */; };
+		938ECFCA148A94CB009E85B5 /* PRPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 938ECFC9148A94CB009E85B5 /* PRPWebViewController.m */; };
 		9390EE6A141BC2B700B700C0 /* SWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EE68141BC2B700B700C0 /* SWLoginViewController.m */; };
 		9390EE6B141BC2B700B700C0 /* SWLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */; };
 		9390EEED141E698200B700C0 /* NSString+PRPURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEEA141E698200B700C0 /* NSString+PRPURLAdditions.m */; };
@@ -58,22 +62,29 @@
 		93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474D1437DCE5001FFBF8 /* sw-tiny.png */; };
 		93B24BCC1476083000574835 /* SWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B24BCB1476083000574835 /* SWLoginController.m */; };
 		93B4EC081443BE0F009169C0 /* star-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B4EC071443BE0F009169C0 /* star-mask.png */; };
+		93CCE6C914918D2900A6E757 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C314918D2900A6E757 /* Icon@2x.png */; };
+		93CCE6CA14918D2900A6E757 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C414918D2900A6E757 /* Icon.png */; };
+		93CCE6CB14918D2900A6E757 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C514918D2900A6E757 /* Icon-Small@2x.png */; };
+		93CCE6CC14918D2900A6E757 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C614918D2900A6E757 /* Icon-Small.png */; };
+		93CCE6CD14918D2900A6E757 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C714918D2900A6E757 /* Icon-Small-50.png */; };
+		93CCE6CE14918D2900A6E757 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C814918D2900A6E757 /* Icon-72.png */; };
 		93CE88841406DB340077628C /* SWFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE887F1406DB340077628C /* SWFeedModel.m */; };
 		93CE88851406DB340077628C /* SWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88811406DB340077628C /* SWPost.m */; };
 		93CE88861406DB340077628C /* SWFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88831406DB340077628C /* SWFeedDataSource.m */; };
 		93CE888B1406E0320077628C /* SWFeedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE888A1406E0320077628C /* SWFeedListController.m */; };
 		93CFA7EB143EAEAF009F9B1D /* cell-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CFA7E9143EAEAF009F9B1D /* cell-bg.png */; };
 		93CFA7EC143EAEAF009F9B1D /* cell-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CFA7EA143EAEAF009F9B1D /* cell-bg@2x.png */; };
-		93D2708B14228FF20089DDF2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D2708914228FF20089DDF2 /* Icon.png */; };
-		93D2708C14228FF20089DDF2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D2708A14228FF20089DDF2 /* Icon@2x.png */; };
 		93D2708F1422A1BF0089DDF2 /* SWUnitConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D2708E1422A1BE0089DDF2 /* SWUnitConverter.m */; };
 		93D4F568143A329800201165 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D4F567143A329800201165 /* Default.png */; };
 		93D4F56A143A329B00201165 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D4F569143A329B00201165 /* Default@2x.png */; };
 		93D9352D1438C42F0096D782 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9352C1438C42F0096D782 /* 19-gear.png */; };
-		93D9352F1438C5EF0096D782 /* Gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9352E1438C5EF0096D782 /* Gear.png */; };
-		93D935331438C6CC0096D782 /* Gear20.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D935321438C6CC0096D782 /* Gear20.png */; };
+		93D9352F1438C5EF0096D782 /* Gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D9352E1438C5EF0096D782 /* Gear@2x.png */; };
+		93D935331438C6CC0096D782 /* Gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D935321438C6CC0096D782 /* Gear.png */; };
 		93D935371438C7D30096D782 /* SWPostTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D935361438C7D30096D782 /* SWPostTableItem.m */; };
 		93D9353A1438C80A0096D782 /* SWPostTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D935391438C80A0096D782 /* SWPostTableCell.m */; };
+		93E0044714902CD900218C99 /* UIBarButtonItem+SWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E0044614902CD900218C99 /* UIBarButtonItem+SWAdditions.m */; };
+		93E0044A14903DD100218C99 /* MyGear.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E0044814903DD100218C99 /* MyGear.png */; };
+		93E0044B14903DD100218C99 /* MyGear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E0044914903DD100218C99 /* MyGear@2x.png */; };
 		93E2E1DB146B4B60009CA86B /* SWStarPostTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E2E1DA146B4B60009CA86B /* SWStarPostTableCell.m */; };
 		93E2E1DD146B67C1009CA86B /* blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E2E1DC146B67C1009CA86B /* blank.png */; };
 		93E2E1E2146B6A99009CA86B /* star-inactive-clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 93E2E1DE146B6A99009CA86B /* star-inactive-clear.png */; };
@@ -280,6 +291,11 @@
 		320CC833B8AF0ACFD35E6220 /* Three20Style.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20Style.xcodeproj; path = ../three20/src/Three20Style/Three20Style.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		320F2C48872C2E2C4DF86200 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = ../three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
+		930FA8FF148BDF8E00758ABF /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		930FA900148BDF8E00758ABF /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		930FA901148BDF8E00758ABF /* WebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebView.xib; sourceTree = "<group>"; };
+		930FA904148BEDF000758ABF /* SWRegisterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRegisterController.h; sourceTree = "<group>"; };
+		930FA905148BEDF000758ABF /* SWRegisterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRegisterController.m; sourceTree = "<group>"; };
 		9334EC51143BE9AD00EFB67D /* PRPToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPToggleButton.h; sourceTree = "<group>"; };
 		9334EC52143BE9AD00EFB67D /* PRPToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPToggleButton.m; sourceTree = "<group>"; };
 		9334EC55143BE9D800EFB67D /* star-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-active.png"; sourceTree = "<group>"; };
@@ -309,6 +325,9 @@
 		93835A4D1406D4E800E04592 /* StarWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StarWorldTests.m; sourceTree = "<group>"; };
 		938ECFB4148A7B8F009E85B5 /* SWSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWSettingsController.h; sourceTree = "<group>"; };
 		938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWSettingsController.m; sourceTree = "<group>"; };
+		938ECFC7148A94CB009E85B5 /* PRPWebViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPWebViewControllerDelegate.h; sourceTree = "<group>"; };
+		938ECFC8148A94CB009E85B5 /* PRPWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPWebViewController.h; sourceTree = "<group>"; };
+		938ECFC9148A94CB009E85B5 /* PRPWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPWebViewController.m; sourceTree = "<group>"; };
 		9390EE67141BC2B700B700C0 /* SWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginViewController.h; sourceTree = "<group>"; };
 		9390EE68141BC2B700B700C0 /* SWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginViewController.m; sourceTree = "<group>"; };
 		9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SWLoginViewController.xib; sourceTree = "<group>"; };
@@ -335,6 +354,12 @@
 		93B24BCA1476083000574835 /* SWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginController.h; sourceTree = "<group>"; };
 		93B24BCB1476083000574835 /* SWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginController.m; sourceTree = "<group>"; };
 		93B4EC071443BE0F009169C0 /* star-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-mask.png"; sourceTree = "<group>"; };
+		93CCE6C314918D2900A6E757 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		93CCE6C414918D2900A6E757 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		93CCE6C514918D2900A6E757 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		93CCE6C614918D2900A6E757 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		93CCE6C714918D2900A6E757 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		93CCE6C814918D2900A6E757 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		93CE887E1406DB340077628C /* SWFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedModel.h; sourceTree = "<group>"; };
 		93CE887F1406DB340077628C /* SWFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedModel.m; sourceTree = "<group>"; };
 		93CE88801406DB340077628C /* SWPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPost.h; sourceTree = "<group>"; };
@@ -345,19 +370,21 @@
 		93CE888A1406E0320077628C /* SWFeedListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedListController.m; sourceTree = "<group>"; };
 		93CFA7E9143EAEAF009F9B1D /* cell-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-bg.png"; sourceTree = "<group>"; };
 		93CFA7EA143EAEAF009F9B1D /* cell-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-bg@2x.png"; sourceTree = "<group>"; };
-		93D2708914228FF20089DDF2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		93D2708A14228FF20089DDF2 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		93D2708D1422A1BD0089DDF2 /* SWUnitConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUnitConverter.h; sourceTree = "<group>"; };
 		93D2708E1422A1BE0089DDF2 /* SWUnitConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUnitConverter.m; sourceTree = "<group>"; };
 		93D4F567143A329800201165 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		93D4F569143A329B00201165 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		93D9352C1438C42F0096D782 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
-		93D9352E1438C5EF0096D782 /* Gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gear.png; sourceTree = "<group>"; };
-		93D935321438C6CC0096D782 /* Gear20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gear20.png; sourceTree = "<group>"; };
+		93D9352E1438C5EF0096D782 /* Gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gear@2x.png"; sourceTree = "<group>"; };
+		93D935321438C6CC0096D782 /* Gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gear.png; sourceTree = "<group>"; };
 		93D935351438C7D30096D782 /* SWPostTableItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPostTableItem.h; sourceTree = "<group>"; };
 		93D935361438C7D30096D782 /* SWPostTableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPostTableItem.m; sourceTree = "<group>"; };
 		93D935381438C80A0096D782 /* SWPostTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPostTableCell.h; sourceTree = "<group>"; };
 		93D935391438C80A0096D782 /* SWPostTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWPostTableCell.m; sourceTree = "<group>"; };
+		93E0044514902CD900218C99 /* UIBarButtonItem+SWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+SWAdditions.h"; sourceTree = "<group>"; };
+		93E0044614902CD900218C99 /* UIBarButtonItem+SWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+SWAdditions.m"; sourceTree = "<group>"; };
+		93E0044814903DD100218C99 /* MyGear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyGear.png; sourceTree = "<group>"; };
+		93E0044914903DD100218C99 /* MyGear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyGear@2x.png"; sourceTree = "<group>"; };
 		93E2E1D9146B4B60009CA86B /* SWStarPostTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWStarPostTableCell.h; sourceTree = "<group>"; };
 		93E2E1DA146B4B60009CA86B /* SWStarPostTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWStarPostTableCell.m; sourceTree = "<group>"; };
 		93E2E1DC146B67C1009CA86B /* blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank.png; sourceTree = "<group>"; };
@@ -478,6 +505,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		930FA8FE148BDF7800758ABF /* Third Party Classes */ = {
+			isa = PBXGroup;
+			children = (
+				930FA8FF148BDF8E00758ABF /* WebViewController.h */,
+				930FA900148BDF8E00758ABF /* WebViewController.m */,
+				930FA901148BDF8E00758ABF /* WebView.xib */,
+			);
+			name = "Third Party Classes";
+			sourceTree = "<group>";
+		};
 		9334EC54143BE9C000EFB67D /* Stars */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +535,8 @@
 		93835A151406D4E700E04592 = {
 			isa = PBXGroup;
 			children = (
+				93E0044414902ACC00218C99 /* Helpers */,
+				930FA8FE148BDF7800758ABF /* Third Party Classes */,
 				9390EEE8141E697000B700C0 /* PRP Classes */,
 				93DA312D1418139B006433FC /* SW Network */,
 				93CE88881406E0070077628C /* ViewControllers */,
@@ -587,6 +626,9 @@
 		9390EEE8141E697000B700C0 /* PRP Classes */ = {
 			isa = PBXGroup;
 			children = (
+				938ECFC7148A94CB009E85B5 /* PRPWebViewControllerDelegate.h */,
+				938ECFC8148A94CB009E85B5 /* PRPWebViewController.h */,
+				938ECFC9148A94CB009E85B5 /* PRPWebViewController.m */,
 				93A3DD411440F19800178C0F /* PRPSplashScreenViewController.h */,
 				93A3DD421440F19800178C0F /* PRPSplashScreenViewController.m */,
 				9334EC51143BE9AD00EFB67D /* PRPToggleButton.h */,
@@ -640,12 +682,9 @@
 			children = (
 				93B24BCA1476083000574835 /* SWLoginController.h */,
 				93B24BCB1476083000574835 /* SWLoginController.m */,
-				93CE88891406E0320077628C /* SWFeedListController.h */,
-				93CE888A1406E0320077628C /* SWFeedListController.m */,
+				93E004431490287000218C99 /* Feed TableViews */,
 				93E73B761468C9F700C4CDFF /* SWTabBarController.h */,
 				93E73B771468C9F700C4CDFF /* SWTabBarController.m */,
-				93E73B791469E61800C4CDFF /* SWStarListController.h */,
-				93E73B7A1469E61800C4CDFF /* SWStarListController.m */,
 				937F78B014170422003E1BCD /* SWNewPostController.h */,
 				937F78B114170422003E1BCD /* SWNewPostController.m */,
 				9390EE67141BC2B700B700C0 /* SWLoginViewController.h */,
@@ -653,6 +692,8 @@
 				9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */,
 				938ECFB4148A7B8F009E85B5 /* SWSettingsController.h */,
 				938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */,
+				930FA904148BEDF000758ABF /* SWRegisterController.h */,
+				930FA905148BEDF000758ABF /* SWRegisterController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -660,6 +701,7 @@
 		93D2707C1422788F0089DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93E0045814906A6E00218C99 /* Icons */,
 				93E2E1DC146B67C1009CA86B /* blank.png */,
 				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				93A3DD461440F80E00178C0F /* masks */,
@@ -669,13 +711,13 @@
 				93D4F569143A329B00201165 /* Default@2x.png */,
 				93D4F567143A329800201165 /* Default.png */,
 				9334EC54143BE9C000EFB67D /* Stars */,
-				93D935321438C6CC0096D782 /* Gear20.png */,
-				93D9352E1438C5EF0096D782 /* Gear.png */,
+				93D935321438C6CC0096D782 /* Gear.png */,
+				93D9352E1438C5EF0096D782 /* Gear@2x.png */,
 				93D9352C1438C42F0096D782 /* 19-gear.png */,
 				93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */,
+				93E0044814903DD100218C99 /* MyGear.png */,
+				93E0044914903DD100218C99 /* MyGear@2x.png */,
 				93AA474D1437DCE5001FFBF8 /* sw-tiny.png */,
-				93D2708914228FF20089DDF2 /* Icon.png */,
-				93D2708A14228FF20089DDF2 /* Icon@2x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -693,6 +735,39 @@
 			children = (
 			);
 			name = "SW Network";
+			sourceTree = "<group>";
+		};
+		93E004431490287000218C99 /* Feed TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				93CE88891406E0320077628C /* SWFeedListController.h */,
+				93CE888A1406E0320077628C /* SWFeedListController.m */,
+				93E73B791469E61800C4CDFF /* SWStarListController.h */,
+				93E73B7A1469E61800C4CDFF /* SWStarListController.m */,
+			);
+			name = "Feed TableViews";
+			sourceTree = "<group>";
+		};
+		93E0044414902ACC00218C99 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				93E0044514902CD900218C99 /* UIBarButtonItem+SWAdditions.h */,
+				93E0044614902CD900218C99 /* UIBarButtonItem+SWAdditions.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		93E0045814906A6E00218C99 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				93CCE6C314918D2900A6E757 /* Icon@2x.png */,
+				93CCE6C414918D2900A6E757 /* Icon.png */,
+				93CCE6C514918D2900A6E757 /* Icon-Small@2x.png */,
+				93CCE6C614918D2900A6E757 /* Icon-Small.png */,
+				93CCE6C714918D2900A6E757 /* Icon-Small-50.png */,
+				93CCE6C814918D2900A6E757 /* Icon-72.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 		93E73B7C1469ED3000C4CDFF /* Recents Feed */ = {
@@ -950,13 +1025,11 @@
 				93835A2F1406D4E800E04592 /* InfoPlist.strings in Resources */,
 				93835A381406D4E800E04592 /* MainWindow.xib in Resources */,
 				9390EE6B141BC2B700B700C0 /* SWLoginViewController.xib in Resources */,
-				93D2708B14228FF20089DDF2 /* Icon.png in Resources */,
-				93D2708C14228FF20089DDF2 /* Icon@2x.png in Resources */,
 				93AA474E1437DCE5001FFBF8 /* sw-tiny@2x.png in Resources */,
 				93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */,
 				93D9352D1438C42F0096D782 /* 19-gear.png in Resources */,
-				93D9352F1438C5EF0096D782 /* Gear.png in Resources */,
-				93D935331438C6CC0096D782 /* Gear20.png in Resources */,
+				93D9352F1438C5EF0096D782 /* Gear@2x.png in Resources */,
+				93D935331438C6CC0096D782 /* Gear.png in Resources */,
 				93D4F568143A329800201165 /* Default.png in Resources */,
 				93D4F56A143A329B00201165 /* Default@2x.png in Resources */,
 				9334EC5B143BE9D800EFB67D /* star-active.png in Resources */,
@@ -980,6 +1053,15 @@
 				93E2E1E3146B6A99009CA86B /* star-active-clear.png in Resources */,
 				93E2E1E4146B6A99009CA86B /* star-inactive-clear@2x.png in Resources */,
 				93E2E1E5146B6A99009CA86B /* star-active-clear@2x.png in Resources */,
+				930FA903148BDF8E00758ABF /* WebView.xib in Resources */,
+				93E0044A14903DD100218C99 /* MyGear.png in Resources */,
+				93E0044B14903DD100218C99 /* MyGear@2x.png in Resources */,
+				93CCE6C914918D2900A6E757 /* Icon@2x.png in Resources */,
+				93CCE6CA14918D2900A6E757 /* Icon.png in Resources */,
+				93CCE6CB14918D2900A6E757 /* Icon-Small@2x.png in Resources */,
+				93CCE6CC14918D2900A6E757 /* Icon-Small.png in Resources */,
+				93CCE6CD14918D2900A6E757 /* Icon-Small-50.png in Resources */,
+				93CCE6CE14918D2900A6E757 /* Icon-72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,6 +1119,10 @@
 				93E2E1DB146B4B60009CA86B /* SWStarPostTableCell.m in Sources */,
 				93B24BCC1476083000574835 /* SWLoginController.m in Sources */,
 				938ECFB6148A7B8F009E85B5 /* SWSettingsController.m in Sources */,
+				938ECFCA148A94CB009E85B5 /* PRPWebViewController.m in Sources */,
+				930FA902148BDF8E00758ABF /* WebViewController.m in Sources */,
+				930FA906148BEDF000758ABF /* SWRegisterController.m in Sources */,
+				93E0044714902CD900218C99 /* UIBarButtonItem+SWAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

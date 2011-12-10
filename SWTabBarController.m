@@ -7,8 +7,8 @@
 // UIViewController
 
 - (void)viewDidLoad {
-  [self setTabURLs:[NSArray arrayWithObjects:@"tt://swfeed",
-                                             @"tt://swstarred",
+  [self setTabURLs:[NSArray arrayWithObjects:@"tt://main/tabBar/swfeed",
+                                             @"tt://main/tabBar/swstarred",
                                              nil]];
 }
 

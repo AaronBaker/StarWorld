@@ -14,6 +14,9 @@
 #import "SWTabBarController.h"
 #import "SWLoginController.h"
 #import "SWSettingsController.h"
+#import "PRPWebViewController.h"
+#import "WebViewController.h"
+#import "SWRegisterController.h"
 
 @interface StarWorldAppDelegate (hidden)
 - (void)signOut;
@@ -43,7 +46,6 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
-    
     //This deletes cookies!
     //[self signOut];
     
@@ -58,14 +60,16 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     navigator.window = _window;
     
     TTURLMap *map = navigator.URLMap;
-    [map from:@"tt://swfeed" toSharedViewController:[SWFeedListController class]];
-    [map from:@"tt://swstarred" toSharedViewController:[SWStarListController class]];
-    [map from:@"tt://newpost" toSharedViewController:[SWNewPostController class]];
-    [map from:@"tt://login" toModalViewController:[SWLoginController class]];
-    [map from:@"tt://tabBar" toSharedViewController:[SWTabBarController class]];
-    [map from:@"tt://settings" toSharedViewController:[SWSettingsController class]];
+    [map from:@"tt://main/tabBar/swfeed" toSharedViewController:[SWFeedListController class]];
+    [map from:@"tt://main/tabBar/swstarred" toSharedViewController:[SWStarListController class]];
+    [map from:@"tt://main/newpost" toSharedViewController:[SWNewPostController class]];
+    [map from:@"tt://main/login" toModalViewController:[SWLoginController class]];
+    [map from:@"tt://main/register" toModalViewController:[SWRegisterController class]];
+    [map from:@"tt://main/tabBar" toSharedViewController:[SWTabBarController class]];
+    [map from:@"tt://main" toSharedViewController:[SWSettingsController class]];
+    [map from:@"tt://main/login/forgot" toModalViewController:[WebViewController class]];
     
-    [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://tabBar"]];
+    [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://main/tabBar/"]];
     
     [self addSplashScreen];
     

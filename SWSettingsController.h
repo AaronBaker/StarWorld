@@ -12,5 +12,5 @@
 @interface SWSettingsController : TTTableViewController {
     SWCurrentUser *currentUser;
 }
-
+- (void) dismiss;
 @end

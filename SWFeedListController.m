@@ -10,6 +10,7 @@
 #import "SWFeedListController.h"
 #import "SWFeedDataSource.h"
 #import "SWLoginViewController.h"
+#import "UIBarButtonItem+SWAdditions.h"
 
 @interface SWFeedListController (hidden)
 
@@ -77,7 +78,7 @@
     if (currentUser.authenticated == YES) {
         self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] 
                                                    initWithBarButtonSystemItem: UIBarButtonSystemItemCompose
-                                                   target:@"tt://newpost"
+                                                   target:@"tt://main/newpost"
                                                    action: @selector(openURLFromButton:)] autorelease];
         
         self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
@@ -92,12 +93,38 @@
                                                    initWithBarButtonSystemItem: UIBarButtonSystemItemCompose
                                                    target:self
                                                    action: @selector(holdOnButtonPushed)] autorelease];
+
+//        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
+//                                                  initWithBarButtonSystemItem: UIBarButtonSystemItemAction
+//                                                  target:@"tt://main"
+//                                                  action: @selector(openURLFromButton:)] autorelease];   
         
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
-                                                  initWithTitle: @"Main"
-                                                  style:UIBarButtonItemStylePlain
-                                                  target:@"tt://settings"
-                                                  action: @selector(openURLFromButton:)] autorelease];   
+        
+        
+        
+        //I think this is the good one
+        UIImage *gearImage = [UIImage imageNamed:@"MyGear.png"];
+        
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:gearImage 
+                                                                                 style:UIBarButtonItemStylePlain 
+                                                                                target:@"tt://main" 
+                                                                                action:@selector(openURLFromButton:)];
+        
+        
+        
+        
+        
+        
+//        self.navigationItem.leftBarButtonItem = [UIBarButtonItem 
+//                                                 barItemWithImage:gearImage 
+//                                                 target:@"tt://main" action:@selector(openURLFromButton:)];       
+        
+//        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
+//                                                  initWithTitle: @"Main"
+//                                                  style:UIBarButtonItemStylePlain
+//                                                  target:@"tt://main"
+//                                                  action: @selector(openURLFromButton:)] autorelease];   
 
         
         //Later fix this icon for the toolbar button.
