@@ -81,11 +81,13 @@
                                                    target:@"tt://main/newpost"
                                                    action: @selector(openURLFromButton:)] autorelease];
         
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
-                                                  initWithTitle: @"Logout"
-                                                  style:UIBarButtonItemStylePlain
-                                                  target:self
-                                                  action: @selector(logoutButtonPushed)] autorelease];    
+        UIImage *gearImage = [UIImage imageNamed:@"MyGear.png"];
+        
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:gearImage 
+                                                                                 style:UIBarButtonItemStylePlain 
+                                                                                target:@"tt://main" 
+                                                                                action:@selector(openURLFromButton:)];
     } else {  //If NOT logged in
         
         
@@ -94,11 +96,13 @@
                                                    target:self
                                                    action: @selector(holdOnButtonPushed)] autorelease];
         
-        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
-                                                  initWithTitle: @"Login"
-                                                  style:UIBarButtonItemStylePlain
-                                                  target:@"tt://main/login"
-                                                  action: @selector(openURLFromButton:)] autorelease];   
+        UIImage *gearImage = [UIImage imageNamed:@"MyGear.png"];
+        
+        
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:gearImage 
+                                                                                 style:UIBarButtonItemStylePlain 
+                                                                                target:@"tt://main" 
+                                                                                action:@selector(openURLFromButton:)]; 
         
         
         //Later fix this icon for the toolbar button.
@@ -158,11 +162,37 @@
 
 -(void)holdOnButtonPushed {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"You need to log in before you can post." 
-                                                   delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-    [alert release];
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hold On!" 
+                                                      message:@"You need to log in before you can post." 
+                                                     delegate:self 
+                                            cancelButtonTitle:@"Oh, Nevermind." 
+                                            otherButtonTitles:@"New Account", @"Login", nil];
     
+    [message show];
+    [message release];
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+	
+	if([title isEqualToString:@"Oh, Nevermind."])
+	{
+		NSLog(@"Nevermind was selected.");
+	}
+	else if([title isEqualToString:@"New Account"])
+	{
+		NSLog(@"New Account was selected.");
+        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"tt://main/register"]];
+	}
+	else if([title isEqualToString:@"Login"])
+	{
+		NSLog(@"Login was selected.");
+        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"tt://main/login"]];
+        
+	}	
 }
 
 

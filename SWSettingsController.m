@@ -22,9 +22,19 @@
         self.tableView.backgroundColor = RGBCOLOR(190,190,190);
         self.navigationBarTintColor = [UIColor blackColor];
         self.hidesBottomBarWhenPushed = YES;
-        self.title = @"Login";
+        self.title = @"Settings";
         
         //Add Cells to datasource
+        
+        if (currentUser.authenticated == YES) {
+            self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
+                               @"Accounts",
+                               [TTTableTextItem itemWithText:@"Logout" delegate:self selector:@selector(logoutButtonPushed)],
+
+                               
+                               nil];
+        } else {
+        
         self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
                            @"Accounts",
                            [TTTableTextItem itemWithText:@"Register New Account" URL:@"tt://main/register"],
@@ -35,12 +45,34 @@
                            
                            nil];
         
+    
+        }
     }
     
     return self;
     
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)logoutButtonPushed {
+    
+    [currentUser logout];
+    
+    self.dataSource = nil;
+    
+    self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
+                       @"Accounts",
+                       [TTTableTextItem itemWithText:@"Register New Account" URL:@"tt://main/register"],
+                       [TTTableTextItem itemWithText:@"Login" URL:@"tt://main/login"],
+                       @"More",
+                       [TTTableTextItem itemWithText:@"About StarWorld" URL:@""],
+                       [TTTableTextItem itemWithText:@"More From Aaron" URL:@""],
+                       
+                       nil];
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void) dismiss {
     [self.navigationController popViewControllerAnimated:NO]; 

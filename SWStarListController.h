@@ -10,7 +10,7 @@
 #import "SWCurrentUser.h"
 
 
-@interface SWStarListController : TTTableViewController {
+@interface SWStarListController : TTTableViewController <UIAlertViewDelegate> {
     SWCurrentUser *currentUser;
 }
 
