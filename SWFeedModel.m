@@ -14,7 +14,7 @@
 
 
 static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/";
-static NSString* kSWFeedPath = @"posts_json2";
+static NSString* kSWFeedPath = @"posts_json";
 static NSString* kSWStarPath = @"posts_starred_json";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

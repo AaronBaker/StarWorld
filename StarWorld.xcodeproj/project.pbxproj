@@ -27,6 +27,14 @@
 		9334EC5E143BE9D800EFB67D /* star-inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9334EC58143BE9D800EFB67D /* star-inactive@2x.png */; };
 		9334EC5F143BE9D800EFB67D /* star-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9334EC59143BE9D800EFB67D /* star-pressed.png */; };
 		9334EC60143BE9D800EFB67D /* star-pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9334EC5A143BE9D800EFB67D /* star-pressed@2x.png */; };
+		93722A82149466860080EF71 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 93722A7C149466860080EF71 /* Icon-72.png */; };
+		93722A83149466860080EF71 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 93722A7D149466860080EF71 /* Icon-Small-50.png */; };
+		93722A84149466860080EF71 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 93722A7E149466860080EF71 /* Icon-Small.png */; };
+		93722A85149466860080EF71 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93722A7F149466860080EF71 /* Icon-Small@2x.png */; };
+		93722A86149466860080EF71 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93722A80149466860080EF71 /* Icon.png */; };
+		93722A87149466860080EF71 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93722A81149466860080EF71 /* Icon@2x.png */; };
+		93773B001495164100300935 /* SWRegisterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 93773AFF1495164100300935 /* SWRegisterHelper.m */; };
+		93773B08149520F500300935 /* PRPAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93773B07149520F500300935 /* PRPAlertView.m */; };
 		937F78B214170422003E1BCD /* SWNewPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F78B114170422003E1BCD /* SWNewPostController.m */; };
 		93835A251406D4E800E04592 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A241406D4E800E04592 /* UIKit.framework */; };
 		93835A271406D4E800E04592 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93835A261406D4E800E04592 /* Foundation.framework */; };
@@ -62,12 +70,6 @@
 		93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474D1437DCE5001FFBF8 /* sw-tiny.png */; };
 		93B24BCC1476083000574835 /* SWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B24BCB1476083000574835 /* SWLoginController.m */; };
 		93B4EC081443BE0F009169C0 /* star-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B4EC071443BE0F009169C0 /* star-mask.png */; };
-		93CCE6C914918D2900A6E757 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C314918D2900A6E757 /* Icon@2x.png */; };
-		93CCE6CA14918D2900A6E757 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C414918D2900A6E757 /* Icon.png */; };
-		93CCE6CB14918D2900A6E757 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C514918D2900A6E757 /* Icon-Small@2x.png */; };
-		93CCE6CC14918D2900A6E757 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C614918D2900A6E757 /* Icon-Small.png */; };
-		93CCE6CD14918D2900A6E757 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C714918D2900A6E757 /* Icon-Small-50.png */; };
-		93CCE6CE14918D2900A6E757 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CCE6C814918D2900A6E757 /* Icon-72.png */; };
 		93CE88841406DB340077628C /* SWFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE887F1406DB340077628C /* SWFeedModel.m */; };
 		93CE88851406DB340077628C /* SWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88811406DB340077628C /* SWPost.m */; };
 		93CE88861406DB340077628C /* SWFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88831406DB340077628C /* SWFeedDataSource.m */; };
@@ -304,6 +306,16 @@
 		9334EC58143BE9D800EFB67D /* star-inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-inactive@2x.png"; sourceTree = "<group>"; };
 		9334EC59143BE9D800EFB67D /* star-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-pressed.png"; sourceTree = "<group>"; };
 		9334EC5A143BE9D800EFB67D /* star-pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-pressed@2x.png"; sourceTree = "<group>"; };
+		93722A7C149466860080EF71 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		93722A7D149466860080EF71 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		93722A7E149466860080EF71 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		93722A7F149466860080EF71 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		93722A80149466860080EF71 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		93722A81149466860080EF71 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		93773AFE1495164100300935 /* SWRegisterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRegisterHelper.h; sourceTree = "<group>"; };
+		93773AFF1495164100300935 /* SWRegisterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRegisterHelper.m; sourceTree = "<group>"; };
+		93773B06149520F500300935 /* PRPAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRPAlertView.h; sourceTree = "<group>"; };
+		93773B07149520F500300935 /* PRPAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRPAlertView.m; sourceTree = "<group>"; };
 		937F78B014170422003E1BCD /* SWNewPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWNewPostController.h; sourceTree = "<group>"; };
 		937F78B114170422003E1BCD /* SWNewPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWNewPostController.m; sourceTree = "<group>"; };
 		93835A201406D4E700E04592 /* StarWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,12 +366,6 @@
 		93B24BCA1476083000574835 /* SWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginController.h; sourceTree = "<group>"; };
 		93B24BCB1476083000574835 /* SWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginController.m; sourceTree = "<group>"; };
 		93B4EC071443BE0F009169C0 /* star-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-mask.png"; sourceTree = "<group>"; };
-		93CCE6C314918D2900A6E757 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		93CCE6C414918D2900A6E757 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		93CCE6C514918D2900A6E757 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
-		93CCE6C614918D2900A6E757 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
-		93CCE6C714918D2900A6E757 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
-		93CCE6C814918D2900A6E757 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		93CE887E1406DB340077628C /* SWFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedModel.h; sourceTree = "<group>"; };
 		93CE887F1406DB340077628C /* SWFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedModel.m; sourceTree = "<group>"; };
 		93CE88801406DB340077628C /* SWPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPost.h; sourceTree = "<group>"; };
@@ -532,6 +538,22 @@
 			name = Stars;
 			sourceTree = "<group>";
 		};
+		93773AFD149515CC00300935 /* Login/Registration */ = {
+			isa = PBXGroup;
+			children = (
+				93B24BCA1476083000574835 /* SWLoginController.h */,
+				93B24BCB1476083000574835 /* SWLoginController.m */,
+				9390EE67141BC2B700B700C0 /* SWLoginViewController.h */,
+				9390EE68141BC2B700B700C0 /* SWLoginViewController.m */,
+				9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */,
+				930FA904148BEDF000758ABF /* SWRegisterController.h */,
+				930FA905148BEDF000758ABF /* SWRegisterController.m */,
+				93773AFE1495164100300935 /* SWRegisterHelper.h */,
+				93773AFF1495164100300935 /* SWRegisterHelper.m */,
+			);
+			name = Login/Registration;
+			sourceTree = "<group>";
+		};
 		93835A151406D4E700E04592 = {
 			isa = PBXGroup;
 			children = (
@@ -626,6 +648,8 @@
 		9390EEE8141E697000B700C0 /* PRP Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93773B06149520F500300935 /* PRPAlertView.h */,
+				93773B07149520F500300935 /* PRPAlertView.m */,
 				938ECFC7148A94CB009E85B5 /* PRPWebViewControllerDelegate.h */,
 				938ECFC8148A94CB009E85B5 /* PRPWebViewController.h */,
 				938ECFC9148A94CB009E85B5 /* PRPWebViewController.m */,
@@ -680,20 +704,14 @@
 		93CE88881406E0070077628C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				93B24BCA1476083000574835 /* SWLoginController.h */,
-				93B24BCB1476083000574835 /* SWLoginController.m */,
+				93773AFD149515CC00300935 /* Login/Registration */,
 				93E004431490287000218C99 /* Feed TableViews */,
 				93E73B761468C9F700C4CDFF /* SWTabBarController.h */,
 				93E73B771468C9F700C4CDFF /* SWTabBarController.m */,
 				937F78B014170422003E1BCD /* SWNewPostController.h */,
 				937F78B114170422003E1BCD /* SWNewPostController.m */,
-				9390EE67141BC2B700B700C0 /* SWLoginViewController.h */,
-				9390EE68141BC2B700B700C0 /* SWLoginViewController.m */,
-				9390EE69141BC2B700B700C0 /* SWLoginViewController.xib */,
 				938ECFB4148A7B8F009E85B5 /* SWSettingsController.h */,
 				938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */,
-				930FA904148BEDF000758ABF /* SWRegisterController.h */,
-				930FA905148BEDF000758ABF /* SWRegisterController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -725,7 +743,16 @@
 		93D935341438C7390096D782 /* SW Table Data */ = {
 			isa = PBXGroup;
 			children = (
-				93E73B7C1469ED3000C4CDFF /* Recents Feed */,
+				93D935351438C7D30096D782 /* SWPostTableItem.h */,
+				93D935361438C7D30096D782 /* SWPostTableItem.m */,
+				93D935381438C80A0096D782 /* SWPostTableCell.h */,
+				93D935391438C80A0096D782 /* SWPostTableCell.m */,
+				93E2E1D9146B4B60009CA86B /* SWStarPostTableCell.h */,
+				93E2E1DA146B4B60009CA86B /* SWStarPostTableCell.m */,
+				93CE887E1406DB340077628C /* SWFeedModel.h */,
+				93CE887F1406DB340077628C /* SWFeedModel.m */,
+				93CE88821406DB340077628C /* SWFeedDataSource.h */,
+				93CE88831406DB340077628C /* SWFeedDataSource.m */,
 			);
 			name = "SW Table Data";
 			sourceTree = "<group>";
@@ -760,31 +787,14 @@
 		93E0045814906A6E00218C99 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				93CCE6C314918D2900A6E757 /* Icon@2x.png */,
-				93CCE6C414918D2900A6E757 /* Icon.png */,
-				93CCE6C514918D2900A6E757 /* Icon-Small@2x.png */,
-				93CCE6C614918D2900A6E757 /* Icon-Small.png */,
-				93CCE6C714918D2900A6E757 /* Icon-Small-50.png */,
-				93CCE6C814918D2900A6E757 /* Icon-72.png */,
+				93722A7C149466860080EF71 /* Icon-72.png */,
+				93722A7D149466860080EF71 /* Icon-Small-50.png */,
+				93722A7E149466860080EF71 /* Icon-Small.png */,
+				93722A7F149466860080EF71 /* Icon-Small@2x.png */,
+				93722A80149466860080EF71 /* Icon.png */,
+				93722A81149466860080EF71 /* Icon@2x.png */,
 			);
 			name = Icons;
-			sourceTree = "<group>";
-		};
-		93E73B7C1469ED3000C4CDFF /* Recents Feed */ = {
-			isa = PBXGroup;
-			children = (
-				93D935351438C7D30096D782 /* SWPostTableItem.h */,
-				93D935361438C7D30096D782 /* SWPostTableItem.m */,
-				93D935381438C80A0096D782 /* SWPostTableCell.h */,
-				93D935391438C80A0096D782 /* SWPostTableCell.m */,
-				93E2E1D9146B4B60009CA86B /* SWStarPostTableCell.h */,
-				93E2E1DA146B4B60009CA86B /* SWStarPostTableCell.m */,
-				93CE887E1406DB340077628C /* SWFeedModel.h */,
-				93CE887F1406DB340077628C /* SWFeedModel.m */,
-				93CE88821406DB340077628C /* SWFeedDataSource.h */,
-				93CE88831406DB340077628C /* SWFeedDataSource.m */,
-			);
-			name = "Recents Feed";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1056,12 +1066,12 @@
 				930FA903148BDF8E00758ABF /* WebView.xib in Resources */,
 				93E0044A14903DD100218C99 /* MyGear.png in Resources */,
 				93E0044B14903DD100218C99 /* MyGear@2x.png in Resources */,
-				93CCE6C914918D2900A6E757 /* Icon@2x.png in Resources */,
-				93CCE6CA14918D2900A6E757 /* Icon.png in Resources */,
-				93CCE6CB14918D2900A6E757 /* Icon-Small@2x.png in Resources */,
-				93CCE6CC14918D2900A6E757 /* Icon-Small.png in Resources */,
-				93CCE6CD14918D2900A6E757 /* Icon-Small-50.png in Resources */,
-				93CCE6CE14918D2900A6E757 /* Icon-72.png in Resources */,
+				93722A82149466860080EF71 /* Icon-72.png in Resources */,
+				93722A83149466860080EF71 /* Icon-Small-50.png in Resources */,
+				93722A84149466860080EF71 /* Icon-Small.png in Resources */,
+				93722A85149466860080EF71 /* Icon-Small@2x.png in Resources */,
+				93722A86149466860080EF71 /* Icon.png in Resources */,
+				93722A87149466860080EF71 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1123,6 +1133,8 @@
 				930FA902148BDF8E00758ABF /* WebViewController.m in Sources */,
 				930FA906148BEDF000758ABF /* SWRegisterController.m in Sources */,
 				93E0044714902CD900218C99 /* UIBarButtonItem+SWAdditions.m in Sources */,
+				93773B001495164100300935 /* SWRegisterHelper.m in Sources */,
+				93773B08149520F500300935 /* PRPAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

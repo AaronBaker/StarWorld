@@ -171,6 +171,8 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
                                                  returningResponse:&response
                                                              error:&error];
     
+    NSLog(@"****POSTED CORDS***** X: %@ Y: %@",xString,yString); 
+    
     if (responseData) {
         
         NSRange range = [(NSString*)[[response URL] absoluteString] rangeOfString:@"success" options:NSCaseInsensitiveSearch];

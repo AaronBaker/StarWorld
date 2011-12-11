@@ -16,6 +16,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 - (void) processLoginResponse: (NSURLResponse*) response;
 - (void) getLoginCookie;
 - (void) dismiss;
+- (void) dismissToFeed;
 - (void) forgot;
 - (void) setBarButtons;
 - (id) startLogin: (id)sender;
@@ -154,10 +155,16 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dismiss {      
     
+     [self dismissModalViewControllerAnimated:YES];
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)dismissToFeed {      
+    
     TTNavigator *navigator = [TTNavigator navigator];
     [navigator removeAllViewControllers];
     
-     [self dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
     
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -237,7 +244,8 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
             
             NSLog(@"Authenticated: %d",currentUser.authenticated);
             
-            [self dismiss];
+            
+            [self dismissToFeed];
             
         } else {
             NSLog(@"AUTH FAILED!");
