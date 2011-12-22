@@ -44,7 +44,9 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
 }
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)applicationDidFinishLaunching:(UIApplication *)application {   
+    
+    [TestFlight takeOff:@"097eb628898682791da62ce9e0949046_MzM1MTQyMDExLTExLTA2IDIyOjE0OjAzLjgyMTYxNA"];
     
     //This deletes cookies!
     //[self signOut];

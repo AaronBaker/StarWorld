@@ -239,7 +239,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
             NSLog(@"AUTH SUCCESS!");
             
 
-            
+            [TestFlight passCheckpoint:@"AUTH SUCCESS"];
             [currentUser login];
             
             NSLog(@"Authenticated: %d",currentUser.authenticated);
@@ -249,6 +249,7 @@ static NSString* kSWLoginURL = @"http://pandora.starworlddata.com/users/login";
             
         } else {
             NSLog(@"AUTH FAILED!");
+            [TestFlight passCheckpoint:@"AUTH FAILED"];
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"Incorrect Username or Password!" 
                                                            delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

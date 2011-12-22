@@ -172,6 +172,7 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
                                                              error:&error];
     
     NSLog(@"****POSTED CORDS***** X: %@ Y: %@",xString,yString); 
+    [TestFlight passCheckpoint:@"New Post!"];
     
     if (responseData) {
         

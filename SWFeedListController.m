@@ -142,6 +142,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self reload];
+    [TestFlight passCheckpoint:@"SHOW THE FEED"];
     [self setBarButtons];
 }
 

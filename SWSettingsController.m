@@ -8,6 +8,12 @@
 
 #import "SWSettingsController.h"
 
+@interface SWSettingsController (hidden)
+- (void) launchFeedback;
+@end
+
+
+
 @implementation SWSettingsController
 - (id)initWithNavigatorURL:(NSURL*)URL query:(NSDictionary*)query {
     
@@ -30,21 +36,24 @@
             self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
                                @"Accounts",
                                [TTTableTextItem itemWithText:@"Logout" delegate:self selector:@selector(logoutButtonPushed)],
-
+                               @"Hey Team SW!",
+                               [TTTableTextItem itemWithText:@"Send Feedback to Aaron" delegate:self selector:@selector(launchFeedback)],
                                
                                nil];
         } else {
         
-        self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
-                           @"Accounts",
-                           [TTTableTextItem itemWithText:@"Register New Account" URL:@"tt://main/register"],
-                           [TTTableTextItem itemWithText:@"Login" URL:@"tt://main/login"],
-                           @"More",
-                           [TTTableTextItem itemWithText:@"About StarWorld" URL:@""],
-                           [TTTableTextItem itemWithText:@"More From Aaron" URL:@""],
-                           
-                           nil];
-        
+            self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
+                               @"Accounts",
+                               [TTTableTextItem itemWithText:@"Register New Account" URL:@"tt://main/register"],
+                               [TTTableTextItem itemWithText:@"Login" URL:@"tt://main/login"],
+                               @"Hey Team SW!",
+                               [TTTableTextItem itemWithText:@"Send Feedback to Aaron" delegate:self selector:@selector(launchFeedback)],
+                               //                       @"More",
+                               //                       [TTTableTextItem itemWithText:@"About StarWorld" URL:@""],
+                               //                       [TTTableTextItem itemWithText:@"More From Aaron" URL:@""],
+                               
+                               
+                               nil];
     
         }
     }
@@ -65,13 +74,23 @@
                        @"Accounts",
                        [TTTableTextItem itemWithText:@"Register New Account" URL:@"tt://main/register"],
                        [TTTableTextItem itemWithText:@"Login" URL:@"tt://main/login"],
-                       @"More",
-                       [TTTableTextItem itemWithText:@"About StarWorld" URL:@""],
-                       [TTTableTextItem itemWithText:@"More From Aaron" URL:@""],
+                       @"Hey Team SW!",
+                       [TTTableTextItem itemWithText:@"Send Feedback to Aaron" delegate:self selector:@selector(launchFeedback)],
+//                       @"More",
+//                       [TTTableTextItem itemWithText:@"About StarWorld" URL:@""],
+//                       [TTTableTextItem itemWithText:@"More From Aaron" URL:@""],
+    
                        
                        nil];
     
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+-(void)launchFeedback {
+    [TestFlight openFeedbackView];
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void) dismiss {

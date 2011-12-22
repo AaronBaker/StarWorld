@@ -14,6 +14,8 @@
 #import "SWPostTableCell.h"
 #import "SWPostTableItem.h"
 #import "SWStarPostTableCell.h"
+#import "SWTextTableCell.h"
+#import "SWTextTableItem.h"
 
 // Three20 Additions
 #import <Three20Core/NSDateAdditions.h>
@@ -22,6 +24,8 @@
 @interface SWFeedDataSource (hidden)
 
 - (NSString*)timeIntervalWithStartDate:(NSDate*)d1 withEndDate:(NSDate*)d2;
+- (void) addBonusCellText;
+- (void) newPostLinkPressed;
 
 @end
 
@@ -63,8 +67,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)tableViewDidLoadModel:(UITableView*)tableView {
     
-    NSMutableArray* items = [[NSMutableArray alloc] init];
-    NSMutableArray* sections = [[NSMutableArray alloc] init];
+    myItems = [[NSMutableArray alloc] init];
+    mySections = [[NSMutableArray alloc] init];
 
     
     currentUser = [SWCurrentUser currentUserInstance];
@@ -86,10 +90,7 @@
     
     //[sections addObject:@"GOLD"];
     
-    
-    
-    
-    
+    float shortestDistance = 10000.0;
     
     for (NSMutableArray* dataSections in _searchFeedModel.posts) {
         
@@ -104,6 +105,7 @@
             //Before going through the posts, we first get the title for the label
             
             float highestDistance = 0.0;
+            
             int postCount = 0;
             for (SWPost* post in dataSections) {
                 
@@ -120,6 +122,13 @@
                 if (distance > highestDistance) {
                     highestDistance = distance;
                 }
+                
+                if (distance < shortestDistance) {
+                    shortestDistance = distance;
+                }
+                
+                NSLog(@"SHORTEST DISTANCE: %f",shortestDistance);
+                
             }
             
                         
@@ -133,7 +142,7 @@
 
             }
                         
-            [sections addObject:sectionsString];
+            [mySections addObject:sectionsString];
             
             
             //Build each post an add them to the item list.
@@ -167,8 +176,11 @@
             }
             
             
+            
+            
+            
             itemList = [NSArray arrayWithArray:itemListMutable];
-            [items addObject:itemList];
+            [myItems addObject:itemList];
             
         }
         
@@ -179,15 +191,96 @@
 //        [items addObject:[TTTableMoreButton itemWithText:@"more…"]];
 //    }
     
-    self.items = items;
-    self.sections = sections;
+    
+    if (shortestDistance > 310)
+        [self addBonusCellText];
+    
+    self.items = myItems;
+    self.sections = mySections;
     
  
     
-    TT_RELEASE_SAFELY(items);
-    TT_RELEASE_SAFELY(sections);
+    TT_RELEASE_SAFELY(myItems);
+    TT_RELEASE_SAFELY(mySections);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) addBonusCellText {
+    
+//    TTTableLongTextItem *bonus = [TTTableLongTextItem itemWithText:@"There are no posts nearby you. Would you like to post one?" 
+//                                                               URL:@"tt://main/newpost"];
+    
+    if (!showStarred) {
+        
+        SWTextTableItem *bonus = [SWTextTableItem itemWithText:@"This is Sad. \ue413 There are no posts nearby. Would you like to post one?" delegate:self selector:@selector(newPostLinkPressed)];
+    
+        NSArray *sectionItemHolder = [NSArray arrayWithObject:bonus];
+        
+        [mySections insertObject:@"No Posts within 1000 feet" atIndex:0];
+        [myItems insertObject:sectionItemHolder atIndex:0];
+        
+    } else {
+        
+        
+        SWTextTableItem *bonus = [SWTextTableItem itemWithText:@"You can tap the \ue32f to add stars to a post. Starred posts show up here."];
+    
+        NSArray *sectionItemHolder = [NSArray arrayWithObject:bonus];
+        
+        [mySections insertObject:@"No Nearby Starred Posts" atIndex:0];
+        [myItems insertObject:sectionItemHolder atIndex:0];
+  
+    }
+    
+    
+    
+    
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) newPostLinkPressed {
+    
+    if (currentUser.authenticated) {
+        [[TTNavigator navigator] openURLAction:[[TTURLAction actionWithURLPath:@"tt://main/newpost"] applyAnimated:YES]];
+        
+    } else {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hold On!" 
+                                                          message:@"You need to log in before you can post." 
+                                                         delegate:self 
+                                                cancelButtonTitle:@"Oh, Nevermind." 
+                                                otherButtonTitles:@"New Account", @"Login", nil];
+        
+        [message show];
+        [message release];
+    }
+    
+        
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+	
+	if([title isEqualToString:@"Oh, Nevermind."])
+	{
+		NSLog(@"Nevermind was selected.");
+	}
+	else if([title isEqualToString:@"New Account"])
+	{
+		NSLog(@"New Account was selected.");
+        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"tt://main/register"]];
+	}
+	else if([title isEqualToString:@"Login"])
+	{
+		NSLog(@"Login was selected.");
+        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"tt://main/login"]];
+        
+	}	
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 - (Class)tableView:(UITableView *)tableView cellClassForObject:(id)object {
     if([object isKindOfClass:[SWPostTableItem class]]) {
@@ -196,6 +289,8 @@
         } else {
             return [SWPostTableCell class];
         }
+    } else if ([object isKindOfClass:[SWTextTableItem class]]) {
+        return [SWTextTableCell class];
     }
     else {
         return [super tableView:tableView cellClassForObject:object];

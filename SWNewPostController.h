@@ -9,7 +9,7 @@
 #import <Three20/Three20.h>
 #import "SWCurrentUser.h"
 
-@interface SWNewPostController : TTPostController <TTPostControllerDelegate> {
+@interface SWNewPostController : TTPostController <TTPostControllerDelegate,UIAlertViewDelegate> {
     SWCurrentUser *currentUser;
     UILabel *countLabel;
     NSTimer *countTimer;

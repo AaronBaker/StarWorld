@@ -149,12 +149,17 @@ static NSString* kSWCheckEmailURL = @"http://pandora.starworlddata.com/users/goo
         if (range.location != NSNotFound) {
             NSLog(@"REGISTER SUCCESS!");
             
+            [TestFlight passCheckpoint:@"USER SUCCESSFULLY REGISTERED"];
             
             [currentUser login];
 
             NSLog(@"Authenticated: %d",currentUser.authenticated);
             
             [self dismissToFeed];
+            
+            [PRPAlertView showWithTitle:@"Hello There." message:@"Thanks for signing up.  You are now logged in." buttonTitle:@"Cool."];
+            
+            
             
         } else {
             NSLog(@"Register FAILED!");
@@ -348,12 +353,17 @@ static NSString* kSWCheckEmailURL = @"http://pandora.starworlddata.com/users/goo
             [PRPAlertView showWithTitle:@"Oh No!" message:@"That username is already taken." buttonTitle:@"That's Terrible."];
         } else if (![self goodEmail:emailField.text]) {    
             //[PRPAlertView showWithTitle:@"Hmmmm." message:@"That email has already been used." buttonTitle:@"That's Terrible."];
-            [PRPAlertView showWithTitle:@"Hmmmm." message:@"There is already an account with that email." cancelTitle:@"No, I got this." cancelBlock:^(void){} otherTitle:@"Recover Password" otherBlock:^(void){
+            [PRPAlertView showWithTitle:@"Hmmmm." 
+                                message:@"There is already an account with that email." 
+                            cancelTitle:@"Reset Password" 
+                            cancelBlock:^(void){
+                                [[TTNavigator navigator] openURLs:@"tt://main/login/forgot"];
+                            } 
+                             otherTitle:@"I got this" 
+                             otherBlock:^(void){
                     
-                [[TTNavigator navigator] openURLs:@"tt://main/login/forgot"];
-            
-            
-                }
+                                    
+                            }
              ];
         } else {
             [self startRegister:sender];

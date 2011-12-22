@@ -119,6 +119,8 @@
     [super viewWillAppear:animated];
     [self reload];
     [self setBarButtons];
+    [TestFlight passCheckpoint:@"SHOW THE STAR FEED"];
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

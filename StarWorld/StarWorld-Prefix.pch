@@ -16,4 +16,5 @@
     #import "Three20Network/TTURLResponse.h"
     #import "Three20UI/Three20UI.h"
     #import <CoreLocation/CoreLocation.h>
+    #import "TestFlight.h"
 #endif
