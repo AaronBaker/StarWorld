@@ -80,6 +80,7 @@ static NSString* kSWCheckEmailURL = @"http://pandora.starworlddata.com/users/goo
     emailField.returnKeyType = UIReturnKeyDone;
     emailField.tag = 3;
     emailField.delegate = self;
+    emailField.keyboardType = UIKeyboardTypeEmailAddress;
     
     //Add Cells to datasource
     self.dataSource = [TTSectionedDataSource dataSourceWithObjects:

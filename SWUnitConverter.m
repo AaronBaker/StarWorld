@@ -110,18 +110,19 @@
     //Calculate the delta in seconds between the two dates
     NSTimeInterval delta = [d2 timeIntervalSinceDate:d1];
     
-    if (delta < 1 * SECOND)
-        delta = 1;
+   
+    if (delta < 1)
+        delta = 2;
     
-    if (delta < 1 * MINUTE)
+    if (delta < 60)
     {
-        return delta == 1 ? @"1 second ago" : [NSString stringWithFormat:@"%d seconds", (int)delta];
+        return [NSString stringWithFormat:@"%d seconds ago", (int)delta];
     }
     if (delta < 2 * MINUTE)
     {
         return @"1 minute ago";
     }
-    if (delta < 45 * MINUTE)
+    if (delta < 59 * MINUTE)
     {
         int minutes = floor((double)delta/MINUTE);
         return [NSString stringWithFormat:@"%d minutes ago", minutes];

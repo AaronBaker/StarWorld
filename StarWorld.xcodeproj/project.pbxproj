@@ -70,13 +70,13 @@
 		93A3DD501440F82100178C0F /* leftStripMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4A1440F82100178C0F /* leftStripMask.png */; };
 		93A3DD511440F82100178C0F /* mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4B1440F82100178C0F /* mask.png */; };
 		93A3DD521440F82100178C0F /* wideMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4C1440F82100178C0F /* wideMask.png */; };
-		93A8C8BC149C367A00418BD9 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A8C8B8149C367A00418BD9 /* libTestFlight.a */; };
-		93A8C8BD149C367B00418BD9 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93A8C8B9149C367A00418BD9 /* README.txt */; };
-		93A8C8BE149C367B00418BD9 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93A8C8BA149C367A00418BD9 /* release_notes.txt */; };
 		93AA474E1437DCE5001FFBF8 /* sw-tiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */; };
 		93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474D1437DCE5001FFBF8 /* sw-tiny.png */; };
 		93B24BCC1476083000574835 /* SWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B24BCB1476083000574835 /* SWLoginController.m */; };
 		93B4EC081443BE0F009169C0 /* star-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B4EC071443BE0F009169C0 /* star-mask.png */; };
+		93BFCD0014A523C6009D61DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BFCCFC14A523C6009D61DE /* libTestFlight.a */; };
+		93BFCD0114A523C6009D61DE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93BFCCFD14A523C6009D61DE /* README.txt */; };
+		93BFCD0214A523C6009D61DE /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 93BFCCFE14A523C6009D61DE /* release_notes.txt */; };
 		93CE88841406DB340077628C /* SWFeedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE887F1406DB340077628C /* SWFeedModel.m */; };
 		93CE88851406DB340077628C /* SWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88811406DB340077628C /* SWPost.m */; };
 		93CE88861406DB340077628C /* SWFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88831406DB340077628C /* SWFeedDataSource.m */; };
@@ -374,15 +374,15 @@
 		93A3DD4A1440F82100178C0F /* leftStripMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftStripMask.png; sourceTree = "<group>"; };
 		93A3DD4B1440F82100178C0F /* mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mask.png; sourceTree = "<group>"; };
 		93A3DD4C1440F82100178C0F /* wideMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wideMask.png; sourceTree = "<group>"; };
-		93A8C8B8149C367A00418BD9 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		93A8C8B9149C367A00418BD9 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		93A8C8BA149C367A00418BD9 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
-		93A8C8BB149C367A00418BD9 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny@2x.png"; sourceTree = "<group>"; };
 		93AA474D1437DCE5001FFBF8 /* sw-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny.png"; sourceTree = "<group>"; };
 		93B24BCA1476083000574835 /* SWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginController.h; sourceTree = "<group>"; };
 		93B24BCB1476083000574835 /* SWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginController.m; sourceTree = "<group>"; };
 		93B4EC071443BE0F009169C0 /* star-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-mask.png"; sourceTree = "<group>"; };
+		93BFCCFC14A523C6009D61DE /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		93BFCCFD14A523C6009D61DE /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		93BFCCFE14A523C6009D61DE /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		93BFCCFF14A523C6009D61DE /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		93CE887E1406DB340077628C /* SWFeedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedModel.h; sourceTree = "<group>"; };
 		93CE887F1406DB340077628C /* SWFeedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedModel.m; sourceTree = "<group>"; };
 		93CE88801406DB340077628C /* SWPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWPost.h; sourceTree = "<group>"; };
@@ -439,7 +439,7 @@
 				93835A251406D4E800E04592 /* UIKit.framework in Frameworks */,
 				93835A271406D4E800E04592 /* Foundation.framework in Frameworks */,
 				93835A291406D4E800E04592 /* CoreGraphics.framework in Frameworks */,
-				93A8C8BC149C367A00418BD9 /* libTestFlight.a in Frameworks */,
+				93BFCD0014A523C6009D61DE /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,7 +532,7 @@
 		930FA8FE148BDF7800758ABF /* Third Party Classes */ = {
 			isa = PBXGroup;
 			children = (
-				93A8C8B7149C367A00418BD9 /* TestFlightSDK0 */,
+				93BFCD0314A523D3009D61DE /* TestFlight */,
 				930FA8FF148BDF8E00758ABF /* WebViewController.h */,
 				930FA900148BDF8E00758ABF /* WebViewController.m */,
 				930FA901148BDF8E00758ABF /* WebView.xib */,
@@ -696,15 +696,15 @@
 			name = masks;
 			sourceTree = "<group>";
 		};
-		93A8C8B7149C367A00418BD9 /* TestFlightSDK0 */ = {
+		93BFCD0314A523D3009D61DE /* TestFlight */ = {
 			isa = PBXGroup;
 			children = (
-				93A8C8B8149C367A00418BD9 /* libTestFlight.a */,
-				93A8C8B9149C367A00418BD9 /* README.txt */,
-				93A8C8BA149C367A00418BD9 /* release_notes.txt */,
-				93A8C8BB149C367A00418BD9 /* TestFlight.h */,
+				93BFCCFC14A523C6009D61DE /* libTestFlight.a */,
+				93BFCCFD14A523C6009D61DE /* README.txt */,
+				93BFCCFE14A523C6009D61DE /* release_notes.txt */,
+				93BFCCFF14A523C6009D61DE /* TestFlight.h */,
 			);
-			path = TestFlightSDK0;
+			name = TestFlight;
 			sourceTree = "<group>";
 		};
 		93CE88311406D5B70077628C /* Delete later */ = {
@@ -1110,8 +1110,8 @@
 				93722A87149466860080EF71 /* Icon@2x.png in Resources */,
 				933383C11497127A00221E03 /* cell-bg-blue.png in Resources */,
 				933383C21497127A00221E03 /* cell-bg-blue@2x.png in Resources */,
-				93A8C8BD149C367B00418BD9 /* README.txt in Resources */,
-				93A8C8BE149C367B00418BD9 /* release_notes.txt in Resources */,
+				93BFCD0114A523C6009D61DE /* README.txt in Resources */,
+				93BFCD0214A523C6009D61DE /* release_notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1287,7 +1287,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "21706847-66A3-4CE7-85FD-22A69557CC0E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FC26C4D8-AA20-4436-B7A8-7B868AEC6693";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1312,7 +1312,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "21706847-66A3-4CE7-85FD-22A69557CC0E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FC26C4D8-AA20-4436-B7A8-7B868AEC6693";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
