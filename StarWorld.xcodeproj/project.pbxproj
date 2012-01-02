@@ -72,6 +72,7 @@
 		93A3DD521440F82100178C0F /* wideMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD4C1440F82100178C0F /* wideMask.png */; };
 		93AA474E1437DCE5001FFBF8 /* sw-tiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */; };
 		93AA474F1437DCE5001FFBF8 /* sw-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 93AA474D1437DCE5001FFBF8 /* sw-tiny.png */; };
+		93ADB5F014B120F6000FDFFA /* SWDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93ADB5EF14B120F6000FDFFA /* SWDetailController.m */; };
 		93B24BCC1476083000574835 /* SWLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B24BCB1476083000574835 /* SWLoginController.m */; };
 		93B4EC081443BE0F009169C0 /* star-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B4EC071443BE0F009169C0 /* star-mask.png */; };
 		93BFCD0014A523C6009D61DE /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BFCCFC14A523C6009D61DE /* libTestFlight.a */; };
@@ -376,6 +377,8 @@
 		93A3DD4C1440F82100178C0F /* wideMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wideMask.png; sourceTree = "<group>"; };
 		93AA474C1437DCE5001FFBF8 /* sw-tiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny@2x.png"; sourceTree = "<group>"; };
 		93AA474D1437DCE5001FFBF8 /* sw-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sw-tiny.png"; sourceTree = "<group>"; };
+		93ADB5EE14B120F6000FDFFA /* SWDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDetailController.h; sourceTree = "<group>"; };
+		93ADB5EF14B120F6000FDFFA /* SWDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDetailController.m; sourceTree = "<group>"; };
 		93B24BCA1476083000574835 /* SWLoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLoginController.h; sourceTree = "<group>"; };
 		93B24BCB1476083000574835 /* SWLoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLoginController.m; sourceTree = "<group>"; };
 		93B4EC071443BE0F009169C0 /* star-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-mask.png"; sourceTree = "<group>"; };
@@ -740,6 +743,8 @@
 				937F78B114170422003E1BCD /* SWNewPostController.m */,
 				938ECFB4148A7B8F009E85B5 /* SWSettingsController.h */,
 				938ECFB5148A7B8F009E85B5 /* SWSettingsController.m */,
+				93ADB5EE14B120F6000FDFFA /* SWDetailController.h */,
+				93ADB5EF14B120F6000FDFFA /* SWDetailController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1177,6 +1182,7 @@
 				93773B1A14956E0200300935 /* SWLoginAlert.m in Sources */,
 				934D1FD71496DEF70025ACCD /* SWTextTableItem.m in Sources */,
 				933383BA1497072E00221E03 /* SWTextTableCell.m in Sources */,
+				93ADB5F014B120F6000FDFFA /* SWDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1287,7 +1293,7 @@
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FC26C4D8-AA20-4436-B7A8-7B868AEC6693";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "61646A65-0349-4AD4-A3C5-7C08AEAB898D";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1312,7 +1318,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FC26C4D8-AA20-4436-B7A8-7B868AEC6693";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "61646A65-0349-4AD4-A3C5-7C08AEAB898D";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1328,6 +1334,7 @@
 				GCC_PREFIX_HEADER = "StarWorld/StarWorld-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StarWorld/StarWorld-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1347,6 +1354,7 @@
 				GCC_PREFIX_HEADER = "StarWorld/StarWorld-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StarWorld/StarWorld-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

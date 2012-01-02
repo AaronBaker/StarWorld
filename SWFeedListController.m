@@ -11,6 +11,7 @@
 #import "SWFeedDataSource.h"
 #import "SWLoginViewController.h"
 #import "UIBarButtonItem+SWAdditions.h"
+#import "SWPostTableItem.h"
 
 @interface SWFeedListController (hidden)
 
@@ -72,6 +73,26 @@
     return self;
     
 }
+
+
+
+- (void)didSelectObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
+    
+    SWPostTableItem *item = object;
+    
+    NSLog(@"THIS THIS IS GO: %@",item);
+    
+    TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://main/detail"] 
+                             applyQuery:[NSDictionary dictionaryWithObject:item forKey:@"kSWitem"]]
+                            applyAnimated:YES];
+    
+    
+    [[TTNavigator navigator] openURLAction:action];
+    
+    
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 -(void)setBarButtons {
     

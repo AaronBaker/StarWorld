@@ -12,11 +12,15 @@
     
     NSInteger ID;
     NSInteger starCount;
+    float x;
+    float y;
     
 }
 
 @property (nonatomic, assign) NSInteger ID;
 @property (nonatomic, assign) NSInteger starCount;
+@property (nonatomic, assign) float x;
+@property (nonatomic, assign) float y;
 
 + (id)itemWithTitle:(NSString*)title 
             caption:(NSString*)caption 
@@ -24,6 +28,8 @@
           timestamp:(NSDate*)timestamp 
                  ID:(NSInteger)itemID
           starcount:(NSInteger)itemStarCount
+                  x:(float)x
+                  y:(float)y
                 URL:(NSString*)URL;
 
 @end

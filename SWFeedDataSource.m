@@ -127,8 +127,7 @@
                     shortestDistance = distance;
                 }
                 
-                NSLog(@"SHORTEST DISTANCE: %f",shortestDistance);
-                
+                                
             }
             
                         
@@ -172,6 +171,8 @@
                                                                  timestamp:post.time 
                                                                         ID:post.ID 
                                                                  starcount:post.starCount
+                                                                         x:postX
+                                                                         y:postY
                                                                        URL:nil]];
             }
             

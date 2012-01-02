@@ -18,6 +18,7 @@ static const CGFloat    kDefaultMessageImageWidth   = 34.0f;
 static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
 
 
+
 @implementation SWPostTableCell
 
 
@@ -77,20 +78,35 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)plainButtonTapped:(id)sender {
-    if ([sender backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"star-active.png"]) {//IF REMOVING STAR
-        [sender setBackgroundImage:[UIImage imageNamed:@"star-inactive.png"] forState:UIControlStateNormal];
-        NSLog(@"Plain UIButton was tapped; setting 'off' image. TAG: %d",starButton.tag);
-        //[currentUser.starredPostIDs removeObjectIdenticalTo:[NSNumber numberWithInt: starButton.tag]];
-        [currentUser removeStarForPostID:[NSNumber numberWithInt: starButton.tag]];
-
-    } else {//If STARING a post
-        [sender setBackgroundImage:[UIImage imageNamed:@"star-active.png"] forState:UIControlStateNormal];
-        NSLog(@"Plain UIButton was tapped; setting 'on' image. TAG: %d",starButton.tag);
-        //[currentUser.starredPostIDs addObject:[NSNumber numberWithInt: starButton.tag]];
-        //[currentUser.starredPostIDs addObject:@"Beanpole"];
-        [currentUser setStarForPostID:[NSNumber numberWithInt: starButton.tag]];
+    
+    
+    if ([currentUser authenticated]) {//If current user is logged in... Otherwise display
+        if ([sender backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"star-active.png"]) {//IF REMOVING STAR
+            [sender setBackgroundImage:[UIImage imageNamed:@"star-inactive.png"] forState:UIControlStateNormal];
+            NSLog(@"Plain UIButton was tapped; setting 'off' image. TAG: %d",starButton.tag);
+            //[currentUser.starredPostIDs removeObjectIdenticalTo:[NSNumber numberWithInt: starButton.tag]];
+            [currentUser removeStarForPostID:[NSNumber numberWithInt: starButton.tag]];
+            
+        } else {//If STARING a post
+            [sender setBackgroundImage:[UIImage imageNamed:@"star-active.png"] forState:UIControlStateNormal];
+            NSLog(@"Plain UIButton was tapped; setting 'on' image. TAG: %d",starButton.tag);
+            //[currentUser.starredPostIDs addObject:[NSNumber numberWithInt: starButton.tag]];
+            //[currentUser.starredPostIDs addObject:@"Beanpole"];
+            [currentUser setStarForPostID:[NSNumber numberWithInt: starButton.tag]];
+            
+        }
+    } else {//... Otherwise display message
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Hold On!" 
+                                                          message:@"You need to log in before you can star posts." 
+                                                         delegate:self 
+                                                cancelButtonTitle:@"Oh, Nevermind." 
+                                                otherButtonTitles:@"New Account", @"Login", nil];
         
+        [message show];
+        [message release];
     }
+    
+    
     
     [sender setNeedsDisplay];
 }
@@ -306,7 +322,27 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
 
 }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+	
+	if([title isEqualToString:@"Oh, Nevermind."])
+	{
+		NSLog(@"Nevermind was selected.");
+	}
+	else if([title isEqualToString:@"New Account"])
+	{
+		NSLog(@"New Account was selected.");
+        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"tt://main/register"]];
+	}
+	else if([title isEqualToString:@"Login"])
+	{
+		NSLog(@"Login was selected.");
+        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"tt://main/login"]];
+        
+	}	
+}
 
 
 

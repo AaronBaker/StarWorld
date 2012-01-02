@@ -9,7 +9,7 @@
 #import <Three20/Three20.h>
 #import "SWCurrentUser.h"
 
-@interface SWPostTableCell : TTTableMessageItemCell {
+@interface SWPostTableCell : TTTableMessageItemCell <UIAlertViewDelegate>{
     
     UIButton *starButton;
     UILabel *byLabel;

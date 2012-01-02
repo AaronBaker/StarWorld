@@ -17,6 +17,7 @@
 #import "PRPWebViewController.h"
 #import "WebViewController.h"
 #import "SWRegisterController.h"
+#import "SWDetailController.h"
 
 @interface StarWorldAppDelegate (hidden)
 - (void)signOut;
@@ -70,6 +71,7 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     [map from:@"tt://main/tabBar" toSharedViewController:[SWTabBarController class]];
     [map from:@"tt://main" toSharedViewController:[SWSettingsController class]];
     [map from:@"tt://main/login/forgot" toModalViewController:[WebViewController class]];
+    [map from:@"tt://main/detail" toViewController:[SWDetailController class]];
     
     [navigator openURLAction:[TTURLAction actionWithURLPath:@"tt://main/tabBar/"]];
     
