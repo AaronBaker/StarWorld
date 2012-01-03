@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "SWPostTableItem.h"
+#import <MapKit/MapKit.h>
+#import <MapKit/MKAnnotation.h>
+#import <MapKit/MKPointAnnotation.h>
 
-@interface SWDetailController : UIViewController {
+@interface SWDetailController : UIViewController <MKMapViewDelegate> {
     
-    
+    MKMapView *mapView;
+    MKPlacemark *mPlacemark;
     SWPostTableItem *item;
 }
 

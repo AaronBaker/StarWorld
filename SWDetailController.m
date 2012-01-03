@@ -10,6 +10,7 @@
 
 
 
+
 @implementation SWDetailController
 @synthesize item;
 
@@ -26,12 +27,7 @@
 - (id) initWithNavigatorURL:(NSURL*)URL query:(NSDictionary*)query {
     self = [super init];
     if (self != nil) {
-        //self.user = [query objectForKey:kParameterUser];
-        
-        NSLog(@"THIS THING I KNIOW: %@",query);
-        
         item = [query objectForKey:@"kSWitem"];
-        
     }
     return self;
 }
@@ -65,10 +61,31 @@
     UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.view.frame.size.width, 600.0)];
     
     
-    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 10.0, 250, 20)];
+    mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 180)];
+    
+    
+    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+    
+    CLLocationCoordinate2D pointCoords;
+    pointCoords.latitude = item.y;
+    pointCoords.longitude = item.x;
+    
+    
+    
+    point.coordinate = pointCoords;
+    
+    NSLog(@"THIS IS MY POINT:%f,%f, %@",point.coordinate.latitude,point.coordinate.longitude,point);
+    
+    
+    [mapView addAnnotation:point];
+    
+    
+    [contentView addSubview:mapView];
+    
+    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 210.0, 200, 20)];
     testLabel.text = item.text;
     
-    UILabel *testLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 200.0, 250, 20)];
+    UILabel *testLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 250.0, 200, 20)];
     testLabel2.text = [NSString stringWithFormat:@"X: %f",item.x];
     
     
@@ -105,5 +122,12 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation{
+	MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
+	annView.animatesDrop=TRUE;
+	return annView;
+}
+
 
 @end

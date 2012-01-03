@@ -58,6 +58,7 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     
     locationController = [[SWLocationController alloc] init];
     [locationController.locationManager startUpdatingLocation];
+    locationController.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     
     TTNavigator *navigator = [TTNavigator navigator];
     navigator.window = _window;

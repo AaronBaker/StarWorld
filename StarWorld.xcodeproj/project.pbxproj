@@ -82,6 +82,7 @@
 		93CE88851406DB340077628C /* SWPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88811406DB340077628C /* SWPost.m */; };
 		93CE88861406DB340077628C /* SWFeedDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE88831406DB340077628C /* SWFeedDataSource.m */; };
 		93CE888B1406E0320077628C /* SWFeedListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CE888A1406E0320077628C /* SWFeedListController.m */; };
+		93CF57E014B2258000D8DB9B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CF57DF14B2258000D8DB9B /* MapKit.framework */; };
 		93CFA7EB143EAEAF009F9B1D /* cell-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CFA7E9143EAEAF009F9B1D /* cell-bg.png */; };
 		93CFA7EC143EAEAF009F9B1D /* cell-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93CFA7EA143EAEAF009F9B1D /* cell-bg@2x.png */; };
 		93D2708F1422A1BF0089DDF2 /* SWUnitConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D2708E1422A1BE0089DDF2 /* SWUnitConverter.m */; };
@@ -394,6 +395,7 @@
 		93CE88831406DB340077628C /* SWFeedDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedDataSource.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		93CE88891406E0320077628C /* SWFeedListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWFeedListController.h; sourceTree = "<group>"; };
 		93CE888A1406E0320077628C /* SWFeedListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWFeedListController.m; sourceTree = "<group>"; };
+		93CF57DF14B2258000D8DB9B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		93CFA7E9143EAEAF009F9B1D /* cell-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-bg.png"; sourceTree = "<group>"; };
 		93CFA7EA143EAEAF009F9B1D /* cell-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-bg@2x.png"; sourceTree = "<group>"; };
 		93D2708D1422A1BD0089DDF2 /* SWUnitConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUnitConverter.h; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CF57E014B2258000D8DB9B /* MapKit.framework in Frameworks */,
 				32005DD2DD4BE82AFAA88C85 /* libextThree20JSON+YAJL.a in Frameworks */,
 				3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */,
 				320D7DCCE32703ACAB9A45E5 /* libThree20.a in Frameworks */,
@@ -605,6 +608,7 @@
 		93835A231406D4E700E04592 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93CF57DF14B2258000D8DB9B /* MapKit.framework */,
 				32005DD2DD4BE82AFAA88C80 /* extThree20JSON.xcodeproj */,
 				3201088596B4756681693700 /* Three20UICommon.xcodeproj */,
 				320D7DCCE32703ACAB9A45E0 /* Three20.xcodeproj */,
