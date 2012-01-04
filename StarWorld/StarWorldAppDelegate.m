@@ -54,9 +54,13 @@ NSString *const kSWDefaultsKeyUserIsAuthenticated = @"sw_user_is_authenticated";
     
     currentUser = [SWCurrentUser currentUserInstance];
     
+    
     [self loginCheck];
     
-    locationController = [[SWLocationController alloc] init];
+    //locationController = [[SWLocationController alloc] init];
+    
+    locationController = [SWLocationController locationControllerInstance];
+    
     [locationController.locationManager startUpdatingLocation];
     locationController.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     

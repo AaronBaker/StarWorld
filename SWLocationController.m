@@ -11,6 +11,29 @@
 @implementation SWLocationController
 
 @synthesize locationManager;
+@synthesize currentUser;
+
+
+
++ (SWLocationController*)locationControllerInstance{
+    static SWLocationController *locationControllerInstance;
+    
+    
+	@synchronized(self) {
+		if(!locationControllerInstance) {
+			
+            locationControllerInstance= [[SWLocationController alloc] init];
+            
+            
+		}
+	}
+	
+	return locationControllerInstance;
+    
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 
 - (id) init {
     self = [super init];
@@ -23,6 +46,8 @@
     }
     return self;
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation

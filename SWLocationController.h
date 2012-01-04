@@ -16,6 +16,12 @@
 }
 
 @property (nonatomic, retain) CLLocationManager *locationManager;  
+@property (nonatomic, retain) SWCurrentUser *currentUser;
+
+
+
+
++ (SWLocationController*)locationControllerInstance;
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
