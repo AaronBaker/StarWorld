@@ -60,7 +60,7 @@
 		9390EEED141E698200B700C0 /* NSString+PRPURLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEEA141E698200B700C0 /* NSString+PRPURLAdditions.m */; };
 		9390EEEE141E698200B700C0 /* PRPFormEncodedPOSTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEEC141E698200B700C0 /* PRPFormEncodedPOSTRequest.m */; };
 		9390EEF9141EC46D00B700C0 /* SWCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EEF8141EC46C00B700C0 /* SWCurrentUser.m */; };
-		9390EF03141FF3C300B700C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9390EF02141FF3C300B700C0 /* CoreLocation.framework */; };
+		9390EF03141FF3C300B700C0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9390EF02141FF3C300B700C0 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		9390EF06141FF4FD00B700C0 /* SWLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9390EF05141FF4FC00B700C0 /* SWLocationController.m */; };
 		93A3DD431440F19800178C0F /* PRPSplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A3DD421440F19800178C0F /* PRPSplashScreenViewController.m */; };
 		93A3DD451440F79300178C0F /* purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A3DD441440F79300178C0F /* purple.png */; };
@@ -1295,9 +1295,10 @@
 					"$(BUILT_PRODUCTS_DIR)/../../three20",
 					"$(SOURCE_ROOT)/three20/Build/Products/three20",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-ObjC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "61646A65-0349-4AD4-A3C5-7C08AEAB898D";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1319,10 +1320,11 @@
 					"$(BUILT_PRODUCTS_DIR)/../../three20",
 					"$(SOURCE_ROOT)/three20/Build/Products/three20",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "61646A65-0349-4AD4-A3C5-7C08AEAB898D";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 			};
@@ -1338,13 +1340,14 @@
 				GCC_PREFIX_HEADER = "StarWorld/StarWorld-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StarWorld/StarWorld-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/TestFlightSDK0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1358,13 +1361,14 @@
 				GCC_PREFIX_HEADER = "StarWorld/StarWorld-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StarWorld/StarWorld-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/TestFlightSDK0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

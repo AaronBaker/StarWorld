@@ -17,8 +17,10 @@
     MKMapView *mapView;
     MKPlacemark *mPlacemark;
     SWPostTableItem *item;
+    NSString *placemarkString;
 }
 
 @property (nonatomic, retain) SWPostTableItem *item;
+@property (nonatomic, retain) NSString *placemarkString;
 
 @end

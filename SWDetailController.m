@@ -7,13 +7,14 @@
 //
 
 #import "SWDetailController.h"
-#import <CoreLocation/CoreLocation.h>
+
 
 
 
 
 @implementation SWDetailController
 @synthesize item;
+@synthesize placemarkString;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,37 +58,43 @@
 {
     [super viewDidLoad];
     
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)item.y longitude:(CLLocationDegrees)item.x];
     
-    [geocoder reverseGeocodeLocation: location completionHandler: 
-     ^(NSArray *placemarks, NSError *error) {
-         
-         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-         
-         NSLog(@"PLACEMARK: %@",placemark);
-         
-//         isoCountryCode.text = placemark.ISOcountryCode;
-//         country.text = placemark.country;
-//         postalCode.text= placemark.postalCode;
-//         adminArea.text=placemark.administrativeArea;
-//         subAdminArea.text=placemark.subAdministrativeArea;
-//         locality.text=placemark.locality;
-//         subLocality.text=placemark.subLocality;
-//         thoroughfare.text=placemark.thoroughfare;
-//         subThoroughfare.text=placemark.subThoroughfare;
-         //region.text=placemark.region;
-         
-     }];
+    UILabel *testLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 250.0, 300, 60)];
+    testLabel2.lineBreakMode = UILineBreakModeWordWrap;
+    testLabel2.numberOfLines = 0;
+    
+    [placemarkString retain];
     
     
-    
-    
-    
-    
-    
-    
-    
+//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//    CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)item.y longitude:(CLLocationDegrees)item.x];
+//    
+//    
+//    
+//    [geocoder reverseGeocodeLocation: location completionHandler: 
+//     ^(NSArray *placemarks, NSError *error) {
+//         
+//         CLPlacemark *placemark = [placemarks objectAtIndex:0];
+//         
+//         NSLog(@"PLACEMARK: %@",placemark);
+//         //placemarkString = [placemark description];
+//         testLabel2.text = [placemark description];
+//         
+//         NSLog(@"PLACEMARKST: %@",placemarkString);
+//
+//         
+////         isoCountryCode.text = placemark.ISOcountryCode;
+////         country.text = placemark.country;
+////         postalCode.text= placemark.postalCode;
+////         adminArea.text=placemark.administrativeArea;
+////         subAdminArea.text=placemark.subAdministrativeArea;
+////         locality.text=placemark.locality;
+////         subLocality.text=placemark.subLocality;
+////         thoroughfare.text=placemark.thoroughfare;
+////         subThoroughfare.text=placemark.subThoroughfare;
+//         //region.text=placemark.region;
+//         
+//     }];
     
     
     
@@ -120,8 +127,11 @@
     UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 210.0, 300, 30)];
     testLabel.text = item.text;
     
-    UILabel *testLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 250.0, 300, 20)];
-    testLabel2.text = [NSString stringWithFormat:@"X: %f",item.x];
+
+    
+    
+    NSLog(@"MORE STRING: %@",placemarkString);
+    //testLabel2.text = placemarkString;
     
     
     [scrollview setContentSize:CGSizeMake(self.view.frame.size.width, 650)];
