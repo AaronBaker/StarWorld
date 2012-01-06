@@ -58,31 +58,33 @@
 {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"Post Detail";
     
-    UILabel *testLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 250.0, 300, 60)];
+    
+    UILabel *testLabel2 = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 190.0, 300, 60)];
     testLabel2.lineBreakMode = UILineBreakModeWordWrap;
     testLabel2.numberOfLines = 0;
     
     [placemarkString retain];
     
     
-//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-//    CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)item.y longitude:(CLLocationDegrees)item.x];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:(CLLocationDegrees)item.y longitude:(CLLocationDegrees)item.x];
 //    
 //    
 //    
-//    [geocoder reverseGeocodeLocation: location completionHandler: 
-//     ^(NSArray *placemarks, NSError *error) {
+    [geocoder reverseGeocodeLocation: location completionHandler: 
+     ^(NSArray *placemarks, NSError *error) {
+         
+         CLPlacemark *placemark = [placemarks objectAtIndex:0];
+         
+         NSLog(@"PLACEMARK: %@",placemark);
+         //placemarkString = [placemark description];
+         testLabel2.text = [placemark description];
 //         
-//         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-//         
-//         NSLog(@"PLACEMARK: %@",placemark);
-//         //placemarkString = [placemark description];
-//         testLabel2.text = [placemark description];
-//         
-//         NSLog(@"PLACEMARKST: %@",placemarkString);
-//
-//         
+         NSLog(@"PLACEMARKST: %@",placemarkString);
+
+         
 ////         isoCountryCode.text = placemark.ISOcountryCode;
 ////         country.text = placemark.country;
 ////         postalCode.text= placemark.postalCode;
@@ -94,7 +96,7 @@
 ////         subThoroughfare.text=placemark.subThoroughfare;
 //         //region.text=placemark.region;
 //         
-//     }];
+     }];
     
     
     
@@ -122,11 +124,26 @@
     [mapView addAnnotation:point];
     
     
+    /*Region and Zoom*/
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    span.latitudeDelta = 0.01;
+    span.longitudeDelta = 0.01;
+    
+    region.span = span;
+    region.center = pointCoords;
+    
+    [mapView setRegion:region animated:TRUE];
+    [mapView regionThatFits:region];
+    
+    
+    
     [contentView addSubview:mapView];
     
-    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 210.0, 300, 30)];
+    UILabel *testLabel = [[UILabel alloc]initWithFrame:CGRectMake(10.0, 280.0, 300, 60)];
     testLabel.text = item.text;
-    
+    testLabel.lineBreakMode = UILineBreakModeWordWrap;
+    testLabel.numberOfLines = 0;
 
     
     
