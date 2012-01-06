@@ -1334,6 +1334,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aaron Baker (FX5V23BFBN)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1347,6 +1348,7 @@
 					"\"$(SRCROOT)/TestFlightSDK0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1AC18F0E-85DA-4E27-8E60-8915B90E38BC";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1356,6 +1358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aaron Baker (FX5V23BFBN)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StarWorld/StarWorld-Prefix.pch";
@@ -1368,6 +1371,7 @@
 					"\"$(SRCROOT)/TestFlightSDK0\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1AC18F0E-85DA-4E27-8E60-8915B90E38BC";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
