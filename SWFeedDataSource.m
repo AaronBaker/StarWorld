@@ -16,6 +16,8 @@
 #import "SWStarPostTableCell.h"
 #import "SWTextTableCell.h"
 #import "SWTextTableItem.h"
+#import "MapTableItem.h"
+#import "MapTableCell.h"
 
 // Three20 Additions
 #import <Three20Core/NSDateAdditions.h>
@@ -25,6 +27,7 @@
 
 - (NSString*)timeIntervalWithStartDate:(NSDate*)d1 withEndDate:(NSDate*)d2;
 - (void) addBonusCellText;
+- (void) addMapCell;
 - (void) newPostLinkPressed;
 
 @end
@@ -193,8 +196,11 @@
 //    }
     
     
+    [self addMapCell];
+    
     if (shortestDistance > 310)
         [self addBonusCellText];
+    
     
     self.items = myItems;
     self.sections = mySections;
@@ -203,6 +209,18 @@
     
     TT_RELEASE_SAFELY(myItems);
     TT_RELEASE_SAFELY(mySections);
+    
+}///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) addMapCell {
+    
+    MapTableItem *mapItem = [MapTableItem mapItemWithItems:myItems];
+    NSArray *sectionItemHolder = [NSArray arrayWithObject:mapItem];
+    
+    [mySections insertObject:@"" atIndex:0];
+    [myItems insertObject:sectionItemHolder atIndex:0];
+    
+    
+    
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void) addBonusCellText {
@@ -292,6 +310,8 @@
         }
     } else if ([object isKindOfClass:[SWTextTableItem class]]) {
         return [SWTextTableCell class];
+    } else if ([object isKindOfClass:[MapTableItem class]]) {
+        return [MapTableCell class];
     }
     else {
         return [super tableView:tableView cellClassForObject:object];

@@ -57,7 +57,7 @@
     currentUser.x = newLocation.coordinate.longitude;
     currentUser.y = newLocation.coordinate.latitude;
     
-    NSLog(@"NEW LOCATION! x: %f, y: %f",currentUser.x,currentUser.y);
+    //NSLog(@"NEW LOCATION! x: %f, y: %f",currentUser.x,currentUser.y);
 }
 
 - (void)locationManager:(CLLocationManager *)manager

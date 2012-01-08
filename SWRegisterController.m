@@ -203,7 +203,6 @@ static NSString* kSWCheckEmailURL = @"http://pandora.starworlddata.com/users/goo
                                                  returningResponse:&response
                                                              error:&error];
     
-    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
     
     NSLog(@"good usename url string: %@",goodUsernameURL);
     
@@ -261,7 +260,6 @@ static NSString* kSWCheckEmailURL = @"http://pandora.starworlddata.com/users/goo
                                                  returningResponse:&response
                                                              error:&error];
     
-    NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)response;
     
     NSLog(@"good usename url string: %@",goodEmailURL);
     

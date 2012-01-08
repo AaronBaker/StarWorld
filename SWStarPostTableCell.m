@@ -239,7 +239,7 @@ static const CGFloat    kDefaultMessageImageHeight  = 34.0f;
     //        left = kTableCellMargin;
     //    }
     
-    CGFloat width = self.contentView.width - left;
+    //CGFloat width = self.contentView.width - left;
     CGFloat height = self.contentView.height;
     
     
