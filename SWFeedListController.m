@@ -7,8 +7,7 @@
 //
 
 
-#import "SWFeedListController.h"
-#import "SWFeedDataSource.h"
+#import "SWFeedListController.h"    
 #import "SWLoginViewController.h"
 #import "UIBarButtonItem+SWAdditions.h"
 #import "SWPostTableItem.h"
@@ -52,18 +51,27 @@
         
         self.navigationBarTintColor = [UIColor blackColor];
         
+
+        
+        mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];        
+     
+        self.tableView.tableHeaderView = mapView;
         
         currentUser = [SWCurrentUser currentUserInstance];
         
         
-        SWFeedDataSource *dataSource = [[[SWFeedDataSource alloc]
+        feedDataSource = [[[SWFeedDataSource alloc]
                                          initWithStarred:NO] autorelease]; 
         
         
+        
+        
+        self.dataSource = feedDataSource;
+        
+        NSLog(@"DATA SOURCE: %@",self.dataSource);
+        
         //This dummy view prevents empty cells from displaying
         self.tableView.tableFooterView = [[UIView new] autorelease];
-        
-        self.dataSource = dataSource;
         
         
         [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
@@ -78,16 +86,23 @@
 
 - (void)didSelectObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
     
-    SWPostTableItem *item = object;
     
-    NSLog(@"THIS THIS IS GO: %@",item);
+    if ([object isKindOfClass:[SWPostTableItem class]]) {
+        SWPostTableItem *item = object;
+        
+        
+        TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://main/detail"] 
+                                 applyQuery:[NSDictionary dictionaryWithObject:item forKey:@"kSWitem"]]
+                                applyAnimated:YES];
+        
+        
+        [[TTNavigator navigator] openURLAction:action];
+    } else {
     
-    TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://main/detail"] 
-                             applyQuery:[NSDictionary dictionaryWithObject:item forKey:@"kSWitem"]]
-                            applyAnimated:YES];
+        [super didSelectObject:object atIndexPath:indexPath];
+    }
     
-    
-    [[TTNavigator navigator] openURLAction:action];
+
     
     
 }
@@ -164,6 +179,8 @@
     [super viewWillAppear:animated];
     [self reload];
     [TestFlight passCheckpoint:@"SHOW THE FEED"];
+    
+
     [self setBarButtons];
 }
 
@@ -171,6 +188,7 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
 //        
 //    
 //    NSURL *authTestURL = [NSURL URLWithString:@"http://pandora.starworlddata.com/users/authenticated"];

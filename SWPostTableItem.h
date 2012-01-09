@@ -8,6 +8,7 @@
 
 #import <Three20/Three20.h>
 
+
 @interface SWPostTableItem : TTTableMessageItem {
     
     NSInteger ID;
@@ -31,6 +32,10 @@
                   x:(float)x
                   y:(float)y
                 URL:(NSString*)URL;
+
+- (NSString*) description;
+
+- (CLLocationCoordinate2D) getCoordinate;
 
 @end
 

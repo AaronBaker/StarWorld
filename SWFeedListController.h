@@ -8,10 +8,16 @@
 
 #import <Three20/Three20.h>
 #import "SWCurrentUser.h"
+#import <MapKit/MapKit.h>
+#import <MapKit/MKAnnotation.h>
+#import <MapKit/MKPointAnnotation.h>
+#import "SWFeedDataSource.h"
 
 
 @interface SWFeedListController : TTTableViewController <UIAlertViewDelegate> {
     SWCurrentUser *currentUser;
+    MKMapView *mapView;
+    SWFeedDataSource *feedDataSource;
 }
 
 @end

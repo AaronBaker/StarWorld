@@ -11,9 +11,11 @@
 #import <MapKit/MKAnnotation.h>
 #import <MapKit/MKPointAnnotation.h>
 
-@interface MapTableCell : TTTableTextItemCell {
+@interface MapTableCell : TTTableTextItemCell <MKMapViewDelegate> {
     
     MKMapView *mapView;
+    NSMutableArray *annotationsArray;
+    BOOL initialized;
     
 }
 

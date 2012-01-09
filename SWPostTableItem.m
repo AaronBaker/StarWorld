@@ -36,5 +36,23 @@
     return item;
 }
 
+- (NSString*) description {
+    
+    return [NSString stringWithFormat:@"X: %f, Y: %f, TEXT: %@",self.x,self.y,self.text];
+    
+}
+
+
+- (CLLocationCoordinate2D) getCoordinate {
+    
+    CLLocationCoordinate2D coord;
+    
+    coord.latitude = self.y;
+    coord.longitude = self.x;
+    
+    return coord;
+    
+    
+}
 
 @end

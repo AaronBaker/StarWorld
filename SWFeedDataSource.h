@@ -24,4 +24,6 @@
 
 -(id)initWithStarred:(BOOL) starred;
 
+@property (atomic,retain) NSMutableArray *myItems;
+
 @end
