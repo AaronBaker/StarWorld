@@ -120,7 +120,7 @@ static NSString* kSWNewPostURL = @"http://pandora.starworlddata.com/posts/add";
     CGFloat top = self.textView.frame.size.width - 20.0;
     
     
-    CGRect countFrame = CGRectMake(left, top, 20.0, 20.0);
+    //CGRect countFrame = CGRectMake(left, top, 20.0, 20.0);
     
     
     

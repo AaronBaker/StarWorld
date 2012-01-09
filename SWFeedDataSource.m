@@ -38,6 +38,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation SWFeedDataSource
 @synthesize myItems;
+@synthesize delegate;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 -(id)initWithStarred:(BOOL)starred {
@@ -49,6 +50,8 @@
 
         
         showStarred = starred;
+        
+        
         
 
     }
@@ -206,7 +209,7 @@
     self.items = myItems;
     self.sections = mySections;
     
- 
+    [delegate populateMapWithItems:myItems];
     
     TT_RELEASE_SAFELY(myItems);
     TT_RELEASE_SAFELY(mySections);

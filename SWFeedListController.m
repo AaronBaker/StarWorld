@@ -62,7 +62,7 @@
         
         feedDataSource = [[[SWFeedDataSource alloc]
                                          initWithStarred:NO] autorelease]; 
-        
+        [feedDataSource setDelegate:self];
         
         
         
@@ -106,6 +106,13 @@
     
     
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)populateMapWithItems: (NSArray*) items {
+    
+    NSLog(@"I AM CALLING IT ITEMS: %@ ",items);
+    
+}
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

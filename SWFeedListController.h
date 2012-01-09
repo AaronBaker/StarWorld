@@ -14,7 +14,7 @@
 #import "SWFeedDataSource.h"
 
 
-@interface SWFeedListController : TTTableViewController <UIAlertViewDelegate> {
+@interface SWFeedListController : TTTableViewController <UIAlertViewDelegate,SWFeedDataSourceDelegate> {
     SWCurrentUser *currentUser;
     MKMapView *mapView;
     SWFeedDataSource *feedDataSource;
