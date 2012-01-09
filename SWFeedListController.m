@@ -11,12 +11,16 @@
 #import "SWLoginViewController.h"
 #import "UIBarButtonItem+SWAdditions.h"
 #import "SWPostTableItem.h"
+#import "SWAnnotation.h"
 
 @interface SWFeedListController (hidden)
 
 -(void)setBarButtons;
 -(void)logoutButtonPushed;
 -(void)holdOnButtonPushed;
+- (NSArray*) getAnnotationsFromItemList: (NSArray*) items;
+-(void)fitMapUsingAnnotations: (NSArray*) annotations;
+- (MKMapRect) getMapRectUsingAnnotations:(NSArray*)theAnnotations;
 @end
 
 
@@ -52,10 +56,15 @@
         self.navigationBarTintColor = [UIColor blackColor];
         
 
-        
+        ///////////////////SET THE MAP VIEW/////////////////////////
         mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];        
-     
         self.tableView.tableHeaderView = mapView;
+        mapView.showsUserLocation = YES;
+
+        
+        
+        
+        
         
         currentUser = [SWCurrentUser currentUserInstance];
         
@@ -111,8 +120,100 @@
     
     NSLog(@"I AM CALLING IT ITEMS: %@ ",items);
     
+    NSArray *annotations = [self getAnnotationsFromItemList:items];    
+    [mapView addAnnotations:annotations];
+    
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (NSArray*) getAnnotationsFromItemList: (NSArray*) items {
+    
+    
+    NSArray *placemarkSections = items;
+    
+    NSMutableArray* annotationsArray = [[[NSMutableArray alloc] init]autorelease];
+    int itemCount = 0;
+    
+    for (id placemarkSection in placemarkSections) {
+        
+        if (itemCount < 20) {
+            
+            
+            for (id placemarkData in placemarkSection) {
+                
+                if ([placemarkData isKindOfClass:[SWPostTableItem class]]) {
+                    
+                    itemCount++;
+                    
+                    
+                    SWPostTableItem *placemarkItem = placemarkData;
+                    
+                    
+                    SWAnnotation *point = [[SWAnnotation alloc] init];
+                    
+                    CLLocationCoordinate2D pointCoords;
+                    pointCoords.latitude = placemarkItem.y;
+                    pointCoords.longitude = placemarkItem.x;
+                    
+                    point.coordinate = pointCoords;
+                    point.title = placemarkItem.text;
+                    
+                    
+                    //point.subtitle = placemarkItem.text;
+                    
+                    
+                    //SWAnnotation *annotation = [SWAnnotation MKPointAnnotationWithCoordinate:[placemarkItem getCoordinate]];
+                    
+                    
+                    
+                    
+                    [annotationsArray addObject:point];
+                    
+                    
+                    
+                    [point release];
+                    
+                    
+                }
+                
+                
+            }
+        }
+    }
+    NSLog(@"item count: %d",itemCount);
+    
+    return annotationsArray;
+    
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+-(void)fitMapUsingAnnotations: (NSArray*) annotations {
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect([self getMapRectUsingAnnotations:annotations]);
+    
+    if (region.span.latitudeDelta < 0.027) {
+        region.span.latitudeDelta = 0.027;
+    }
+    
+    if (region.span.longitudeDelta < 0.027) {
+        region.span.longitudeDelta = 0.027;
+    }
+    [mapView setRegion:region];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+/* This returns a rectangle bounding all of the pins within the supplied
+ array */
+- (MKMapRect) getMapRectUsingAnnotations:(NSArray*)theAnnotations {
+    MKMapPoint points[[theAnnotations count]];
+    
+    for (int i = 0; i < [theAnnotations count]; i++) {
+        MKPointAnnotation *annotation = [theAnnotations objectAtIndex:i];
+        points[i] = MKMapPointForCoordinate(annotation.coordinate);
+    }
+    
+    MKPolygon *poly = [MKPolygon polygonWithPoints:points count:[theAnnotations count]];
+    
+    return [poly boundingMapRect];
+}
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
