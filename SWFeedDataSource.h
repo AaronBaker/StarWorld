@@ -28,11 +28,14 @@
     NSMutableArray *myItems;
     NSMutableArray *mySections;
     id <SWFeedDataSourceDelegate> delegate;
+    BOOL searchRemote;
 }
 
 -(id)initWithStarred:(BOOL) starred;
 
 @property (atomic,retain) NSMutableArray *myItems;
 @property (nonatomic, assign) id <SWFeedDataSourceDelegate> delegate;
+@property (atomic,assign) BOOL searchRemote;
+@property (atomic,retain) SWFeedModel* searchFeedModel;
 
 @end

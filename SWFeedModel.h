@@ -23,6 +23,13 @@
     
     BOOL showStarred;
     
+    BOOL searchRemote;
+    
+    CLLocationDegrees locationTop;
+    CLLocationDegrees locationBottom;
+    CLLocationDegrees locationLeft;
+    CLLocationDegrees locationright;
+    
 
 }
 
@@ -33,6 +40,12 @@
 @property (nonatomic)   NSUInteger      page;
 
 @property (nonatomic, readonly) BOOL            finished;
+@property (atomic, assign) BOOL searchRemote;
+
+@property CLLocationDegrees locationTop;
+@property CLLocationDegrees locationBottom;
+@property CLLocationDegrees locationLeft;
+@property CLLocationDegrees locationRight;
 
 - (id)initWithStarred:(BOOL) starred;
 

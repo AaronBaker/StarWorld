@@ -39,7 +39,8 @@
 @implementation SWFeedDataSource
 @synthesize myItems;
 @synthesize delegate;
-
+@synthesize searchRemote;
+@synthesize searchFeedModel = _searchFeedModel;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 -(id)initWithStarred:(BOOL)starred {
     if ((self = [super init])) {
@@ -147,9 +148,12 @@
                 sectionsString = [NSString stringWithFormat:@"%d posts within %@",postCount,distanceString];
 
             }
-                        
-            [mySections addObject:sectionsString];
             
+            
+            //This line was generating great section strings.
+            //It's not anymore.
+            //[mySections addObject:sectionsString];
+            [mySections addObject:@""];
             
             //Build each post an add them to the item list.
             for (SWPost* post in dataSections) {
@@ -202,7 +206,9 @@
     
     //[self addMapCell];
     
-    if (shortestDistance > 310)
+    if (shortestDistance > 310 && self.searchRemote == NO)
+        [self addBonusCellText];
+    if (myItems.count < 1)
         [self addBonusCellText];
     
     

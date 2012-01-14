@@ -12,6 +12,9 @@
 #import "UIBarButtonItem+SWAdditions.h"
 #import "SWPostTableItem.h"
 #import "SWAnnotation.h"
+#import "SWFeedModel.h"
+
+
 
 @interface SWFeedListController (hidden)
 
@@ -21,9 +24,14 @@
 - (NSArray*) getAnnotationsFromItemList: (NSArray*) items;
 -(void)fitMapUsingAnnotations: (NSArray*) annotations;
 - (MKMapRect) getMapRectUsingAnnotations:(NSArray*)theAnnotations;
+- (void) switchToRemoteDataSource;
+-(void)removeAllAnnotations;
+- (void)fullScreenWasTapped: (id)sender;
+- (void)locationLockWasTapped: (id)sender;
+- (void)initMap;
 @end
 
-
+#pragma mark INIT #pragma mark -
 @implementation SWFeedListController
 
 - (id)initWithNavigatorURL:(NSURL*)URL query:(NSDictionary*)query {
@@ -31,6 +39,11 @@
     if ((self = [super init])) {
         
         currentUser = [SWCurrentUser currentUserInstance];
+        annotations = [[NSMutableArray alloc] init];
+        annotationsDictionary = [[NSMutableDictionary alloc]init];
+        [self removeAllAnnotations];
+        
+        searchModeLocal = YES;
         
         while (currentUser.x == 0.0f) {
             
@@ -55,15 +68,8 @@
         
         self.navigationBarTintColor = [UIColor blackColor];
         
-
-        ///////////////////SET THE MAP VIEW/////////////////////////
-        mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];        
-        self.tableView.tableHeaderView = mapView;
-        mapView.showsUserLocation = YES;
-
-        
-        
-        
+        //Setup the Map View with extra buttons
+        [self initMap];
         
         
         currentUser = [SWCurrentUser currentUserInstance];
@@ -73,8 +79,7 @@
                                          initWithStarred:NO] autorelease]; 
         [feedDataSource setDelegate:self];
         
-        
-        
+                
         self.dataSource = feedDataSource;
         
         NSLog(@"DATA SOURCE: %@",self.dataSource);
@@ -90,9 +95,91 @@
     return self;
     
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////       
+- (void)initMap {
+    ///////////////////SET THE MAP VIEW/////////////////////////
+    mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 180)];        
+    self.tableView.tableHeaderView = mapView;
+    mapView.showsUserLocation = YES;
+    mapView.delegate = self;
+    
+    //Add Full Screen Button
+    fullScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *expand = [UIImage imageNamed:@"expand.png"];
+    UIImage *expandBlue = [UIImage imageNamed:@"expand_blue.png"];
+    [fullScreenButton setImage:expand forState:UIControlStateNormal];
+    [fullScreenButton setImage:expandBlue forState:UIControlStateSelected];
+    [fullScreenButton setFrame:CGRectMake(mapView.frame.size.width - 32, mapView.frame.size.height - 32, 24, 24)];
+    [fullScreenButton addTarget:self action:@selector(fullScreenWasTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [mapView addSubview:fullScreenButton];   
+    
+    //Add Location Lock
+    locationLockButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *maparrow = [UIImage imageNamed:@"maparrow.png"];
+    UIImage *maparrowBlue = [UIImage imageNamed:@"maparrow_blue.png"];
+    [locationLockButton setImage:maparrow forState:UIControlStateNormal];
+    [locationLockButton setImage:maparrowBlue forState:UIControlStateSelected];
+    [locationLockButton setFrame:CGRectMake(mapView.frame.size.width - 64, mapView.frame.size.height - 32, 24, 24)];
+    [locationLockButton addTarget:self action:@selector(locationLockWasTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [mapView addSubview:locationLockButton];
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)populateMapWithItems: (NSArray*) items {
+    
+    [self getAnnotationsFromItemList:items];    
+    [mapView addAnnotations:annotations];
+    
+}
+
+#pragma mark Map Buttons Pressed #pragma mark -
+
+///////////////////////////////////////////////////////////////////////////////////////////////////       
+- (void)fullScreenWasTapped: (id)sender {
+    
+    UIButton *senderButton = sender;  
+    
+    if (!senderButton.selected) {//If button has not been pressed
+        [UIView beginAnimations:@"resize_animation" context:NULL];
+        [UIView setAnimationDuration:0.5]; 
+        [self.tableView.tableHeaderView setFrame:CGRectMake(0, 0, 320, 367)];
+        fullScreenButton.selected = YES;
+        [fullScreenButton setFrame:CGRectMake(mapView.frame.size.width - 32, mapView.frame.size.height - 32, 24, 24)];
+        [locationLockButton setFrame:CGRectMake(mapView.frame.size.width - 64, mapView.frame.size.height - 32, 24, 24)];
+        [UIView commitAnimations];
+    } else {
+        [UIView beginAnimations:@"resize_animation" context:NULL];
+        [UIView setAnimationDuration:0.5]; 
+        [self.tableView.tableHeaderView setFrame:CGRectMake(0, 0, 320, 180)];
+        fullScreenButton.selected = NO;
+        [fullScreenButton setFrame:CGRectMake(mapView.frame.size.width - 32, mapView.frame.size.height - 32, 24, 24)];
+        [locationLockButton setFrame:CGRectMake(mapView.frame.size.width - 64, mapView.frame.size.height - 32, 24, 24)];
+        [UIView commitAnimations];
+    }
+    
+    
 
 
+ }
+///////////////////////////////////////////////////////////////////////////////////////////////////       
+- (void)locationLockWasTapped:(id)sender {
+    UIButton *senderButton = sender;  
+    
+    if (!senderButton.selected) {//If button has not been pressed
 
+        locationLockButton.selected = YES;
+
+    } else {
+
+        locationLockButton.selected = NO;
+
+    }
+    
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)didSelectObject:(id)object atIndexPath:(NSIndexPath*)indexPath {
     
     
@@ -115,23 +202,13 @@
     
     
 }
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)populateMapWithItems: (NSArray*) items {
-    
-    NSLog(@"I AM CALLING IT ITEMS: %@ ",items);
-    
-    NSArray *annotations = [self getAnnotationsFromItemList:items];    
-    [mapView addAnnotations:annotations];
-    
-    
-}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSArray*) getAnnotationsFromItemList: (NSArray*) items {
     
     
     NSArray *placemarkSections = items;
     
-    NSMutableArray* annotationsArray = [[[NSMutableArray alloc] init]autorelease];
     int itemCount = 0;
     
     for (id placemarkSection in placemarkSections) {
@@ -157,6 +234,7 @@
                     
                     point.coordinate = pointCoords;
                     point.title = placemarkItem.text;
+                
                     
                     
                     //point.subtitle = placemarkItem.text;
@@ -164,10 +242,16 @@
                     
                     //SWAnnotation *annotation = [SWAnnotation MKPointAnnotationWithCoordinate:[placemarkItem getCoordinate]];
                     
+                    NSString *hashString = [NSString stringWithFormat:@"%@%f%f",placemarkItem.text,placemarkItem.x,placemarkItem.y];
+                   
                     
                     
+                    if ([annotationsDictionary objectForKey:hashString] == nil) {
+                        [annotations addObject:point];
+                        [annotationsDictionary setObject:point forKey:hashString];
+                        
+                    }
                     
-                    [annotationsArray addObject:point];
                     
                     
                     
@@ -182,12 +266,15 @@
     }
     NSLog(@"item count: %d",itemCount);
     
-    return annotationsArray;
+    if (searchModeLocal)
+        [self fitMapUsingAnnotations:annotations];
+    
+    return annotations;
     
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////
--(void)fitMapUsingAnnotations: (NSArray*) annotations {
-    MKCoordinateRegion region = MKCoordinateRegionForMapRect([self getMapRectUsingAnnotations:annotations]);
+-(void)fitMapUsingAnnotations: (NSArray*) someAnnotations {
+    MKCoordinateRegion region = MKCoordinateRegionForMapRect([self getMapRectUsingAnnotations:someAnnotations]);
     
     if (region.span.latitudeDelta < 0.027) {
         region.span.latitudeDelta = 0.027;
@@ -197,6 +284,16 @@
         region.span.longitudeDelta = 0.027;
     }
     [mapView setRegion:region];
+    
+    lastLatitude = region.center.latitude;
+    lastLongitude = region.center.longitude;
+    
+    
+//    CGPoint fakecenter = CGPointMake(mapView.frame.size.width / 2, (mapView.frame.size.height / 2) - 16);
+//    CLLocationCoordinate2D coordinate = [mapView convertPoint:fakecenter toCoordinateFromView:mapView];
+//    [mapView setCenterCoordinate:coordinate animated:YES];
+    
+      
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -240,11 +337,7 @@
                                                    target:self
                                                    action: @selector(holdOnButtonPushed)] autorelease];
 
-//        self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] 
-//                                                  initWithBarButtonSystemItem: UIBarButtonSystemItemAction
-//                                                  target:@"tt://main"
-//                                                  action: @selector(openURLFromButton:)] autorelease];   
-        
+
         
         
         
@@ -328,6 +421,7 @@
     
     
     
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -382,6 +476,112 @@
     return [[[TTTableViewDragRefreshDelegate alloc] initWithController:self] autorelease];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) switchToRemoteDataSource {
+    
+    [feedDataSource.searchFeedModel setSearchRemote:YES];
+    [feedDataSource.searchFeedModel setLocationTop:currentLatitude + currentLatitudeDelta];
+    [feedDataSource.searchFeedModel setLocationBottom:currentLatitude - currentLatitudeDelta];
+    [feedDataSource.searchFeedModel setLocationLeft:currentLongitude - currentLongitudeDelta];
+    [feedDataSource.searchFeedModel setLocationRight:currentLongitude + currentLongitudeDelta];
+    feedDataSource.searchRemote = YES;
+}
+
+
+#pragma mark Table View Delegate #pragma mark -
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///MAP VIEW DELETGATE//////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)mapView:(MKMapView *)thisMapView regionDidChangeAnimated:(BOOL)animated {
+    
+    NSLog(@"THIS MAP IS MOVIN");
+    //searchModeLocal = YES;
+        
+//    if (lastLatitude != thisMapView.region.center.latitude)
+//       [self reload]; 
+    
+    CLLocationDegrees currentLatitude = thisMapView.region.center.latitude;
+    CLLocationDegrees currentLongitude = thisMapView.region.center.longitude;
+    CLLocationDegrees currentLatitudeDelta = thisMapView.region.span.latitudeDelta;
+    CLLocationDegrees currentLongitudeDelta = thisMapView.region.span.longitudeDelta;
+    
+    NSLog(@"SO MUCH STUFFS: %f %f %f OLD: %f %f %f",currentLatitude,currentLongitude,currentLatitudeDelta,lastLatitude,lastLongitude,lastLatitudeDelta);
+    
+    //TEST FOR SearchMode Triggers
+    if (lastLatitude != 0 && lastLongitude != 0 && lastLatitudeDelta < 45.0) {
+        
+        if (currentLatitude > (lastLatitude + (lastLatitudeDelta/3))) {
+            searchModeLocal = NO;
+            NSLog(@"1");
+        }
+        if (currentLatitude < (lastLatitude - (lastLatitudeDelta/3))) {
+            searchModeLocal = NO;
+            NSLog(@"2");
+        }
+        if (currentLongitude > (lastLongitude + (lastLongitudeDelta/3))) {
+            searchModeLocal = NO;
+            NSLog(@"3");
+        }
+        if (currentLongitude < (lastLongitude - (lastLongitudeDelta/3))) {
+            searchModeLocal = NO;
+            NSLog(@"4");
+        }
+        if (currentLatitudeDelta > lastLatitudeDelta) {
+            searchModeLocal = NO;
+            NSLog(@"5");            
+        }
+        if (currentLatitudeDelta < lastLatitudeDelta) {
+            searchModeLocal = NO;
+            NSLog(@"6");            
+        }        
+    }
+    
+    if (!searchModeLocal) {
+        
+        
+        [self switchToRemoteDataSource];
+        
+        NSLog(@"SEARCH MODE CHANGE");
+        //[self removeAllAnnotations];
+        [self reload];    
+    }
+    
+    lastLatitude = thisMapView.region.center.latitude;
+    lastLongitude = thisMapView.region.center.longitude;
+    lastLatitudeDelta = thisMapView.region.span.latitudeDelta;
+    lastLongitudeDelta = thisMapView.region.span.longitudeDelta;
+    
+
+    
+    //[self reload];
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+-(void)removeAllAnnotations
+{
+    //Get the current user location annotation.
+    id userAnnotation=mapView.userLocation;
+    
+    //Remove all added annotations
+    [mapView removeAnnotations:mapView.annotations]; 
+    
+    // Add the current user location annotation again.
+    if(userAnnotation!=nil)
+        [mapView addAnnotation:userAnnotation];
+}
+
+#pragma mark Dealloc #pragma mark -
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) dealloc {
+    TT_RELEASE_SAFELY(annotations);
+    TT_RELEASE_SAFELY(annotationsDictionary);
+    [super dealloc];
+}
 
 
 @end

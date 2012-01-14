@@ -14,10 +14,20 @@
 #import "SWFeedDataSource.h"
 
 
-@interface SWFeedListController : TTTableViewController <UIAlertViewDelegate,SWFeedDataSourceDelegate> {
+@interface SWFeedListController : TTTableViewController <UIAlertViewDelegate,SWFeedDataSourceDelegate,MKMapViewDelegate> {
     SWCurrentUser *currentUser;
     MKMapView *mapView;
     SWFeedDataSource *feedDataSource;
+    CLLocationDegrees lastLatitude;
+    CLLocationDegrees lastLongitude;
+    CLLocationDegrees lastLatitudeDelta;
+    CLLocationDegrees lastLongitudeDelta;
+    BOOL searchModeLocal;
+    NSMutableArray *annotations;
+    NSMutableDictionary *annotationsDictionary;
+    
+    UIButton *fullScreenButton;
+    UIButton *locationLockButton;
 }
 
 @end

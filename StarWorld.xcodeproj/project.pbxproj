@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		2085834B14B8B24D00461C7F /* MapTableItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2085834A14B8B24D00461C7F /* MapTableItem.m */; };
 		2085834E14B8B4AC00461C7F /* MapTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2085834D14B8B4AC00461C7F /* MapTableCell.m */; };
+		208FD91514BE85D8005334E0 /* expand_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD90D14BE85D8005334E0 /* expand_blue.png */; };
+		208FD91614BE85D8005334E0 /* expand_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD90E14BE85D8005334E0 /* expand_blue@2x.png */; };
+		208FD91714BE85D8005334E0 /* expand.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD90F14BE85D8005334E0 /* expand.png */; };
+		208FD91814BE85D8005334E0 /* expand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91014BE85D8005334E0 /* expand@2x.png */; };
+		208FD91914BE85D8005334E0 /* maparrow_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91114BE85D8005334E0 /* maparrow_blue.png */; };
+		208FD91A14BE85D8005334E0 /* maparrow_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91214BE85D8005334E0 /* maparrow_blue@2x.png */; };
+		208FD91B14BE85D8005334E0 /* maparrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91314BE85D8005334E0 /* maparrow.png */; };
+		208FD91C14BE85D8005334E0 /* maparrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91414BE85D8005334E0 /* maparrow@2x.png */; };
 		20CC3A0914B9290A007AD0DD /* SWAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CC3A0814B9290A007AD0DD /* SWAnnotation.m */; };
 		32005DD2DD4BE82AFAA88C85 /* libextThree20JSON+YAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32005DD2DD4BE82AFAA88C84 /* libextThree20JSON+YAJL.a */; };
 		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
@@ -299,6 +307,14 @@
 		2085834A14B8B24D00461C7F /* MapTableItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableItem.m; sourceTree = "<group>"; };
 		2085834C14B8B4AB00461C7F /* MapTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapTableCell.h; sourceTree = "<group>"; };
 		2085834D14B8B4AC00461C7F /* MapTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapTableCell.m; sourceTree = "<group>"; };
+		208FD90D14BE85D8005334E0 /* expand_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expand_blue.png; sourceTree = "<group>"; };
+		208FD90E14BE85D8005334E0 /* expand_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expand_blue@2x.png"; sourceTree = "<group>"; };
+		208FD90F14BE85D8005334E0 /* expand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = expand.png; sourceTree = "<group>"; };
+		208FD91014BE85D8005334E0 /* expand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "expand@2x.png"; sourceTree = "<group>"; };
+		208FD91114BE85D8005334E0 /* maparrow_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maparrow_blue.png; sourceTree = "<group>"; };
+		208FD91214BE85D8005334E0 /* maparrow_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maparrow_blue@2x.png"; sourceTree = "<group>"; };
+		208FD91314BE85D8005334E0 /* maparrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maparrow.png; sourceTree = "<group>"; };
+		208FD91414BE85D8005334E0 /* maparrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maparrow@2x.png"; sourceTree = "<group>"; };
 		20CC3A0714B9290A007AD0DD /* SWAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAnnotation.h; sourceTree = "<group>"; };
 		20CC3A0814B9290A007AD0DD /* SWAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAnnotation.m; sourceTree = "<group>"; };
 		32005DD2DD4BE82AFAA88C80 /* extThree20JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = extThree20JSON.xcodeproj; path = ../three20/src/extThree20JSON/extThree20JSON.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -500,6 +516,21 @@
 				20CC3A0814B9290A007AD0DD /* SWAnnotation.m */,
 			);
 			name = "Map Cells";
+			sourceTree = "<group>";
+		};
+		208FD90C14BE85BF005334E0 /* Map Icons */ = {
+			isa = PBXGroup;
+			children = (
+				208FD90D14BE85D8005334E0 /* expand_blue.png */,
+				208FD90E14BE85D8005334E0 /* expand_blue@2x.png */,
+				208FD90F14BE85D8005334E0 /* expand.png */,
+				208FD91014BE85D8005334E0 /* expand@2x.png */,
+				208FD91114BE85D8005334E0 /* maparrow_blue.png */,
+				208FD91214BE85D8005334E0 /* maparrow_blue@2x.png */,
+				208FD91314BE85D8005334E0 /* maparrow.png */,
+				208FD91414BE85D8005334E0 /* maparrow@2x.png */,
+			);
+			name = "Map Icons";
 			sourceTree = "<group>";
 		};
 		32005DD2DD4BE82AFAA88C83 /* Products */ = {
@@ -796,6 +827,7 @@
 		93D2707C1422788F0089DDF2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				208FD90C14BE85BF005334E0 /* Map Icons */,
 				933383BF1497127A00221E03 /* cell-bg-blue.png */,
 				933383C01497127A00221E03 /* cell-bg-blue@2x.png */,
 				93E0045814906A6E00218C99 /* Icons */,
@@ -1152,6 +1184,14 @@
 				933383C21497127A00221E03 /* cell-bg-blue@2x.png in Resources */,
 				93BFCD0114A523C6009D61DE /* README.txt in Resources */,
 				93BFCD0214A523C6009D61DE /* release_notes.txt in Resources */,
+				208FD91514BE85D8005334E0 /* expand_blue.png in Resources */,
+				208FD91614BE85D8005334E0 /* expand_blue@2x.png in Resources */,
+				208FD91714BE85D8005334E0 /* expand.png in Resources */,
+				208FD91814BE85D8005334E0 /* expand@2x.png in Resources */,
+				208FD91914BE85D8005334E0 /* maparrow_blue.png in Resources */,
+				208FD91A14BE85D8005334E0 /* maparrow_blue@2x.png in Resources */,
+				208FD91B14BE85D8005334E0 /* maparrow.png in Resources */,
+				208FD91C14BE85D8005334E0 /* maparrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,9 +13,10 @@
 #import <extThree20JSON/extThree20JSON.h>
 
 
-static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts/";
+static NSString* kSWBaseURL = @"http://pandora.starworlddata.com/posts";
 static NSString* kSWFeedPath = @"posts_json";
 static NSString* kSWStarPath = @"posts_starred_json";
+static NSString* kSWRemotePath = @"mapquery_json";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +28,11 @@ static NSString* kSWStarPath = @"posts_starred_json";
 @synthesize resultsPerPage  = _resultsPerPage;
 @synthesize finished        = _finished;
 @synthesize page            = _page;
-
+@synthesize searchRemote;
+@synthesize locationTop;
+@synthesize locationBottom;
+@synthesize locationLeft;
+@synthesize locationRight;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,11 +80,18 @@ static NSString* kSWStarPath = @"posts_starred_json";
         //NSString* url = [NSString stringWithFormat:kTwitterSearchFeedFormat, _searchQuery, _resultsPerPage, _page];
         
         NSString* dataPath = kSWFeedPath;
-        
+        NSString* url;
         if (showStarred)
             dataPath = kSWStarPath;
-
-        NSString* url = [NSString stringWithFormat:@"%@/%@/%f/%f",kSWBaseURL,dataPath,currentUser.y,currentUser.x];
+        
+        if (searchRemote) {
+            dataPath = kSWRemotePath;
+            url = [NSString stringWithFormat:@"%@/%@/%f/%f/%f/%f",kSWBaseURL,dataPath,locationLeft,locationRight,locationTop,locationBottom];
+        } else {
+        
+        
+        url = [NSString stringWithFormat:@"%@/%@/%f/%f",kSWBaseURL,dataPath,currentUser.y,currentUser.x];
+        }
         
         NSLog(@"URL: %@",url);
         
@@ -99,7 +111,7 @@ static NSString* kSWStarPath = @"posts_starred_json";
         
         
         request.response = response;
-        
+
         
         
         TT_RELEASE_SAFELY(response);
