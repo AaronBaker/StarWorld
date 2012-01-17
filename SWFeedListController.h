@@ -12,7 +12,8 @@
 #import <MapKit/MKAnnotation.h>
 #import <MapKit/MKPointAnnotation.h>
 #import "SWFeedDataSource.h"
-
+#import "SWPostTableItem.h"
+#import "SWAnnotationCallout.h"
 
 @interface SWFeedListController : TTTableViewController <UIAlertViewDelegate,SWFeedDataSourceDelegate,MKMapViewDelegate> {
     SWCurrentUser *currentUser;
@@ -22,7 +23,14 @@
     CLLocationDegrees lastLongitude;
     CLLocationDegrees lastLatitudeDelta;
     CLLocationDegrees lastLongitudeDelta;
-    BOOL searchModeLocal;
+    
+    CLLocationDegrees currentLatitude;
+    CLLocationDegrees currentLongitude;
+    CLLocationDegrees currentLatitudeDelta;
+    CLLocationDegrees currentLongitudeDelta;
+    
+    
+    BOOL searchRemote;
     NSMutableArray *annotations;
     NSMutableDictionary *annotationsDictionary;
     

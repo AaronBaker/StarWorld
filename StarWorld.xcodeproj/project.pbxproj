@@ -17,6 +17,8 @@
 		208FD91A14BE85D8005334E0 /* maparrow_blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91214BE85D8005334E0 /* maparrow_blue@2x.png */; };
 		208FD91B14BE85D8005334E0 /* maparrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91314BE85D8005334E0 /* maparrow.png */; };
 		208FD91C14BE85D8005334E0 /* maparrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 208FD91414BE85D8005334E0 /* maparrow@2x.png */; };
+		20B944EC14C3758D0033114E /* SWAnnotationCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = 20B944EB14C3758D0033114E /* SWAnnotationCallout.m */; };
+		20B944EE14C379230033114E /* arrow-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 20B944ED14C379230033114E /* arrow-right.png */; };
 		20CC3A0914B9290A007AD0DD /* SWAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CC3A0814B9290A007AD0DD /* SWAnnotation.m */; };
 		32005DD2DD4BE82AFAA88C85 /* libextThree20JSON+YAJL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32005DD2DD4BE82AFAA88C84 /* libextThree20JSON+YAJL.a */; };
 		3201088596B4756681693705 /* libThree20UICommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3201088596B4756681693704 /* libThree20UICommon.a */; };
@@ -315,6 +317,9 @@
 		208FD91214BE85D8005334E0 /* maparrow_blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maparrow_blue@2x.png"; sourceTree = "<group>"; };
 		208FD91314BE85D8005334E0 /* maparrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maparrow.png; sourceTree = "<group>"; };
 		208FD91414BE85D8005334E0 /* maparrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "maparrow@2x.png"; sourceTree = "<group>"; };
+		20B944EA14C3758D0033114E /* SWAnnotationCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAnnotationCallout.h; sourceTree = "<group>"; };
+		20B944EB14C3758D0033114E /* SWAnnotationCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAnnotationCallout.m; sourceTree = "<group>"; };
+		20B944ED14C379230033114E /* arrow-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-right.png"; sourceTree = "<group>"; };
 		20CC3A0714B9290A007AD0DD /* SWAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAnnotation.h; sourceTree = "<group>"; };
 		20CC3A0814B9290A007AD0DD /* SWAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAnnotation.m; sourceTree = "<group>"; };
 		32005DD2DD4BE82AFAA88C80 /* extThree20JSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = extThree20JSON.xcodeproj; path = ../three20/src/extThree20JSON/extThree20JSON.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -512,8 +517,6 @@
 				2085834A14B8B24D00461C7F /* MapTableItem.m */,
 				2085834C14B8B4AB00461C7F /* MapTableCell.h */,
 				2085834D14B8B4AC00461C7F /* MapTableCell.m */,
-				20CC3A0714B9290A007AD0DD /* SWAnnotation.h */,
-				20CC3A0814B9290A007AD0DD /* SWAnnotation.m */,
 			);
 			name = "Map Cells";
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 		208FD90C14BE85BF005334E0 /* Map Icons */ = {
 			isa = PBXGroup;
 			children = (
+				20B944ED14C379230033114E /* arrow-right.png */,
 				208FD90D14BE85D8005334E0 /* expand_blue.png */,
 				208FD90E14BE85D8005334E0 /* expand_blue@2x.png */,
 				208FD90F14BE85D8005334E0 /* expand.png */,
@@ -531,6 +535,17 @@
 				208FD91414BE85D8005334E0 /* maparrow@2x.png */,
 			);
 			name = "Map Icons";
+			sourceTree = "<group>";
+		};
+		20B944E914C375530033114E /* Map Annotations */ = {
+			isa = PBXGroup;
+			children = (
+				20CC3A0714B9290A007AD0DD /* SWAnnotation.h */,
+				20CC3A0814B9290A007AD0DD /* SWAnnotation.m */,
+				20B944EA14C3758D0033114E /* SWAnnotationCallout.h */,
+				20B944EB14C3758D0033114E /* SWAnnotationCallout.m */,
+			);
+			name = "Map Annotations";
 			sourceTree = "<group>";
 		};
 		32005DD2DD4BE82AFAA88C83 /* Products */ = {
@@ -854,6 +869,7 @@
 		93D935341438C7390096D782 /* SW Table Data */ = {
 			isa = PBXGroup;
 			children = (
+				20B944E914C375530033114E /* Map Annotations */,
 				2085834814B8B0F200461C7F /* Table Cells */,
 				93CE887E1406DB340077628C /* SWFeedModel.h */,
 				93CE887F1406DB340077628C /* SWFeedModel.m */,
@@ -1192,6 +1208,7 @@
 				208FD91A14BE85D8005334E0 /* maparrow_blue@2x.png in Resources */,
 				208FD91B14BE85D8005334E0 /* maparrow.png in Resources */,
 				208FD91C14BE85D8005334E0 /* maparrow@2x.png in Resources */,
+				20B944EE14C379230033114E /* arrow-right.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1261,6 +1278,7 @@
 				2085834B14B8B24D00461C7F /* MapTableItem.m in Sources */,
 				2085834E14B8B4AC00461C7F /* MapTableCell.m in Sources */,
 				20CC3A0914B9290A007AD0DD /* SWAnnotation.m in Sources */,
+				20B944EC14C3758D0033114E /* SWAnnotationCallout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

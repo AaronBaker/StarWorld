@@ -74,10 +74,7 @@ static NSString* kSWRemotePath = @"mapquery_json";
             _finished = NO;
             [_posts removeAllObjects];
         }
-        
-        //LATER: Modify url so that it actually searches using coordinates
-        
-        //NSString* url = [NSString stringWithFormat:kTwitterSearchFeedFormat, _searchQuery, _resultsPerPage, _page];
+    
         
         NSString* dataPath = kSWFeedPath;
         NSString* url;

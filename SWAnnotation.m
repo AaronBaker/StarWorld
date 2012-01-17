@@ -13,6 +13,8 @@
 @synthesize coordinate = _coordinate;
 @synthesize title = _title;
 @synthesize subtitle = _subtitle;
+@synthesize tableItem = _tableItem;
+@synthesize animatesDrop;
 #pragma mark -
 #pragma mark Class Methods
 

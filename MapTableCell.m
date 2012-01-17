@@ -150,7 +150,7 @@
     
         MKPinAnnotationView *annView=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"currentloc"];
         annView.pinColor = MKPinAnnotationColorPurple;
-        annView.animatesDrop=TRUE;
+        //annView.animatesDrop=TRUE;
         annView.canShowCallout = YES;
         annView.calloutOffset = CGPointMake(-5, 5);
         

@@ -81,6 +81,8 @@
     
     currentUser = [SWCurrentUser currentUserInstance];
 
+    NSLog(@"YOU KNOW WE GOT SOEM FRST");
+    
     
     CLLocationDegrees currentX = currentUser.x;
     CLLocationDegrees currentY = currentUser.y;
@@ -211,7 +213,7 @@
     if (myItems.count < 1)
         [self addBonusCellText];
     
-    
+    NSLog(@"YOU KNOW WE GOT SOEM ITEMS: %d", myItems.count  );
     self.items = myItems;
     self.sections = mySections;
     

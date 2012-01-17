@@ -10,7 +10,7 @@
 #import "SWFeedListController.h"    
 #import "SWLoginViewController.h"
 #import "UIBarButtonItem+SWAdditions.h"
-#import "SWPostTableItem.h"
+
 #import "SWAnnotation.h"
 #import "SWFeedModel.h"
 
@@ -25,9 +25,11 @@
 -(void)fitMapUsingAnnotations: (NSArray*) annotations;
 - (MKMapRect) getMapRectUsingAnnotations:(NSArray*)theAnnotations;
 - (void) switchToRemoteDataSource;
+- (void) switchToLocalDataSource;
 -(void)removeAllAnnotations;
 - (void)fullScreenWasTapped: (id)sender;
 - (void)locationLockWasTapped: (id)sender;
+- (void) annotationCalloutPressed: (id) sender;
 - (void)initMap;
 @end
 
@@ -43,7 +45,7 @@
         annotationsDictionary = [[NSMutableDictionary alloc]init];
         [self removeAllAnnotations];
         
-        searchModeLocal = YES;
+        searchRemote = NO;
         
         while (currentUser.x == 0.0f) {
             
@@ -102,6 +104,7 @@
     self.tableView.tableHeaderView = mapView;
     mapView.showsUserLocation = YES;
     mapView.delegate = self;
+
     
     //Add Full Screen Button
     fullScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -121,16 +124,22 @@
     [locationLockButton setImage:maparrowBlue forState:UIControlStateSelected];
     [locationLockButton setFrame:CGRectMake(mapView.frame.size.width - 64, mapView.frame.size.height - 32, 24, 24)];
     [locationLockButton addTarget:self action:@selector(locationLockWasTapped:) forControlEvents:UIControlEventTouchUpInside];
+    locationLockButton.selected = TRUE;
     [mapView addSubview:locationLockButton];
     
 }
 
+#pragma mark SWFeedDataSourceDelegate #pragma mark -
+//SWFeedDataSourceDelegate//
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)populateMapWithItems: (NSArray*) items {
+    NSLog(@"POPULATE MAPS with items: %@",items);
+    [self getAnnotationsFromItemList:items];  
+    NSLog(@"WAIT WHAT?");
     
-    [self getAnnotationsFromItemList:items];    
+    
     [mapView addAnnotations:annotations];
-    
+    NSLog(@"asfasaw#WQAWQ");
 }
 
 #pragma mark Map Buttons Pressed #pragma mark -
@@ -166,14 +175,26 @@
 - (void)locationLockWasTapped:(id)sender {
     UIButton *senderButton = sender;  
     
-    if (!senderButton.selected) {//If button has not been pressed
+    if (!senderButton.selected) {//If button has not been pressed, Switch to Local
 
         locationLockButton.selected = YES;
+        NSLog(@"e1");
+        
+        [self removeAllAnnotations];
+        NSLog(@"e2");
+        [self switchToLocalDataSource];
+        NSLog(@"e3");
+        [annotations removeAllObjects];
+        [annotationsDictionary removeAllObjects];
+        [self reload];
+        NSLog(@"e4");
+        NSLog(@"ANNOTS: %@",annotations);
+        NSLog(@"e5");
 
-    } else {
+    } else { //Switch to Remote
 
         locationLockButton.selected = NO;
-
+        [self switchToRemoteDataSource];
     }
     
 }
@@ -226,15 +247,16 @@
                     SWPostTableItem *placemarkItem = placemarkData;
                     
                     
-                    SWAnnotation *point = [[SWAnnotation alloc] init];
+                    SWAnnotation *annotation = [[SWAnnotation alloc] init];
                     
                     CLLocationCoordinate2D pointCoords;
                     pointCoords.latitude = placemarkItem.y;
                     pointCoords.longitude = placemarkItem.x;
                     
-                    point.coordinate = pointCoords;
-                    point.title = placemarkItem.text;
-                
+                    annotation.coordinate = pointCoords;
+                    annotation.title = placemarkItem.text;
+                    annotation.animatesDrop = YES;
+                    annotation.tableItem = placemarkItem;
                     
                     
                     //point.subtitle = placemarkItem.text;
@@ -247,15 +269,15 @@
                     
                     
                     if ([annotationsDictionary objectForKey:hashString] == nil) {
-                        [annotations addObject:point];
-                        [annotationsDictionary setObject:point forKey:hashString];
+                        [annotations addObject:annotation];
+                        [annotationsDictionary setObject:annotation forKey:hashString];
                         
                     }
                     
                     
                     
                     
-                    [point release];
+                    [annotation release];
                     
                     
                 }
@@ -264,9 +286,9 @@
             }
         }
     }
-    NSLog(@"item count: %d",itemCount);
     
-    if (searchModeLocal)
+    
+    if (!searchRemote)
         [self fitMapUsingAnnotations:annotations];
     
     return annotations;
@@ -276,13 +298,15 @@
 -(void)fitMapUsingAnnotations: (NSArray*) someAnnotations {
     MKCoordinateRegion region = MKCoordinateRegionForMapRect([self getMapRectUsingAnnotations:someAnnotations]);
     
-    if (region.span.latitudeDelta < 0.027) {
-        region.span.latitudeDelta = 0.027;
-    }
+    //float zoomFactor = 0.097; //Originally was 0.027
     
-    if (region.span.longitudeDelta < 0.027) {
-        region.span.longitudeDelta = 0.027;
-    }
+//    if (region.span.latitudeDelta < zoomFactor) {
+//        region.span.latitudeDelta = zoomFactor;
+//    }
+//    
+//    if (region.span.longitudeDelta < zoomFactor) {
+//        region.span.longitudeDelta = zoomFactor;
+//    }
     [mapView setRegion:region];
     
     lastLatitude = region.center.latitude;
@@ -485,12 +509,26 @@
     [feedDataSource.searchFeedModel setLocationLeft:currentLongitude - currentLongitudeDelta];
     [feedDataSource.searchFeedModel setLocationRight:currentLongitude + currentLongitudeDelta];
     feedDataSource.searchRemote = YES;
+    
+    searchRemote = YES;
+    
+    [self reload];
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) switchToLocalDataSource {
+    [feedDataSource.searchFeedModel setSearchRemote:NO];
+    feedDataSource.searchRemote = NO;
+    searchRemote = NO;
+    
+}
+
+
 
 
 #pragma mark Table View Delegate #pragma mark -
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-///MAP VIEW DELETGATE//////////////////////////////////////////////////////////////////////////////
+///MAP VIEW DELEGATE//////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)mapView:(MKMapView *)thisMapView regionDidChangeAnimated:(BOOL)animated {
@@ -501,50 +539,52 @@
 //    if (lastLatitude != thisMapView.region.center.latitude)
 //       [self reload]; 
     
-    CLLocationDegrees currentLatitude = thisMapView.region.center.latitude;
-    CLLocationDegrees currentLongitude = thisMapView.region.center.longitude;
-    CLLocationDegrees currentLatitudeDelta = thisMapView.region.span.latitudeDelta;
-    CLLocationDegrees currentLongitudeDelta = thisMapView.region.span.longitudeDelta;
+    currentLatitude = thisMapView.region.center.latitude;
+    currentLongitude = thisMapView.region.center.longitude;
+    currentLatitudeDelta = thisMapView.region.span.latitudeDelta;
+    currentLongitudeDelta = thisMapView.region.span.longitudeDelta;
     
     NSLog(@"SO MUCH STUFFS: %f %f %f OLD: %f %f %f",currentLatitude,currentLongitude,currentLatitudeDelta,lastLatitude,lastLongitude,lastLatitudeDelta);
     
     //TEST FOR SearchMode Triggers
     if (lastLatitude != 0 && lastLongitude != 0 && lastLatitudeDelta < 45.0) {
         
-        if (currentLatitude > (lastLatitude + (lastLatitudeDelta/3))) {
-            searchModeLocal = NO;
+        if (currentLatitude > (lastLatitude + (lastLatitudeDelta/4))) {
+            searchRemote = YES;
             NSLog(@"1");
         }
-        if (currentLatitude < (lastLatitude - (lastLatitudeDelta/3))) {
-            searchModeLocal = NO;
+        if (currentLatitude < (lastLatitude - (lastLatitudeDelta/4))) {
+            searchRemote = YES;
             NSLog(@"2");
         }
-        if (currentLongitude > (lastLongitude + (lastLongitudeDelta/3))) {
-            searchModeLocal = NO;
+        if (currentLongitude > (lastLongitude + (lastLongitudeDelta/4))) {
+            searchRemote = YES;
             NSLog(@"3");
         }
-        if (currentLongitude < (lastLongitude - (lastLongitudeDelta/3))) {
-            searchModeLocal = NO;
+        if (currentLongitude < (lastLongitude - (lastLongitudeDelta/4))) {
+            searchRemote = YES;
             NSLog(@"4");
         }
-        if (currentLatitudeDelta > lastLatitudeDelta) {
-            searchModeLocal = NO;
-            NSLog(@"5");            
-        }
-        if (currentLatitudeDelta < lastLatitudeDelta) {
-            searchModeLocal = NO;
-            NSLog(@"6");            
-        }        
+        //For now, zooming does not cause search mode change
+//        if (currentLatitudeDelta > lastLatitudeDelta) {
+//            searchRemote = YES;
+//            NSLog(@"5");            
+//        }
+//        if (currentLatitudeDelta < lastLatitudeDelta) {
+//            searchRemote = YES;
+//            NSLog(@"6");            
+//        }        
     }
     
-    if (!searchModeLocal) {
+    if (searchRemote) {
         
         
         [self switchToRemoteDataSource];
         
         NSLog(@"SEARCH MODE CHANGE");
+        locationLockButton.selected = NO;
         //[self removeAllAnnotations];
-        [self reload];    
+            
     }
     
     lastLatitude = thisMapView.region.center.latitude;
@@ -559,10 +599,94 @@
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+- (MKAnnotationView *)mapView:(MKMapView *)thisMapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    
+    
+    // if it's the user location, just return nil.
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    if ([annotation isKindOfClass:[SWAnnotation class]]) {
+        
+        SWAnnotation *myAnnotation = annotation;
+        SWPostTableItem *tableItem = myAnnotation.tableItem;
+        
+        // try to dequeue an existing pin view first
+        static NSString* SWAnnotationIdentifier = @"SWAnnotationIdentifier";
+        MKPinAnnotationView* pinView = (MKPinAnnotationView *)
+        [thisMapView dequeueReusableAnnotationViewWithIdentifier:SWAnnotationIdentifier];
+        
+        
+        if (!pinView)
+        {
+            // if an existing pin view was not available, create one
+            MKPinAnnotationView* customPinView = [[[MKPinAnnotationView alloc]
+                                                   initWithAnnotation:annotation reuseIdentifier:SWAnnotationIdentifier] autorelease];
+            customPinView.pinColor = MKPinAnnotationColorRed;
+            customPinView.animatesDrop = YES;
+            customPinView.canShowCallout = YES;
+            
+            // add a detail disclosure button to the callout which will open a new view controller page
+            //
+            // note: you can assign a specific call out accessory view, or as MKMapViewDelegate you can implement:
+            //  - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control;
+            //
+            
+            
+            
+            SWAnnotationCallout *rightButton = [[SWAnnotationCallout alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+            
+            [rightButton addTarget:self
+                            action:@selector(annotationCalloutPressed:)
+                  forControlEvents:UIControlEventTouchUpInside];
+            customPinView.rightCalloutAccessoryView = rightButton;
+            
+            rightButton.tableItem = tableItem;
+            rightButton.backgroundColor = [UIColor redColor];
+            [rightButton setImage:[UIImage imageNamed:@"arrow-right.png"] forState:UIControlStateNormal];
+            rightButton.imageView.frame = CGRectMake(1, 1, 18, 18);
+                        
+            return customPinView;
+        }
+        else
+        {
+            pinView.annotation = annotation;
+        }
+        return pinView;
+    }
+    
+    
+    return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+- (void) annotationCalloutPressed: (id) sender {
+    
+    SWAnnotationCallout *button = sender;
+    
+    TTURLAction *action =  [[[TTURLAction actionWithURLPath:@"tt://main/detail"] 
+                             applyQuery:[NSDictionary dictionaryWithObject:button.tableItem forKey:@"kSWitem"]]
+                            applyAnimated:YES];
+    
+    
+    [[TTNavigator navigator] openURLAction:action];
+
+}
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 -(void)removeAllAnnotations
 {
+    
+    
+    
     //Get the current user location annotation.
     id userAnnotation=mapView.userLocation;
     

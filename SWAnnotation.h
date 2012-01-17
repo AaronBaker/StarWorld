@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <MapKit/MKAnnotation.h>
 #import <MapKit/MKPointAnnotation.h>
+#import "SWPostTableItem.h"
 
 @interface SWAnnotation : NSObject <MKAnnotation> {
     
@@ -18,11 +19,14 @@
 	CLLocationCoordinate2D _coordinate;
 	NSString * _title;
 	NSString * _subtitle;
+    SWPostTableItem *_tableItem;
 }
 
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
+@property (assign) SWPostTableItem *tableItem;
+@property (nonatomic) BOOL animatesDrop;
 
 + (SWAnnotation *)mapAnnotationWithCoordinate:(CLLocationCoordinate2D)aCoordinate;
 + (SWAnnotation *)mapAnnotationWithCoordinate:(CLLocationCoordinate2D)aCoordinate title:(NSString *)aTitle;
